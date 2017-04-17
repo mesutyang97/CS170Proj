@@ -22,7 +22,16 @@ public class WITest {
 
     @Test
     public void testSplitCallNum() {
-        WriteInput.generate();
+
+        int v2 = (1159 + 1) + (int)((1150)*Math.random());
+
+        System.out.println(v2);
+        //WriteInput.generate();
+    }
+
+    @Test
+    public void testRVA() {
+        //WriteInput.RValueAssignments();
     }
 
 
