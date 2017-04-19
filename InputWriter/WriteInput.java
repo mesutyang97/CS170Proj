@@ -27,21 +27,11 @@ public class WriteInput {
 
     /** Check ARGS and open the necessary files (see comment on main). */
     WriteInput(String[] args) {
-        if (args.length > 2) {
+        if (args.length != 2) {
             throw error("Only 1 or 2 command-line arguments allowed");
         }
-        if (args.length == 2) {
-            _input = getInput(args[0]);
-            _output = getOutput(args[1]);
-        } else if (args.length == 1) {
-            _input = new Scanner(args[0]);
-            _output = System.out;
-        }
-        else {
-            //_input = new Scanner(System.in);
-            _output = System.out;
-        }
-
+        _input = getInput(args[0]);
+        _output = getOutput(args[1]);
     }
 
 
@@ -75,16 +65,11 @@ public class WriteInput {
 
 
 
-
-
-
     private void process(){
         readInputInit();
         RValueAssignments();
         generateName();
         writeInputFile();
-
-
     }
 
 
@@ -317,29 +302,31 @@ public class WriteInput {
 
     public void generateExtraEdges() {
         HashSet<Integer[]> extraESET = new HashSet<>();
+        int factedCap = ((capC - 1)/facC);
+
         while (extraESET.size() < (extraC/2)) {
             int v1 = (int)(N*Math.random());
             //int v2 = (N + 1) + (int)((N)*Math.random());
-            int v2 = (N + 1) + (int)((extraC)*Math.random()/5);
+            int v2 = (N + 1) + (int)((extraC)*Math.random()/facC);
             while (v1 == v2) {
-                v2 = (N + 1) + (int)((extraC)*Math.random()/5);
+                v2 = (N + 1) + (int)((extraC)*Math.random()/facC);
             }
-            int v3 = (int)((capC - 1)*Math.random()/5);
+            int v3 = (int)(factedCap*Math.random());
             while (v3 == v2 || v3 == v1) {
-                v3 = (int)((capC - 1)*Math.random()/5);
+                v3 = (int)(factedCap*Math.random());
             }
-            int v4 = (int)((capC - 1)*Math.random()/5);
+            int v4 = (int)(factedCap*Math.random());
             while (v4 == v1 || v4 == v2 || v4 == v3) {
-                v4 = (int)((capC - 1)*Math.random()/5);
+                v4 = (int)(factedCap*Math.random());
             }
-            int v5 = (int)((capC - 1)*Math.random()/5);
+            int v5 = (int)(factedCap*Math.random());
             while (v5 == v1 || v5 == v2 || v5 == v3 || v5 == v4) {
-                v5 = (int)((capC - 1)*Math.random()/5);
+                v5 = (int)(factedCap*Math.random());
             }
 
-            int v6 = (int)((capC - 1)*Math.random()/5);
+            int v6 = (int)(factedCap*Math.random());
             while (v6 == v1 || v6 == v2 || v6 == v3 || v6 == v4 || v6 == v5) {
-                v6 = (int)((capC - 1)*Math.random()/5);
+                v6 = (int)(factedCap*Math.random());
             }
 
             extraESET.add(new Integer[]{v1, v2, v3, v4, v5, v6});
@@ -347,29 +334,29 @@ public class WriteInput {
 
         while (extraESET.size() < extraC) {
             //int v1 = (int)(2*N*Math.random());
-            int v1 = (int)((capC - 1)*Math.random()/5);
+            int v1 = factedCap;
             //int v2 = N + 1 + (int)(N*Math.random());
-            int v2 = (N + 1) + (int)((extraC)*Math.random()/5);
+            int v2 = (N + 1) + (int)((extraC)*Math.random()/facC);
 
             while (v1 == v2) {
-                v2 = (N + 1) + (int)((extraC)*Math.random()/5);
+                v2 = (N + 1) + (int)((extraC)*Math.random()/facC);
             }
-            int v3 = (int)((capC - 1)*Math.random()/5);
+            int v3 = (int)(factedCap*Math.random());
             while (v3 == v2 || v3 == v1) {
-                v3 = (int)((capC - 1)*Math.random()/5);
+                v3 = (int)(factedCap*Math.random());
             }
-            int v4 = (int)((capC - 1)*Math.random()/5);
+            int v4 = (int)(factedCap*Math.random());
             while (v4 == v1 || v4 == v2 || v4 == v3) {
-                v4 = (int)((capC - 1)*Math.random()/5);
+                v4 = (int)(factedCap*Math.random());
             }
-            int v5 = (int)((capC - 1)*Math.random()/5);
+            int v5 = (int)(factedCap*Math.random());
             while (v5 == v1 || v5 == v2 || v5 == v3 || v5 == v4) {
-                v5 = (int)((capC - 1)*Math.random()/5);
+                v5 = (int)(factedCap*Math.random());
             }
 
-            int v6 = (int)((capC - 1)*Math.random()/5);
+            int v6 = (int)(factedCap*Math.random());
             while (v6 == v1 || v6 == v2 || v6 == v3 || v6 == v4 || v6 == v5) {
-                v6 = (int)((capC - 1)*Math.random()/5);
+                v6 = (int)(factedCap*Math.random());
             }
 
             extraESET.add(new Integer[]{v1, v2, v3, v4, v5, v6});
@@ -394,7 +381,7 @@ public class WriteInput {
     /** Source of input. */
     private Scanner _input;
 
-    /** File for encoded/decoded messages. */
+    /** File for outputting formated INPUT FILE. */
     private PrintStream _output;
 
 
@@ -421,6 +408,9 @@ public class WriteInput {
 
     /** The maximum cap for C. */
     private final int capC = 61000;
+
+    /** The factor we are shrinking capC by. */
+    private final int facC = 5;
 
     /** Number of items in sourcesFile. */
     private int N;
