@@ -24,7 +24,7 @@ public class WITest {
     public void testSplitCallNum() {
 
         int v2 = (1159 + 1) + (int)((1150)*Math.random());
-
+        int[][] sfj = new int[200000][200000];
         System.out.println(v2);
         //WriteInput.generate();
     }

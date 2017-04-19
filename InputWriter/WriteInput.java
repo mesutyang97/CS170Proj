@@ -110,10 +110,10 @@ public class WriteInput {
 
         int seed = 5;
         long weightBudget = P/(capN /20);
-        long unitBuget = M/(capN / 120);
-        long unitProfit = unitBuget*3;
+        long unitBuget = M/(capN / 190);
+        long unitProfit = (long)(unitBuget*0.3);
         long unitBugetE = (long)(unitBuget / 1.1);
-        long unitProfitE = unitBugetE*2;
+        long unitProfitE = (long)(unitBugetE*0.2);
 
         weightArr = new String[capN];
         costArr = new String[capN];
@@ -278,10 +278,10 @@ public class WriteInput {
         }
 
         for (int i = N + 1; i < capN; i += 1) {
-            _output.println(String.format(itemFormat, nameArr[i],
-                    Integer.toString((i% N)* 2), weightArr[i], costArr[i], valArr[i]));
             //_output.println(String.format(itemFormat, nameArr[i],
-                    //Integer.toString((i)), weightArr[i], costArr[i], valArr[i]));
+                    //Integer.toString((i% N)* 2), weightArr[i], costArr[i], valArr[i]));
+            _output.println(String.format(itemFormat, nameArr[i],
+                    Integer.toString((i % (capN / 5))), weightArr[i], costArr[i], valArr[i]));
         }
     }
 
@@ -297,13 +297,17 @@ public class WriteInput {
             _output.println(title_m.group(1) + ", " + title_m.group(2));
             if (extraCUsed < extraC && (int)(C*Math.random()) < N ) {
                 Integer[] extraP = extraEArr[extraCUsed];
-                _output.println(extraP[0] + ", " + extraP[1]);
+                //_output.println(extraP[0] + ", " + extraP[1]);
+                _output.println(extraP[0] + ", " + extraP[1] + ", " + extraP[2] +
+                        ", " + extraP[3] + ", " + extraP[4] + ", " + extraP[5]  );
                 extraCUsed += 1;
             }
         }
         while (extraCUsed < extraC) {
             Integer[] extraP = extraEArr[extraCUsed];
-            _output.println(extraP[0] + ", " + extraP[1]);
+            //_output.println(extraP[0] + ", " + extraP[1]);
+            _output.println(extraP[0] + ", " + extraP[1] + ", " + extraP[2] +
+                    ", " + extraP[3] + ", " + extraP[4] + ", " + extraP[5]  );
             extraCUsed += 1;
         }
 
@@ -315,17 +319,60 @@ public class WriteInput {
         HashSet<Integer[]> extraESET = new HashSet<>();
         while (extraESET.size() < (extraC/2)) {
             int v1 = (int)(N*Math.random());
-            int v2 = (N + 1) + (int)((N)*Math.random());
-            //int v2 = (N + 1) + (int)((extraC)*Math.random());
-            extraESET.add(new Integer[]{v1, v2});
+            //int v2 = (N + 1) + (int)((N)*Math.random());
+            int v2 = (N + 1) + (int)((extraC)*Math.random()/5);
+            while (v1 == v2) {
+                v2 = (N + 1) + (int)((extraC)*Math.random()/5);
+            }
+            int v3 = (int)((capC - 1)*Math.random()/5);
+            while (v3 == v2 || v3 == v1) {
+                v3 = (int)((capC - 1)*Math.random()/5);
+            }
+            int v4 = (int)((capC - 1)*Math.random()/5);
+            while (v4 == v1 || v4 == v2 || v4 == v3) {
+                v4 = (int)((capC - 1)*Math.random()/5);
+            }
+            int v5 = (int)((capC - 1)*Math.random()/5);
+            while (v5 == v1 || v5 == v2 || v5 == v3 || v5 == v4) {
+                v5 = (int)((capC - 1)*Math.random()/5);
+            }
+
+            int v6 = (int)((capC - 1)*Math.random()/5);
+            while (v6 == v1 || v6 == v2 || v6 == v3 || v6 == v4 || v6 == v5) {
+                v6 = (int)((capC - 1)*Math.random()/5);
+            }
+
+            extraESET.add(new Integer[]{v1, v2, v3, v4, v5, v6});
         }
 
         while (extraESET.size() < extraC) {
-            int v1 = (int)(2*N*Math.random());
-            //int v1 = (int)((capC - 1)*Math.random());
-            int v2 = N + 1 + (int)(N*Math.random());
-            //int v2 = (N + 1) + (int)((extraC)*Math.random());
-            extraESET.add(new Integer[]{v1, v2});
+            //int v1 = (int)(2*N*Math.random());
+            int v1 = (int)((capC - 1)*Math.random()/5);
+            //int v2 = N + 1 + (int)(N*Math.random());
+            int v2 = (N + 1) + (int)((extraC)*Math.random()/5);
+
+            while (v1 == v2) {
+                v2 = (N + 1) + (int)((extraC)*Math.random()/5);
+            }
+            int v3 = (int)((capC - 1)*Math.random()/5);
+            while (v3 == v2 || v3 == v1) {
+                v3 = (int)((capC - 1)*Math.random()/5);
+            }
+            int v4 = (int)((capC - 1)*Math.random()/5);
+            while (v4 == v1 || v4 == v2 || v4 == v3) {
+                v4 = (int)((capC - 1)*Math.random()/5);
+            }
+            int v5 = (int)((capC - 1)*Math.random()/5);
+            while (v5 == v1 || v5 == v2 || v5 == v3 || v5 == v4) {
+                v5 = (int)((capC - 1)*Math.random()/5);
+            }
+
+            int v6 = (int)((capC - 1)*Math.random()/5);
+            while (v6 == v1 || v6 == v2 || v6 == v3 || v6 == v4 || v6 == v5) {
+                v6 = (int)((capC - 1)*Math.random()/5);
+            }
+
+            extraESET.add(new Integer[]{v1, v2, v3, v4, v5, v6});
         }
 
         extraEArr = new Integer[extraC][];
@@ -364,16 +411,16 @@ public class WriteInput {
     private String[] valArr;
 
     /** Number of Pounds. */
-    private long P = 489271L;
+    private long P = 289271L;
 
     /** Budget. */
-    private long M = 59435L;
+    private long M = 2093435L;
 
     /** The maximum cap for N. */
-    private final int capN = 85000;
+    private final int capN = 73000;
 
     /** The maximum cap for C. */
-    private final int capC = 130000;
+    private final int capC = 61000;
 
     /** Number of items in sourcesFile. */
     private int N;
