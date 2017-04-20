@@ -3,7 +3,11 @@ package Solver;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.Hashtable;
+import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static Solver.SolverException.*;
 
@@ -24,22 +28,48 @@ public class Solver {
 
     /** Check ARGS and open the necessary files (see comment on main). */
     Solver(String[] args) {
-        if (args.length > 2) {
-            throw error("Only 1 or 2 command-line arguments allowed");
+        if (args.length != 2) {
+            throw error("Only 2 command-line arguments allowed");
         }
-        if (args.length == 2) {
-            _input = getInput(args[0]);
-            _output = getOutput(args[1]);
-        } else if (args.length == 1) {
-            _input = new Scanner(args[0]);
-            _output = System.out;
-        }
-        else {
-            //_input = new Scanner(System.in);
-            _output = System.out;
-        }
+        _input = getInput(args[0]);
+        _output = getOutput(args[1]);
+
 
     }
+
+
+    /** Convert Double in a String to Long that has no decimal (multiply by 100).*/
+    private long convertDouble(String s) {
+        return (long) (Double.parseDouble(s)*100);
+    }
+
+
+    /** Read the information from the input file. **/
+    private void readInputInit() {
+
+        //Pattern digit = Pattern.compile("([0-9]+.[0-9]{2})");
+
+        P = convertDouble(_input.next());
+        M = convertDouble(_input.next());
+        N = _input.nextInt();
+        NameTable = new Hashtable<>(N);
+        C = _input.nextInt();
+
+        Pattern item_pat = Pattern.compile("(.*?); (.*?); (.*?); (.*?); (.*?) .*?");
+
+        for (int i = 0; i < N; i += 1) {
+            Matcher m = item_pat.matcher(_input.nextLine());
+            m.matches();
+            String name = m.group(1);
+            int cls = Integer.parseInt(m.group(2));
+            long wt = convertDouble(m.group(3));
+            long cost = convertDouble(m.group(4));
+            long val = convertDouble(m.group(5));
+
+            NameTable.put(i, name);
+        }
+    }
+
 
 
 
@@ -63,6 +93,7 @@ public class Solver {
 
     /** process the input and makes the output. */
     private void process(){
+        readInputInit();
     }
 
 
@@ -71,6 +102,25 @@ public class Solver {
 
     /** File for encoded/decoded messages. */
     private PrintStream _output;
+
+
+    /** Number of Pounds. */
+    private long P;
+
+    /** Budget. */
+    private long M;
+
+    /** Number of items in sourcesFile. */
+    private int N;
+
+    /** Mapping from item index to its name. */
+    Hashtable<Integer, String> NameTable;
+
+    /** Number of constrains. */
+    private int C;
+
+
+
 
 
 

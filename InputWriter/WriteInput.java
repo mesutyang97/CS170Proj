@@ -28,7 +28,7 @@ public class WriteInput {
     /** Check ARGS and open the necessary files (see comment on main). */
     WriteInput(String[] args) {
         if (args.length != 2) {
-            throw error("Only 1 or 2 command-line arguments allowed");
+            throw error("Only 2 command-line arguments allowed");
         }
         _input = getInput(args[0]);
         _output = getOutput(args[1]);
