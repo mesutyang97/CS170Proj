@@ -87,28 +87,38 @@ public class Solver {
         C = Integer.parseInt(_input.nextLine());
 
 
-        Pattern item_pat = Pattern.compile("(.*?); (.*?); (.*?); (.*?); (.*?)");
-
-        //Pattern item_pat = Pattern.compile("(.*?);(.*?);(.*?);(.*?);(.*?)");
+        Pattern item_pat1 = Pattern.compile("(.*?); (.*?); (.*?); (.*?); (.*?)");
+        Pattern item_pat2 = Pattern.compile("(.*?);(.*?);(.*?);(.*?);(.*?)");
         for (int i = 0; i < N; i += 1) {
-            Matcher m = item_pat.matcher(_input.nextLine());
-            if (!m.matches()) {
-                error("Stuck on the %d line", (i+5));
+            String nextL = _input.nextLine();
+            Matcher m1 = item_pat1.matcher(nextL);
+            Matcher m2 = item_pat2.matcher(nextL);
+            String name;
+            int cls;
+            long wt;
+            long cost;
+            long val;
+
+            if (m1.matches()) {
+                name = m1.group(1);
+                cls = Integer.parseInt(m1.group(2));
+                wt = convertDouble(m1.group(3));
+                cost = convertDouble(m1.group(4));
+                val = convertDouble(m1.group(5));
+
+            } else {
+                if (!m2.matches()) {
+                    error("Stuck on the %d line", (i+5));
+                }
+                name = m2.group(1);
+                cls = Integer.parseInt(m2.group(2));
+                wt = convertDouble(m2.group(3));
+                cost = convertDouble(m2.group(4));
+                val = convertDouble(m2.group(5));
             }
 
 
-            String name = "";
-            try {
-                name = m.group(1);
-            } catch (java.lang.IllegalStateException e) {
-                System.out.println("Stuck on the %d line" + (i+5));
-                System.exit(1);
-            }
 
-            int cls = Integer.parseInt(m.group(2));
-            long wt = convertDouble(m.group(3));
-            long cost = convertDouble(m.group(4));
-            long val = convertDouble(m.group(5));
 
             if (val > cost && wt < 429496729600L && cost < 429496729600L) {
                 //NameTable.put(i, name);
@@ -126,6 +136,7 @@ public class Solver {
                 ClassIdxArr[cls].add(i);
                 //ClassIdxTable.get(cls).add(i);
             }
+
         }
 
         for (int j = 0; j < C; j += 1) {
@@ -197,6 +208,7 @@ public class Solver {
         readInputInit();
         SimAnSolver sol = new SimAnSolver(P, M, N, ClassArr, WeightArr, CostArr, RevArr, ClassIncArr);
         printResult(sol.getOptSolution());
+        System.out.println("=====Percentage Profit is: " + (sol.getOptVal()/(double) M));
     }
 
 

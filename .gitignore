@@ -101,6 +101,7 @@ local.properties
 #TestFiles
 /project_instances_extracredit/
 /project_out_extracredit/
+/project_out_overnight/
 /project_instances/
 /project_out/
 

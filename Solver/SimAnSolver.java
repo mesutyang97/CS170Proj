@@ -1,10 +1,13 @@
 package Solver;
 
-import com.sun.tools.javah.Util;
-
 import java.util.HashSet;
 import java.util.Random;
-
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 /**
  * Created by yxiaocheng1997 on 4/20/17.
  */
@@ -12,11 +15,12 @@ public class SimAnSolver {
 
     //private final double confidence = 0.8;
     //private final double blockingPerc = 0.9;
-    private final int alarmLmt = 40;
-    private final double tempChange = 0.98;
-    private final int MAXITER = 2000;
+    private final long TIMEOUTSEC = 300;
+    private final int alarmLmt = 400;
+    private final double tempChange = 0.95;
+    private final int MAXITER = 400;
     private final int MAXOUTER = 6000;
-    private final double percentKicked = 0.1;
+    private final double percentKicked = 0.3;
     private double initTemp;
 
 
@@ -63,22 +67,6 @@ public class SimAnSolver {
             classTrack = new int[N];
             System.arraycopy(SolI.classTrack, 0, classTrack, 0, N);
 
-
-
-/*
-             boolean[] result = new boolean[N];
-             for (int i = 0; i < N; i += 1) {
-                if (SolI.choosenArr[i]) {
-                    result[i] = true;
-                    containedArr[n_c] = i;
-                    n_c += 1;
-                    classTrack[ClassArr[i]] += 1;
-                    for (int e_block : ClassIncArr[i]) {
-                        blockedClsArr[e_block] += 1;
-                    }
-                }
-            }*/
-
         }
 
         public long p_r;
@@ -106,17 +94,49 @@ public class SimAnSolver {
         ClassIncArr = classIncArr;
 
         initTemp = (double)(p);
+        //temp = initTemp;
+        try {
+            timingSolve();
+        } catch (Exception e) {
+            System.out.println("Timer Fail :(");
+        }
 
-
-        //ClsN = clsN;
-        temp = initTemp;
-        //BlockedClsSet = new HashSet<>();
-        //boundInit();
-        Solve();
     }
+
+
+
+    /**Timer method. */
+    public void timingSolve() throws Exception {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Future<String> future = executor.submit(new Task());
+
+        try {
+            System.out.println("Started..");
+            System.out.println(future.get(TIMEOUTSEC, TimeUnit.SECONDS));
+            System.out.println("Finished!");
+        } catch (TimeoutException e) {
+            future.cancel(true);
+            System.out.println("Terminated!");
+        }
+
+        executor.shutdownNow();
+    }
+
+
+
+    /** Wrapping Solve() */
+    class Task implements Callable<String> {
+        @Override
+        public String call() throws Exception {
+            Solve();
+            return "Ready!";
+        }
+    }
+
 
     public void Solve() {
         System.out.println("Entering Solve....");
+        overallTemp = 1;
         BestSol = CreateInitialSolution();
         for (int out = 0; out < MAXOUTER; out += 1) {
             if (out == MAXOUTER/4) {
@@ -129,27 +149,42 @@ public class SimAnSolver {
                 System.out.println("90% done.");
             }
 
-            double temp = initTemp;
+            if (overallTemp < Math.random()) {
+                continue;
+            }
+
+
             SolInstance CurSol = CreateInitialSolution();
             for (int i = 0; i < MAXITER; i += 1) {
                 SolInstance Sol_i = CreateNeighborSolution(CurSol);
 
                 //System.out.println(Sol_i.tVal);
 
+                double temp = initTemp;
+
                 long val_i = Sol_i.tVal;
                 long val_cur = CurSol.tVal;
                 if (val_i > val_cur) {
-                    temp = temp * 0.95;
+                    //System.out.println("Local improvement from " + val_cur + " to " + val_i);
+                    temp = temp * tempChange;
                     CurSol = Sol_i;
                     if (val_i > BestSol.tVal) {
                         BestSol = Sol_i;
-                        System.out.println("The Best so far is " + Sol_i.tVal);
+                        System.out.println("Global improvement. Best so far is " + Sol_i.tVal);
                     }
+                } else if (Math.exp((Sol_i.tVal - CurSol.tVal)/temp) > 0.998) {
+                    break;
                 } else if (Math.exp((Sol_i.tVal - CurSol.tVal)/temp) > Math.random()) {
                     CurSol = Sol_i;
+                    //System.out.println("Random re-shuffle" + val_cur + " to " + val_i);
                 }
+
+                //System.out.println("Finish an OuterLoop with" + CurSol.tVal);
+                //System.out.println("-------------------------------");
             }
-            if (CurSol.tVal > BestSol.tVal) {
+            if (CurSol.tVal == BestSol.tVal) {
+                overallTemp *= 0.95;
+            } else if (CurSol.tVal > BestSol.tVal) {
                 BestSol = CurSol;
             }
         }
@@ -203,40 +238,6 @@ public class SimAnSolver {
     private SolInstance CreateInitialSolution() {
         SolInstance initSolution;
         initSolution = new SolInstance();
-        //boolean[] initSolution = new boolean[N];
-        //int[] BlockedClsArr = new int[N];
-        //int numBlocked = 0;
-
-
-        /*rd = new Random(System.currentTimeMillis());
-        *//* alarm to prevent overflow *//*
-        int alarm1 = 0;
-        //int blockBound = (int) blockingPerc * ClsN;
-
-        while (alarm1 < alarmLmt && initSolution.p_r > pBound
-                && initSolution.m_r > mBound) {
-            int alarm2 = 0;
-            int eleAdd = rd.nextInt(N);
-            while (initSolution.blockedClsArr[ClassArr[eleAdd]] > 0
-                    && alarm2 < alarmLmt) {
-                eleAdd = rd.nextInt(N);
-                alarm2 += 1;
-            }
-
-            initSolution.choosenArr[eleAdd] = true;
-            initSolution.numContained += 1;
-
-            initSolution.p_r -= WeightArr[eleAdd];
-            initSolution.m_r -= CostArr[eleAdd];
-            initSolution.tVal += RevArr[eleAdd];
-
-            int clsAdd = ClassArr[eleAdd];
-            initSolution.classTrack[clsAdd] += 1;
-
-            for (int e_block : ClassIncArr[clsAdd]) {
-                initSolution.blockedClsArr[e_block] += 1;
-            }
-        }*/
         addItem(initSolution);
         return initSolution;
     }
@@ -246,27 +247,6 @@ public class SimAnSolver {
         rd = new Random(System.currentTimeMillis());
 
         SolInstance S_new = new SolInstance(S_cur);
-
-
-/*        int[] containedArr = new int[N];
-        int n_c = 0;
-
-        int[] BlockedClsArr = new int[N];
-
-        int[] classTrack = new int[N];
-
-        boolean[] result = new boolean[N];
-        for (int i = 0; i < N; i += 1) {
-            if (S_cur[i]) {
-                result[i] = true;
-                containedArr[n_c] = i;
-                n_c += 1;
-                classTrack[ClassArr[i]] += 1;
-                for (int e_block : ClassIncArr[i]) {
-                    BlockedClsArr[e_block] += 1;
-                }
-            }
-        }*/
 
         boolean[] result = S_new.choosenArr;
         int[] contArr = S_new.containedArr;
@@ -300,32 +280,6 @@ public class SimAnSolver {
 
         addItem(S_new);
 
-        /*int alarm1 = 0;
-
-        while (alarm1 < alarmLmt) {
-
-            int alarm2 = 0;
-            int eleAdd = rd.nextInt(N);
-            while (S_new.blockedClsArr[ClassArr[eleAdd]] > 0 && alarm2 < alarmLmt) {
-                eleAdd = rd.nextInt(N);
-                alarm2 += 1;
-            }
-
-            S_new.choosenArr[eleAdd] = true;
-            S_new.numContained += 1;
-
-            S_new.p_r -= WeightArr[eleAdd];
-            S_new.m_r -= CostArr[eleAdd];
-            S_new.tVal += RevArr[eleAdd];
-
-            int clsAdd = ClassArr[eleAdd];
-            S_new.classTrack[clsAdd] += 1;
-
-            for (int e_block : ClassIncArr[clsAdd]) {
-                S_new.blockedClsArr[e_block] += 1;
-            }
-        }*/
-
         return S_new;
     }
 
@@ -345,6 +299,8 @@ public class SimAnSolver {
     public boolean[] getOptSolution() {
         return BestSol.choosenArr;
     }
+
+    public long getOptVal() {return BestSol.tVal;}
 
 
     /** Compute the Bounds for considering whether to continue. */
@@ -375,25 +331,9 @@ public class SimAnSolver {
 
     private long P;
 
-    /** The remaining P. */
-    //private long p_r;
-
     private long M;
 
-    /** The remaining M. */
-    //private long m_r;
-
     private int N;
-
-    /** Number of Classes we consider. */
-    private int ClsN;
-
-    /* Number of classes blocked before stopping. */
-    private int blkNum;
-
-
-    /** The Total Value: M + Revenual. */
-    private long bestVal;
 
 
     /** The mean of valid weight. */
@@ -401,11 +341,6 @@ public class SimAnSolver {
 
     /** The variance of valid weight. */
     private long w_var;
-
-
-    /** The Miminum Bound for P_R to continue to consider. */
-    //private long pBound;
-
 
     /** The mean of valid cost. */
     private long c_mean;
@@ -433,41 +368,19 @@ public class SimAnSolver {
     private long[] RevArr;
 
 
-    /** The Best Choosen boolean array that record if
-     * each indexed ITEM is selected. */
-    //private boolean[] BestChoosenArr;
-
+    /** The Best Choosen Solution Instance. */
     private SolInstance BestSol;
-
-
-    /** The Current Choosen boolean array that record if
-     * each indexed ITEM is selected. */
-    //private boolean[] CurChoosenArr;
-
-    //private SolInstance CurSol;
-
-
-    /** The HashSet that record if each indexed CLASS is BLOOKED. */
-    //private HashSet<Integer> BlockedClsSet;
-
-
-
-
-    /** The array that keep track of how many existing
-     * class is blocking a particular class. */
-    //private int[] BlockedClsArr;
 
 
     /** Mapping from class index to HSet of class index that is incompatible. */
     private HashSet<Integer>[] ClassIncArr;
-    //Hashtable<Integer, HashSet<Integer>> ClassIncTable;
 
     /** The random number generator of the random functions. */
     private Random rd;
 
 
     /** The Temperature. */
-    private double temp;
+    private double overallTemp;
 
 
 }
