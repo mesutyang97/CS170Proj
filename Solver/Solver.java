@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import Solver.Statistics.*;
 
 import static Solver.SolverException.*;
 
@@ -54,6 +55,7 @@ public class Solver {
         M = convertDouble(_input.nextLine());
         N = Integer.parseInt(_input.nextLine());
 
+        ClsN = 0;
 
         // NameTable = new Hashtable<>(N);
         // ClassTable = new Hashtable<>(N);
@@ -62,21 +64,25 @@ public class Solver {
         ClassArr = new int[N];
         WeightArr = new long[N];
         CostArr = new long[N];
-        ValArr = new long[N];
+        RevArr = new long[N];
 
 
-        ClassIdxTable = new Hashtable<>(N);
+        //ClassIdxTable = new Hashtable<>(N);
+        ClassIdxArr = new HashSet[N];
 
-        ClassIncTable = new Hashtable<>(N);
+        //ClassIncTable = new Hashtable<>(N);
+        ClassIncArr = new HashSet[N];
 
         /** Initializing all class to be an empty HSet. */
         for (int cls = 0; cls < N; cls += 1) {
-            ClassIdxTable.put(cls, new HashSet<>());
+            //ClassIdxTable.put(cls, new HashSet<>());
+            ClassIdxArr[cls] = new HashSet<>();
         }
 
         /** Initializing all class to be an empty HSet. */
         for (int cls = 0; cls < N; cls += 1) {
-            ClassIncTable.put(cls, new HashSet<>());
+            //ClassIncTable.put(cls, new HashSet<>());
+            ClassIncArr[cls] = new HashSet<>();
         }
 
 
@@ -105,18 +111,22 @@ public class Solver {
             long cost = convertDouble(m.group(4));
             long val = convertDouble(m.group(5));
 
-            //NameTable.put(i, name);
-            //ClassTable.put(i, cls);
-            NameArr[i] = name;
-            ClassArr[i] = cls;
-            WeightArr[i] = wt;
-            CostArr[i] = cost;
-            ValArr[i] = val;
+            if (val > cost && wt < 429496729600L && cost < 429496729600L) {
+                //NameTable.put(i, name);
+                //ClassTable.put(i, cls);
+                NameArr[i] = name;
+                ClassArr[i] = cls;
+                WeightArr[i] = wt;
+                CostArr[i] = cost;
+                RevArr[i] = val - cost;
 
+                if (ClassIdxArr[cls].isEmpty()) {
+                    ClsN += 1;
+                }
 
-            ClassIdxTable.get(cls).add(i);
-
-
+                ClassIdxArr[cls].add(i);
+                //ClassIdxTable.get(cls).add(i);
+            }
         }
 
         for (int j = 0; j < C; j += 1) {
@@ -133,7 +143,8 @@ public class Solver {
             for (int k = 0; k < b; k += 1) {
                 for (int l = 0; l < b; l += 1) {
                     if (l != k) {
-                        ClassIncTable.get(k).add(l);
+                        //ClassIncTable.get(k).add(l);
+                        ClassIncArr[k].add(l);
                     }
                 }
             }
@@ -145,6 +156,7 @@ public class Solver {
 
 
     }
+
 
 
 
@@ -189,6 +201,10 @@ public class Solver {
     /** Number of items in sourcesFile. */
     private int N;
 
+
+    /** Number of Classes we consider. */
+    private int ClsN;
+
     /** Mapping from item index to its name. */
     private String[] NameArr;
     //Hashtable<Integer, String> NameTable;
@@ -200,17 +216,21 @@ public class Solver {
     /** Mapping from item index to its weight. */
     private long[] WeightArr;
 
+
     /** Mapping from item index to its weight. */
     private long[] CostArr;
 
+
     /** Mapping from item index to its weight. */
-    private long[] ValArr;
+    private long[] RevArr;
 
     /** Mapping from class index to item index. */
-    Hashtable<Integer, HashSet<Integer>> ClassIdxTable;
+    private HashSet<Integer>[] ClassIdxArr;
+    //Hashtable<Integer, HashSet<Integer>> ClassIdxTable;
 
     /** Mapping from class index to HSet of class index that is incompatible. */
-    Hashtable<Integer, HashSet<Integer>> ClassIncTable;
+    private HashSet<Integer>[] ClassIncArr;
+    //Hashtable<Integer, HashSet<Integer>> ClassIncTable;
 
 
     /** Number of constrains. */

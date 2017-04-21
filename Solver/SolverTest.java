@@ -56,6 +56,12 @@ public class SolverTest {
         //WriteInput.RValueAssignments();
     }
 
+    @Test
+    public void testLongDoubleDiv() {
+        long pBound = (long) (3894724291L + Math.sqrt(3472864278L/(1 - 0.5)));
+        System.out.println(pBound);
+    }
+
 
 
 
