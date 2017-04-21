@@ -73,12 +73,23 @@ public class SolverTest {
     @Test
     public void testParseIn() {
         String annoying = "3423,453,2,121214,2345";
+        annoying = annoying.replaceAll("[,.!?;:]", "$0 ");
+        System.out.println(annoying);
         Scanner sc = new Scanner(annoying);
-        while (sc.hasNext(Pattern.compile(",(?=\\S)|:"))) {
-            System.out.println("Hey");
+        while (sc.hasNextInt()) {
+            System.out.println(sc.nextInt());
         }
 
 
+    }
+
+    @Test
+    public void testFormat() {
+        String inputF = "project_instances/problem%d.in";
+
+        String ff = String.format(inputF, 234);
+
+        System.out.println(ff);
     }
 
 

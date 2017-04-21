@@ -98,6 +98,12 @@ local.properties
 # IntelliJ
 /out/
 
+#TestFiles
+/project_instances_extracredit/
+/project_out_extracredit/
+/project_instances/
+/project_out/
+
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 

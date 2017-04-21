@@ -89,6 +89,7 @@ public class Solver {
 
         Pattern item_pat = Pattern.compile("(.*?); (.*?); (.*?); (.*?); (.*?)");
 
+        //Pattern item_pat = Pattern.compile("(.*?);(.*?);(.*?);(.*?);(.*?)");
         for (int i = 0; i < N; i += 1) {
             Matcher m = item_pat.matcher(_input.nextLine());
             if (!m.matches()) {
@@ -129,7 +130,7 @@ public class Solver {
 
         for (int j = 0; j < C; j += 1) {
             ArrayList<Integer> cstrList = new ArrayList<>(2);
-            Scanner cstrSC = new Scanner(_input.nextLine() + ",");
+            Scanner cstrSC = new Scanner(_input.nextLine().replaceAll("[,]", "$0 ") + ",");
             while (cstrSC.hasNext()) {
                 String s = cstrSC.next();
                 cstrList.add(Integer.parseInt(s.substring(0,s.length() - 1)));
@@ -142,6 +143,9 @@ public class Solver {
                 for (int l = 0; l < b; l += 1) {
                     if (l != k) {
                         //ClassIncTable.get(k).add(l);
+                        if (cstrList.get(k) == 40000) {
+                            System.out.println("Shit");
+                        }
                         ClassIncArr[cstrList.get(k)].add(cstrList.get(l));
                     }
                 }

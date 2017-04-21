@@ -14,8 +14,8 @@ public class SimAnSolver {
     //private final double blockingPerc = 0.9;
     private final int alarmLmt = 40;
     private final double tempChange = 0.98;
-    private final int MAXITER = 700;
-    private final int MAXOUTER = 100;
+    private final int MAXITER = 2000;
+    private final int MAXOUTER = 6000;
     private final double percentKicked = 0.1;
     private double initTemp;
 
@@ -119,6 +119,16 @@ public class SimAnSolver {
         System.out.println("Entering Solve....");
         BestSol = CreateInitialSolution();
         for (int out = 0; out < MAXOUTER; out += 1) {
+            if (out == MAXOUTER/4) {
+                System.out.println("25% done.");
+            } else if (out == MAXOUTER/2) {
+                System.out.println("50% done.");
+            } else if (out == 3*MAXOUTER/4) {
+                System.out.println("75% done.");
+            } else if (out == 9*MAXOUTER/4) {
+                System.out.println("90% done.");
+            }
+
             double temp = initTemp;
             SolInstance CurSol = CreateInitialSolution();
             for (int i = 0; i < MAXITER; i += 1) {
