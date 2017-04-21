@@ -1,5 +1,7 @@
 package Solver;
 
+import com.sun.tools.javah.Util;
+
 import java.util.HashSet;
 import java.util.Random;
 
@@ -9,8 +11,88 @@ import java.util.Random;
 public class SimAnSolver {
 
     private final double confidence = 0.9;
-    private final double blockingPerc = 0.9;
+    //private final double blockingPerc = 0.9;
     private final int alarmLmt = 100;
+    private final double tempChange = 0.98;
+    private final int MAXITER = 200;
+    private final double percentKicked = 0.1;
+    private final double initTemp = 1000000.00;
+    private final double termTemp = 50000.00;
+
+
+    private class SolInstance {
+        public SolInstance() {
+            tVal = M;
+            p_r = P;
+            m_r = M;
+            choosenArr = new boolean[N];
+            containedArr = new int[N];
+            blockedClsArr = new int[N];
+            classTrack = new int[N];
+            numContained = 0;
+        }
+
+        public SolInstance(SolInstance SolI) {
+            tVal = SolI.tVal;
+            p_r = SolI.p_r;
+            m_r = SolI.m_r;
+            choosenArr = new boolean[N];
+            System.arraycopy(SolI.choosenArr, 0, choosenArr, 0, N);
+            containedArr = new int[N];
+
+            int n_c = 0;
+            for (int i = 0; i < N; i += 1) {
+                if (SolI.choosenArr[i]) {
+                    containedArr[n_c] = i;
+                    n_c += 1;
+                }
+            }
+
+            numContained = SolI.numContained;
+
+            //DELETE ME
+            if (numContained != n_c) {
+                System.out.println("numContained is bad in the initilizer. " +
+                "Old SolI has " + numContained + " but the loop gives " + n_c);
+                System.exit(1);
+            }
+
+            blockedClsArr = new int[N];
+            System.arraycopy(SolI.blockedClsArr, 0, blockedClsArr, 0, N);
+
+            classTrack = new int[N];
+            System.arraycopy(SolI.classTrack, 0, classTrack, 0, N);
+
+
+
+/*
+             boolean[] result = new boolean[N];
+             for (int i = 0; i < N; i += 1) {
+                if (SolI.choosenArr[i]) {
+                    result[i] = true;
+                    containedArr[n_c] = i;
+                    n_c += 1;
+                    classTrack[ClassArr[i]] += 1;
+                    for (int e_block : ClassIncArr[i]) {
+                        blockedClsArr[e_block] += 1;
+                    }
+                }
+            }*/
+
+        }
+
+        public long p_r;
+        public long m_r;
+        private long tVal;
+        public int numContained;
+        public boolean[] choosenArr;
+        public int[] blockedClsArr;
+        public int[] containedArr;
+        public int[] classTrack;
+
+    }
+
+
 
     public SimAnSolver(int p, int m, int n, int clsN,
                        int[] ClsArr, long[]WArr, long[]CArr,
@@ -25,49 +107,164 @@ public class SimAnSolver {
         ClassIncArr = classIncArr;
 
 
-        ClsN = clsN;
-
-
-
-        totalVal = 0;
-        BlockedClsSet = new HashSet<>();
+        //ClsN = clsN;
+        temp = initTemp;
+        //BlockedClsSet = new HashSet<>();
         boundInit();
+        Solve();
+    }
+
+    public void Solve() {
+        CurSol = CreateInitialSolution();
+        //CurChoosenArr = CurSol.choosenArr;
+        BestSol = CurSol;
+        //BestChoosenArr = CurChoosenArr;
+        for (int i = 0; i < MAXITER; i += 1) {
+            SolInstance Sol_i = CreateNeighborSolution(CurSol);
+            if (Sol_i.tVal > CurSol.tVal) {
+                CurSol = Sol_i;
+                if (Sol_i.tVal > BestSol.tVal) {
+                    BestSol = Sol_i;
+                    System.out.println("The Best so far is " + Sol_i.tVal);
+                }
+            } else if (Math.exp((Sol_i.tVal - CurSol.tVal)/temp) > Math.random()) {
+                CurSol = Sol_i;
+            }
+        }
     }
 
 
 
-    public void CreateInitialSolution() {
-        boolean[] initSolution = new boolean[N];
-        int blockedNum = 0;
+    private SolInstance CreateInitialSolution() {
+        SolInstance initSolution = new SolInstance();
+        //boolean[] initSolution = new boolean[N];
+        //int[] BlockedClsArr = new int[N];
+        //int numBlocked = 0;
+
+
         rd = new Random(System.currentTimeMillis());
         /* alarm to prevent overflow */
         int alarm1 = 0;
-        int blockBound = (int) blockingPerc * ClsN;
-        while (BlockedClsSet.size() < blockBound && alarm1 < alarmLmt
-                && p_r < pBound && m_r < mBound) {
+        //int blockBound = (int) blockingPerc * ClsN;
+
+        while (alarm1 < alarmLmt && initSolution.p_r > pBound
+                && initSolution.m_r > mBound) {
             int alarm2 = 0;
             int eleAdd = rd.nextInt(N);
-            while (BlockedClsSet.contains(ClassArr[eleAdd]) && alarm2 < alarmLmt) {
+            while (initSolution.blockedClsArr[ClassArr[eleAdd]] > 0
+                    && alarm2 < alarmLmt) {
                 eleAdd = rd.nextInt(N);
                 alarm2 += 1;
             }
+
+            initSolution.choosenArr[eleAdd] = true;
+            initSolution.numContained += 1;
+
+            initSolution.p_r -= WeightArr[eleAdd];
+            initSolution.m_r -= CostArr[eleAdd];
+            initSolution.tVal += RevArr[eleAdd];
+
             int clsAdd = ClassArr[eleAdd];
-            initSolution[eleAdd] = true;
+            initSolution.classTrack[clsAdd] += 1;
 
             for (int e_block : ClassIncArr[clsAdd]) {
-                if (!BlockedClsSet.contains(e_block)) {
-                    BlockedClsSet.add(e_block);
-                }
+                initSolution.blockedClsArr[e_block] += 1;
             }
-
-
         }
 
-
-
-        BestChoosenArr = initSolution;
+        return initSolution;
     }
 
+
+    private SolInstance CreateNeighborSolution(SolInstance S_cur) {
+        rd = new Random(System.currentTimeMillis());
+
+        SolInstance S_new = new SolInstance(S_cur);
+
+
+/*        int[] containedArr = new int[N];
+        int n_c = 0;
+
+        int[] BlockedClsArr = new int[N];
+
+        int[] classTrack = new int[N];
+
+        boolean[] result = new boolean[N];
+        for (int i = 0; i < N; i += 1) {
+            if (S_cur[i]) {
+                result[i] = true;
+                containedArr[n_c] = i;
+                n_c += 1;
+                classTrack[ClassArr[i]] += 1;
+                for (int e_block : ClassIncArr[i]) {
+                    BlockedClsArr[e_block] += 1;
+                }
+            }
+        }*/
+
+        boolean[] result = S_new.choosenArr;
+        int n_c = S_new.numContained;
+        int bumping = (int)(percentKicked* (double) n_c);
+
+        while(bumping > 0){
+            int bump = rd.nextInt(n_c);
+            if (result[bump]) {
+                result[bump] = false;
+
+                int clsBump = ClassArr[bump];
+                S_new.classTrack[clsBump] -= 1;
+                if (S_new.classTrack[clsBump] == 0) {
+                    kickRestriction(clsBump, S_new.blockedClsArr);
+                }
+                bumping -= 1;
+            }
+        }
+
+        int alarm1 = 0;
+
+        while (alarm1 < alarmLmt) {
+
+            int alarm2 = 0;
+            int eleAdd = rd.nextInt(N);
+            while (S_new.blockedClsArr[ClassArr[eleAdd]] > 0 && alarm2 < alarmLmt) {
+                eleAdd = rd.nextInt(N);
+                alarm2 += 1;
+            }
+
+            S_new.choosenArr[eleAdd] = true;
+            S_new.numContained += 1;
+
+            S_new.p_r -= WeightArr[eleAdd];
+            S_new.m_r -= CostArr[eleAdd];
+            S_new.tVal += RevArr[eleAdd];
+
+            int clsAdd = ClassArr[eleAdd];
+            S_new.classTrack[clsAdd] += 1;
+
+            for (int e_block : ClassIncArr[clsAdd]) {
+                S_new.blockedClsArr[e_block] += 1;
+            }
+        }
+
+        return S_new;
+    }
+
+
+    private void kickRestriction(int clsKicked, int[] blockedClsArr) {
+        for (int e_release : ClassIncArr[clsKicked]) {
+            blockedClsArr[e_release] -= 1;
+            if (blockedClsArr[e_release] < 0) {
+                System.out.println("Uhhhhhhhh. Kicked to the negative");
+            }
+        }
+    }
+
+
+
+    /** Return the Optimal Solution, marked by TRUE if the item is in. */
+    public boolean[] getOptSolution() {
+        return BestSol.choosenArr;
+    }
 
 
     /** Compute the Bounds for considering whether to continue. */
@@ -78,7 +275,7 @@ public class SimAnSolver {
         if (w_var != -1) {
             pBound = (long) (w_mean + Math.sqrt(w_var/(1 - confidence)));
         } else {
-            pBound = -1;
+            pBound = 0;
             System.out.println("The Variance for P is Bad.");
         }
 
@@ -88,7 +285,7 @@ public class SimAnSolver {
         if (c_var != -1) {
             mBound = (long) (c_mean + Math.sqrt(c_var/(1 - confidence)));
         } else {
-            mBound = -1;
+            mBound = 0;
             System.out.println("The Variance for M is Bad.");
         }
     }
@@ -99,12 +296,12 @@ public class SimAnSolver {
     private long P;
 
     /** The remaining P. */
-    private long p_r;
+    //private long p_r;
 
     private long M;
 
     /** The remaining M. */
-    private long m_r;
+    //private long m_r;
 
     private int N;
 
@@ -116,7 +313,7 @@ public class SimAnSolver {
 
 
     /** The Total Value: M + Revenual. */
-    private long totalVal;
+    private long bestVal;
 
 
     /** The mean of valid weight. */
@@ -156,16 +353,30 @@ public class SimAnSolver {
     private long[] RevArr;
 
 
-    /** The Best Choosen boolean array that record if each indexed ITEM is selected. */
-    private boolean[] BestChoosenArr;
+    /** The Best Choosen boolean array that record if
+     * each indexed ITEM is selected. */
+    //private boolean[] BestChoosenArr;
+
+    private SolInstance BestSol;
+
+
+    /** The Current Choosen boolean array that record if
+     * each indexed ITEM is selected. */
+    //private boolean[] CurChoosenArr;
+
+    private SolInstance CurSol;
+
 
     /** The HashSet that record if each indexed CLASS is BLOOKED. */
-    private HashSet<Integer> BlockedClsSet;
+    //private HashSet<Integer> BlockedClsSet;
 
 
-    /** Mapping from class index to item index. */
-    private HashSet<Integer>[] ClassIdxArr;
-    //Hashtable<Integer, HashSet<Integer>> ClassIdxTable;
+
+
+    /** The array that keep track of how many existing
+     * class is blocking a particular class. */
+    //private int[] BlockedClsArr;
+
 
     /** Mapping from class index to HSet of class index that is incompatible. */
     private HashSet<Integer>[] ClassIncArr;
@@ -175,6 +386,8 @@ public class SimAnSolver {
     private Random rd;
 
 
+    /** The Temperature. */
+    private double temp;
 
 
 }
