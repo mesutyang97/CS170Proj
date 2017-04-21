@@ -36,7 +36,6 @@ public class Solver {
         _input = getInput(args[0]);
         _output = getOutput(args[1]);
 
-
     }
 
 
@@ -144,7 +143,7 @@ public class Solver {
                 for (int l = 0; l < b; l += 1) {
                     if (l != k) {
                         //ClassIncTable.get(k).add(l);
-                        ClassIncArr[k].add(l);
+                        ClassIncArr[cstrList.get(k)].add(cstrList.get(l));
                     }
                 }
             }
@@ -179,9 +178,20 @@ public class Solver {
         }
     }
 
+
+    private void printResult(boolean[] choosenArr) {
+        for (int i = 0; i < N; i += 1) {
+            if (choosenArr[i]) {
+                _output.println(NameArr[i]);
+            }
+        }
+    }
+
     /** process the input and makes the output. */
     private void process(){
         readInputInit();
+        SimAnSolver sol = new SimAnSolver(P, M, N, ClassArr, WeightArr, CostArr, RevArr, ClassIncArr);
+        printResult(sol.getOptSolution());
     }
 
 

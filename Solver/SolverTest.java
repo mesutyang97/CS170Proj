@@ -62,6 +62,11 @@ public class SolverTest {
         System.out.println(pBound);
     }
 
+    @Test
+    public void testSolverInteg() {
+        Solver.main(new String[] {"Input/customEase.in", "Output/customEase.out"});
+    }
+
 
 
 

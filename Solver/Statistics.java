@@ -38,7 +38,7 @@ public class Statistics {
             SqrtBound = SqrtBound >>> 1;
             boundBit += 1;
         }
-        System.out.println("BoundBit it: " + boundBit);
+        //System.out.println("BoundBit it: " + boundBit);
 
 
         long mean = getMean();
