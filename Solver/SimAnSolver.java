@@ -12,9 +12,9 @@ public class SimAnSolver {
 
     //private final double confidence = 0.8;
     //private final double blockingPerc = 0.9;
-    private final int alarmLmt = 1;
+    private final int alarmLmt = 40;
     private final double tempChange = 0.98;
-    private final int MAXITER = 2;
+    private final int MAXITER = 2000;
     private final double percentKicked = 0.1;
     private double initTemp;
 
@@ -104,7 +104,7 @@ public class SimAnSolver {
         RevArr = RArr;
         ClassIncArr = classIncArr;
 
-        initTemp = (double)(4*p);
+        initTemp = (double)(p);
 
 
         //ClsN = clsN;
@@ -124,10 +124,14 @@ public class SimAnSolver {
         for (int i = 0; i < MAXITER; i += 1) {
             SolInstance Sol_i = CreateNeighborSolution(CurSol);
 
-            if (Sol_i.tVal > CurSol.tVal) {
-                temp = temp * 0.98;
+            System.out.println(Sol_i.tVal);
+
+            long val_i = Sol_i.tVal;
+            long val_cur = CurSol.tVal;
+            if (val_i > val_cur) {
+                temp = temp * 0.95;
                 CurSol = Sol_i;
-                if (Sol_i.tVal > BestSol.tVal) {
+                if (val_i > BestSol.tVal) {
                     BestSol = Sol_i;
                     System.out.println("The Best so far is " + Sol_i.tVal);
                 }
@@ -135,6 +139,7 @@ public class SimAnSolver {
                 CurSol = Sol_i;
             }
         }
+        System.out.println(BestSol.tVal);
     }
 
 
@@ -153,7 +158,7 @@ public class SimAnSolver {
             int alarm2 = 0;
             int eleAdd = rd.nextInt(N);
             while (S_in.blockedClsArr[ClassArr[eleAdd]] > 0 || WeightArr[eleAdd] > S_in.p_r
-                    || CostArr[eleAdd] > S_in.m_r) {
+                    || CostArr[eleAdd] > S_in.m_r || S_in.choosenArr[eleAdd]) {
                 if (alarm2 > alarmLmt) {
                     break OuterLoop;
                 }
@@ -249,27 +254,34 @@ public class SimAnSolver {
         }*/
 
         boolean[] result = S_new.choosenArr;
+        int[] contArr = S_new.containedArr;
+
         int n_c = S_new.numContained;
-        int bumping = (int)(percentKicked* (double) n_c + 1);
+        if (n_c > 0) {
+            int bumping = Math.max(1, (int)(percentKicked* (double) n_c));
 
-        while(bumping > 0){
-            int bump = rd.nextInt(n_c);
-            if (result[bump]) {
-                result[bump] = false;
-                S_new.numContained -= 1;
+            while(bumping > 0){
+                int bump = (int)(Math.random() * n_c);
+                int bumpIdx = contArr[bump];
+                //int bump = rd.nextInt(n_c);
+                if (result[bumpIdx]) {
+                    result[bumpIdx] = false;
+                    S_new.numContained -= 1;
 
-                S_new.p_r += WeightArr[bump];
-                S_new.m_r += CostArr[bump];
-                S_new.tVal -= RevArr[bump];
+                    S_new.p_r += WeightArr[bumpIdx];
+                    S_new.m_r += CostArr[bumpIdx];
+                    S_new.tVal -= RevArr[bumpIdx];
 
-                int clsBump = ClassArr[bump];
-                S_new.classTrack[clsBump] -= 1;
-                if (S_new.classTrack[clsBump] == 0) {
-                    kickRestriction(clsBump, S_new.blockedClsArr);
+                    int clsBump = ClassArr[bumpIdx];
+                    S_new.classTrack[clsBump] -= 1;
+                    if (S_new.classTrack[clsBump] == 0) {
+                        kickRestriction(clsBump, S_new.blockedClsArr);
+                    }
+                    bumping -= 1;
                 }
-                bumping -= 1;
             }
         }
+
 
         addItem(S_new);
 
