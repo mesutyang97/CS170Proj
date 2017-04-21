@@ -7,6 +7,7 @@ import org.junit.rules.Timeout;
 
 import java.util.Hashtable;
 import java.util.LinkedList;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,7 +18,7 @@ import java.util.regex.Pattern;
 
 public class SolverTest {
     @Rule
-    public Timeout globalTimeout = Timeout.seconds(10);
+    public Timeout globalTimeout = Timeout.seconds(10000);
 
     @Test
     public void testSplitCallNum() {
@@ -69,6 +70,16 @@ public class SolverTest {
 
 
 
+    @Test
+    public void testParseIn() {
+        String annoying = "3423,453,2,121214,2345";
+        Scanner sc = new Scanner(annoying);
+        while (sc.hasNext(Pattern.compile(",(?=\\S)|:"))) {
+            System.out.println("Hey");
+        }
+
+
+    }
 
 
 }

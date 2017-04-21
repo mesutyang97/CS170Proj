@@ -14,7 +14,8 @@ public class SimAnSolver {
     //private final double blockingPerc = 0.9;
     private final int alarmLmt = 40;
     private final double tempChange = 0.98;
-    private final int MAXITER = 2000;
+    private final int MAXITER = 700;
+    private final int MAXOUTER = 100;
     private final double percentKicked = 0.1;
     private double initTemp;
 
@@ -116,29 +117,33 @@ public class SimAnSolver {
 
     public void Solve() {
         System.out.println("Entering Solve....");
-        temp = initTemp;
-        CurSol = CreateInitialSolution();
-        //CurChoosenArr = CurSol.choosenArr;
-        BestSol = CurSol;
-        //BestChoosenArr = CurChoosenArr;
-        for (int i = 0; i < MAXITER; i += 1) {
-            SolInstance Sol_i = CreateNeighborSolution(CurSol);
+        BestSol = CreateInitialSolution();
+        for (int out = 0; out < MAXOUTER; out += 1) {
+            double temp = initTemp;
+            SolInstance CurSol = CreateInitialSolution();
+            for (int i = 0; i < MAXITER; i += 1) {
+                SolInstance Sol_i = CreateNeighborSolution(CurSol);
 
-            System.out.println(Sol_i.tVal);
+                //System.out.println(Sol_i.tVal);
 
-            long val_i = Sol_i.tVal;
-            long val_cur = CurSol.tVal;
-            if (val_i > val_cur) {
-                temp = temp * 0.95;
-                CurSol = Sol_i;
-                if (val_i > BestSol.tVal) {
-                    BestSol = Sol_i;
-                    System.out.println("The Best so far is " + Sol_i.tVal);
+                long val_i = Sol_i.tVal;
+                long val_cur = CurSol.tVal;
+                if (val_i > val_cur) {
+                    temp = temp * 0.95;
+                    CurSol = Sol_i;
+                    if (val_i > BestSol.tVal) {
+                        BestSol = Sol_i;
+                        System.out.println("The Best so far is " + Sol_i.tVal);
+                    }
+                } else if (Math.exp((Sol_i.tVal - CurSol.tVal)/temp) > Math.random()) {
+                    CurSol = Sol_i;
                 }
-            } else if (Math.exp((Sol_i.tVal - CurSol.tVal)/temp) > Math.random()) {
-                CurSol = Sol_i;
+            }
+            if (CurSol.tVal > BestSol.tVal) {
+                BestSol = CurSol;
             }
         }
+
         System.out.println(BestSol.tVal);
     }
 
@@ -429,7 +434,7 @@ public class SimAnSolver {
      * each indexed ITEM is selected. */
     //private boolean[] CurChoosenArr;
 
-    private SolInstance CurSol;
+    //private SolInstance CurSol;
 
 
     /** The HashSet that record if each indexed CLASS is BLOOKED. */

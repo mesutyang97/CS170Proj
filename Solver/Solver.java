@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import Solver.Statistics.*;
 
 import static Solver.SolverException.*;
 
@@ -182,7 +181,9 @@ public class Solver {
     private void printResult(boolean[] choosenArr) {
         for (int i = 0; i < N; i += 1) {
             if (choosenArr[i]) {
-                _output.println(NameArr[i]);
+                if (NameArr[i] != null) {
+                    _output.println(NameArr[i]);
+                }
             }
         }
     }
