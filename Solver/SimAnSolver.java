@@ -15,13 +15,26 @@ public class SimAnSolver {
 
     //private final double confidence = 0.8;
     //private final double blockingPerc = 0.9;
-    private final long TIMEOUTSEC = 300;
-    private final int alarmLmt = 400;
+
+    private final long TIMEOUTSEC = 800;
+    private final int alarmLmt = 500;
     private final double tempChange = 0.95;
-    private final int MAXITER = 400;
-    private final int MAXOUTER = 6000;
+    private final int MAXITER = 300;
+    private final int MAXOUTER = 60000;
     private final double percentKicked = 0.3;
     private double initTemp;
+
+
+
+    /*
+    private final long TIMEOUTSEC = 30;
+    private final int alarmLmt = 80;
+    private final double tempChange = 0.95;
+    private final int MAXITER = 400;
+    private final int MAXOUTER = 600;
+    private final double percentKicked = 0.3;
+    private double initTemp;
+    */
 
 
     private class SolInstance {
@@ -55,11 +68,11 @@ public class SimAnSolver {
             numContained = SolI.numContained;
 
             //DELETE ME
-            if (numContained != n_c) {
+/*            if (numContained != n_c) {
                 System.out.println("numContained is bad in the initilizer. " +
                 "Old SolI has " + numContained + " but the loop gives " + n_c);
                 System.exit(1);
-            }
+            }*/
 
             blockedClsArr = new int[N];
             System.arraycopy(SolI.blockedClsArr, 0, blockedClsArr, 0, N);
@@ -111,12 +124,12 @@ public class SimAnSolver {
         Future<String> future = executor.submit(new Task());
 
         try {
-            System.out.println("Started..");
+            //System.out.println("Started..");
             System.out.println(future.get(TIMEOUTSEC, TimeUnit.SECONDS));
-            System.out.println("Finished!");
+            //System.out.println("Finished!");
         } catch (TimeoutException e) {
             future.cancel(true);
-            System.out.println("Terminated!");
+            //System.out.println("Terminated!");
         }
 
         executor.shutdownNow();
@@ -139,14 +152,14 @@ public class SimAnSolver {
         overallTemp = 1;
         BestSol = CreateInitialSolution();
         for (int out = 0; out < MAXOUTER; out += 1) {
-            if (out == MAXOUTER/4) {
+            if (out == MAXOUTER/10) {
+                System.out.println("10% done");
+            } else if (out == MAXOUTER/4) {
                 System.out.println("25% done.");
             } else if (out == MAXOUTER/2) {
                 System.out.println("50% done.");
             } else if (out == 3*MAXOUTER/4) {
                 System.out.println("75% done.");
-            } else if (out == 9*MAXOUTER/4) {
-                System.out.println("90% done.");
             }
 
             if (overallTemp < Math.random()) {
