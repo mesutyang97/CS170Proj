@@ -32,6 +32,7 @@ public class Solver {
         if (args.length != 2) {
             throw error("Only 2 command-line arguments allowed");
         }
+        fn = args[0];
         _input = getInput(args[0]);
         _output = getOutput(args[1]);
 
@@ -213,9 +214,10 @@ public class Solver {
     private void process(){
         readInputInit();
         SimAnSolverHeuristic sol =
-                new SimAnSolverHeuristic(P, M, N, ClassArr, WeightArr, CostArr, RevArr, ClassIncArr);
+                new SimAnSolverHeuristic(P, M, N, ClassArr, WeightArr, CostArr, RevArr, ClassIncArr, fn);
         printResult(sol.getOptSolution());
-        System.out.println("=====Percentage Profit is: " + (sol.getOptVal()/(double) M));
+        System.out.println("For file " + fn +
+                " =====Percentage Profit is: " + sol.getOptVal());
     }
 
 
@@ -270,6 +272,8 @@ public class Solver {
     /** Number of constrains. */
     private int C;
 
+    /** File Name. */
+    private String fn;
 
 
 

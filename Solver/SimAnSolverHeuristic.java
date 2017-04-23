@@ -14,12 +14,12 @@ public class SimAnSolverHeuristic {
     //private final double confidence = 0.8;
     //private final double blockingPerc = 0.9;
 
-    private final long TIMEOUTSEC = 100;
-    private final int alarmLmt = 500;
+    private final long TIMEOUTSEC = 1500;
+    private int alarmLmt;
     private final double tempChange = 0.95;
-    private final int MAXITER = 3000;
-    private final int MAXOUTER = 600;
-    private final double percentKicked = 0.3;
+    private int MAXITER;
+    private final int MAXOUTER = 2000;
+    private final double percentKicked = 0.05;
     private double initTemp;
 
 
@@ -86,8 +86,12 @@ public class SimAnSolverHeuristic {
 
     public SimAnSolverHeuristic(long p, long m, int n,
                                 int[] ClsArr, long[]WArr, long[]CArr,
-                                long[]RArr, HashSet<Integer>[] classIncArr) {
+                                long[]RArr, HashSet<Integer>[] classIncArr, String fn) {
         System.out.println("Using Heuristic");
+
+
+        alarmLmt = 2*n;
+        MAXITER = 2*n;
 
         P = p;
         M = m;
@@ -97,10 +101,11 @@ public class SimAnSolverHeuristic {
         CostArr = CArr;
         RevArr = RArr;
         ClassIncArr = classIncArr;
+        F = fn;
 
         initTemp = (double)(p);
 
-        FillRevRatioPQ();
+        //FillRevRatioPQ();
         //temp = initTemp;
         try {
             timingSolve();
@@ -162,29 +167,30 @@ public class SimAnSolverHeuristic {
 
 
             SolInstance CurSol = CreateInitialSolution();
+            //double temp = initTemp;
             for (int i = 0; i < MAXITER; i += 1) {
                 SolInstance Sol_i = CreateNeighborSolution(CurSol);
 
                 //System.out.println(Sol_i.tVal);
 
-                double temp = initTemp;
-
                 long val_i = Sol_i.tVal;
                 long val_cur = CurSol.tVal;
                 if (val_i > val_cur) {
                     //System.out.println("Local improvement from " + val_cur + " to " + val_i);
-                    temp = temp * tempChange;
+                    //temp = temp * tempChange;
                     CurSol = Sol_i;
                     if (val_i > BestSol.tVal) {
                         BestSol = Sol_i;
-                        System.out.println("Global improvement. Best so far is " + Sol_i.tVal);
+                        //System.out.println(F + " global improvement: " + Sol_i.tVal);
                     }
-                } else if (Math.exp((Sol_i.tVal - CurSol.tVal)/temp) > 0.998) {
-                    break;
-                } else if (Math.exp((Sol_i.tVal - CurSol.tVal)/temp) > Math.random()) {
-                    CurSol = Sol_i;
-                    //System.out.println("Random re-shuffle" + val_cur + " to " + val_i);
                 }
+                //else if (Math.exp((Sol_i.tVal - CurSol.tVal)/temp) > 0.998) {
+                    //break;
+                //}
+                //else if (Math.exp((Sol_i.tVal - CurSol.tVal)/temp) > Math.random()) {
+                    //CurSol = Sol_i;
+                    //System.out.println("Random re-shuffle" + val_cur + " to " + val_i);
+               // }
 
                 //System.out.println("Finish an OuterLoop with" + CurSol.tVal);
                 //System.out.println("-------------------------------");
@@ -193,6 +199,7 @@ public class SimAnSolverHeuristic {
                 overallTemp *= 0.95;
             } else if (CurSol.tVal > BestSol.tVal) {
                 BestSol = CurSol;
+                System.out.println(F + " global improvement: " + CurSol.tVal);
             }
         }
 
@@ -202,27 +209,30 @@ public class SimAnSolverHeuristic {
 
 
 
-    private void addGreedyOneItem(SolInstance S_in) {
+/*    private void addGreedyOneItem(SolInstance S_in) {
         int eleAdd = RevRatioPQ.remove();
-        S_in.choosenArr[eleAdd] = true;
-        S_in.numContained += 1;
+        if (!S_in.choosenArr[eleAdd]) {
+            S_in.choosenArr[eleAdd] = true;
+            S_in.numContained += 1;
 
-        S_in.p_r -= WeightArr[eleAdd];
-        S_in.m_r -= CostArr[eleAdd];
-        S_in.tVal += RevArr[eleAdd];
+            S_in.p_r -= WeightArr[eleAdd];
+            S_in.m_r -= CostArr[eleAdd];
+            S_in.tVal += RevArr[eleAdd];
 
-        int clsAdd = ClassArr[eleAdd];
-        S_in.classTrack[clsAdd] += 1;
+            int clsAdd = ClassArr[eleAdd];
+            S_in.classTrack[clsAdd] += 1;
 
-        for (int e_block : ClassIncArr[clsAdd]) {
-            S_in.blockedClsArr[e_block] += 1;
+            for (int e_block : ClassIncArr[clsAdd]) {
+                S_in.blockedClsArr[e_block] += 1;
+            }
         }
 
-    }
+    }*/
 
 
     private void addItem(SolInstance S_in) {
-
+        //System.out.println("pBound: " + pBound);
+        //System.out.println("mBound: " + mBound);
 
         rd = new Random(System.currentTimeMillis());
         // Alarm to prevent overflow;
@@ -231,22 +241,16 @@ public class SimAnSolverHeuristic {
 
         OuterLoop:
         while (alarm1 < alarmLmt && S_in.p_r >= 0 && S_in.m_r >= 0) {
+            int alarm2 = 0;
             int eleAdd = rd.nextInt(N);
-
-            /* modification here.*/
-            if (S_in.classTrack[ClassArr[eleAdd]] == 0) {
-                int alarm2 = 0;
-                while (S_in.blockedClsArr[ClassArr[eleAdd]] > 0 || WeightArr[eleAdd] > S_in.p_r
-                        || CostArr[eleAdd] > S_in.m_r || S_in.choosenArr[eleAdd]) {
-                    if (alarm2 > alarmLmt) {
-                        break OuterLoop;
-                    }
-                    eleAdd = rd.nextInt(N);
-                    alarm2 += 1;
+            while (S_in.blockedClsArr[ClassArr[eleAdd]] > 0 || WeightArr[eleAdd] > S_in.p_r
+                    || CostArr[eleAdd] > S_in.m_r || S_in.choosenArr[eleAdd]) {
+                if (alarm2 > alarmLmt) {
+                    break OuterLoop;
                 }
+                eleAdd = rd.nextInt(N);
+                alarm2 += 1;
             }
-
-
 
             S_in.choosenArr[eleAdd] = true;
             S_in.numContained += 1;
@@ -271,9 +275,6 @@ public class SimAnSolverHeuristic {
     private SolInstance CreateInitialSolution() {
         SolInstance initSolution;
         initSolution = new SolInstance();
-        if (!RevRatioPQ.isEmpty()) {
-            addGreedyOneItem(initSolution);
-        }
         addItem(initSolution);
         return initSolution;
     }
@@ -323,9 +324,6 @@ public class SimAnSolverHeuristic {
     private void kickRestriction(int clsKicked, int[] blockedClsArr) {
         for (int e_release : ClassIncArr[clsKicked]) {
             blockedClsArr[e_release] -= 1;
-            if (blockedClsArr[e_release] < 0) {
-                System.out.println("Uhhhhhhhh. Kicked to the negative");
-            }
         }
     }
 
@@ -358,6 +356,7 @@ public class SimAnSolverHeuristic {
      * which will gurantee the most profitable items are at least
      * considered once.
      */
+    /*
     private void FillRevRatioPQ() {
         RevRatioPQ = new PriorityQueue<>(N, new RevComparator());
         for (int i = 0; i < N; i+= 1) {
@@ -365,7 +364,6 @@ public class SimAnSolverHeuristic {
                 RevRatioPQ.add(i);
             }
         }
-
         while (!RevRatioPQ.isEmpty()) {
             Integer ej = RevRatioPQ.poll();
             long c = CostArr[ej];
@@ -376,6 +374,8 @@ public class SimAnSolverHeuristic {
 
 
     }
+    */
+
 
 
 
@@ -422,6 +422,9 @@ public class SimAnSolverHeuristic {
 
     /** The Temperature. */
     private double overallTemp;
+
+    /** Input File Name. */
+    private String F;
 
 
 }

@@ -1,6 +1,8 @@
 package Solver;
 
 
+import java.util.ArrayList;
+
 import static Solver.SolverException.error;
 
 /**
@@ -19,21 +21,64 @@ public class ScriptSolver {
 
     ScriptSolver(String[] args) {
 
+
+        /*
         if (args.length != 2) {
             throw error("Only 2 command-line arguments allowed");
         }
         startIndex = Integer.parseInt(args[0]);
         endIndex = Integer.parseInt(args[1]);
+        */
+
+        if (args[0].equals("s")) {
+            startIndex = Integer.parseInt(args[1]);
+            endIndex = Integer.parseInt(args[2]);
+            ITERATING = true;
+        } else {
+            queue = new ArrayList<>(args.length);
+            for (int i = 0; i < args.length; i += 1) {
+                queue.add(Integer.parseInt(args[i]));
+            }
+        }
+
     }
 
     private void process() {
+        /*
         for (int i = startIndex; i < endIndex; i += 1) {
             String inFile = String.format(inputF, i);
             String outFile = String.format(outputF, i);
             Solver.main(inFile, outFile);
 
         }
+        */
+
+        if (ITERATING) {
+            for (int i = startIndex; i < endIndex; i += 1) {
+                String inFile = String.format(inputF, i);
+                String outFile = String.format(outputF, i);
+                Solver.main(inFile, outFile);
+
+            }
+        } else {
+            for (Integer i: queue) {
+                String inFile = String.format(inputF, i);
+                String outFile = String.format(outputF, i);
+                Solver.main(inFile, outFile);
+            }
+        }
+
     }
+
+
+
+
+
+
+
+
+
+
 
     private int startIndex;
 
@@ -45,4 +90,8 @@ public class ScriptSolver {
     //private static String inputF = "project_instances_extracredit/problem%d.in";
     //private static String outputF = "project_out_extracredit/problem%d.out";
 
+
+    private boolean ITERATING;
+
+    private ArrayList<Integer> queue;
 }
