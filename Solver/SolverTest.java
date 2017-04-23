@@ -93,4 +93,12 @@ public class SolverTest {
     }
 
 
+    @Test
+    public void testFillRevPQ() {
+        Solver.main("Input/small4.in", "Input/small4.out");
+        //Solver s = new Solver(new String[]{"Input/small4.in", "Input/small4.out"});
+
+    }
+
+
 }

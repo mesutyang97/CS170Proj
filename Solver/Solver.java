@@ -107,9 +107,7 @@ public class Solver {
                 val = convertDouble(m1.group(5));
 
             } else {
-                if (!m2.matches()) {
-                    error("Stuck on the %d line", (i+5));
-                }
+                m2.matches();
                 name = m2.group(1);
                 cls = Integer.parseInt(m2.group(2));
                 wt = convertDouble(m2.group(3));
@@ -120,7 +118,7 @@ public class Solver {
 
 
 
-            if (val > cost && wt < 429496729600L && cost < 429496729600L) {
+            if (val > cost && wt < P && cost < M) {
                 //NameTable.put(i, name);
                 //ClassTable.put(i, cls);
                 NameArr[i] = name;
@@ -141,7 +139,15 @@ public class Solver {
 
         for (int j = 0; j < C; j += 1) {
             ArrayList<Integer> cstrList = new ArrayList<>(2);
-            Scanner cstrSC = new Scanner(_input.nextLine().replaceAll("[,]", "$0 ") + ",");
+            Scanner cstrSC = null;
+
+            try {
+                cstrSC = new Scanner(_input.nextLine().replaceAll("[,]", "$0 ") + ",");
+            } catch (java.util.NoSuchElementException e) {
+                System.out.println( "The problem is with: " +C);
+            }
+
+
             while (cstrSC.hasNext()) {
                 String s = cstrSC.next();
                 cstrList.add(Integer.parseInt(s.substring(0,s.length() - 1)));
@@ -206,7 +212,8 @@ public class Solver {
     /** process the input and makes the output. */
     private void process(){
         readInputInit();
-        SimAnSolver sol = new SimAnSolver(P, M, N, ClassArr, WeightArr, CostArr, RevArr, ClassIncArr);
+        SimAnSolverHeuristic sol =
+                new SimAnSolverHeuristic(P, M, N, ClassArr, WeightArr, CostArr, RevArr, ClassIncArr);
         printResult(sol.getOptSolution());
         System.out.println("=====Percentage Profit is: " + (sol.getOptVal()/(double) M));
     }
