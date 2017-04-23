@@ -14,12 +14,17 @@ public class SimAnSolverHeuristic {
     //private final double confidence = 0.8;
     //private final double blockingPerc = 0.9;
 
-    private final long TIMEOUTSEC = 1500;
+    private boolean bucketStarted;
+    private int bucketbit;
+    private int bucketTicker;
+    /** how many item has been put into buckets. */
+    private int bucketedItem;
+    private final long TIMEOUTSEC = 700;
     private int alarmLmt;
     private final double tempChange = 0.95;
     private int MAXITER;
-    private final int MAXOUTER = 2000;
-    private final double percentKicked = 0.05;
+    private final int MAXOUTER = 20000;
+    private final double percentKicked = 0.1;
     private double initTemp;
 
 
@@ -91,7 +96,7 @@ public class SimAnSolverHeuristic {
 
 
         alarmLmt = 2*n;
-        MAXITER = 2*n;
+        MAXITER = n/2;
 
         P = p;
         M = m;
@@ -104,6 +109,7 @@ public class SimAnSolverHeuristic {
         F = fn;
 
         initTemp = (double)(p);
+        bucketStarted = false;
 
         //FillRevRatioPQ();
         //temp = initTemp;
@@ -167,26 +173,38 @@ public class SimAnSolverHeuristic {
 
 
             SolInstance CurSol = CreateInitialSolution();
-            //double temp = initTemp;
+            if (bucketStarted) {
+                int bucketIdx = (int) (CurSol.tVal >>> bucketbit);
+                edBuckets[bucketIdx] += 1;
+                bucketedItem += 1;
+
+            }
+
+
+            double temp = initTemp;
             for (int i = 0; i < MAXITER; i += 1) {
                 SolInstance Sol_i = CreateNeighborSolution(CurSol);
-
-                //System.out.println(Sol_i.tVal);
 
                 long val_i = Sol_i.tVal;
                 long val_cur = CurSol.tVal;
                 if (val_i > val_cur) {
                     //System.out.println("Local improvement from " + val_cur + " to " + val_i);
-                    //temp = temp * tempChange;
+                    temp = temp * tempChange;
                     CurSol = Sol_i;
                     if (val_i > BestSol.tVal) {
                         BestSol = Sol_i;
-                        //System.out.println(F + " global improvement: " + Sol_i.tVal);
+                        System.out.println(F + " global improvement: " + Sol_i.tVal);
+                        bucketTicker += 1;
+                        if (bucketTicker == 4) {
+                            System.out.println("Ticking bucket with value " + Sol_i.tVal);
+                            initBuckets(Sol_i.tVal);
+                        }
+
                     }
                 }
-                //else if (Math.exp((Sol_i.tVal - CurSol.tVal)/temp) > 0.998) {
-                    //break;
-                //}
+                else if (Math.exp((Sol_i.tVal - CurSol.tVal)/temp) > 0.998) {
+                    break;
+                }
                 //else if (Math.exp((Sol_i.tVal - CurSol.tVal)/temp) > Math.random()) {
                     //CurSol = Sol_i;
                     //System.out.println("Random re-shuffle" + val_cur + " to " + val_i);
@@ -197,9 +215,6 @@ public class SimAnSolverHeuristic {
             }
             if (CurSol.tVal == BestSol.tVal) {
                 overallTemp *= 0.95;
-            } else if (CurSol.tVal > BestSol.tVal) {
-                BestSol = CurSol;
-                System.out.println(F + " global improvement: " + CurSol.tVal);
             }
         }
 
@@ -228,6 +243,20 @@ public class SimAnSolverHeuristic {
         }
 
     }*/
+
+    private void initBuckets(long bucketRef) {
+        bucketedItem = 0;
+
+        bucketbit = 0;
+        while(bucketRef > (long)1048576) {
+            bucketbit += 1;
+            bucketRef = bucketRef >>> 1;
+        }
+        int bucksize = (int) (bucketRef >>> bucketbit);
+        System.out.println("The bucketsize is destined to be: " + bucksize);
+        edBuckets = new long[bucksize];
+        bucketStarted = true;
+    }
 
 
     private void addItem(SolInstance S_in) {
@@ -425,6 +454,9 @@ public class SimAnSolverHeuristic {
 
     /** Input File Name. */
     private String F;
+
+    /** Educated buckets. */
+    private long[] edBuckets;
 
 
 }
