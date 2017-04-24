@@ -108,7 +108,7 @@ public class SolverTest {
     @Test
     public void testAutograder() {
 
-        Verifier.main("project_instances/problem21.in", "project_out_overnight/Fastloop/problem21.out", "project_ver/problem21.ver");
+        Verifier.main("project_instances/problem9.in", "project_out_overnight/Fastloop/problem9.out", "project_ver/problem9.ver");
     }
 
 
