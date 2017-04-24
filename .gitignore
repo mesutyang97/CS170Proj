@@ -104,6 +104,7 @@ local.properties
 /project_out_overnight/
 /project_instances/
 /project_out/
+/project_ver/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/

@@ -152,10 +152,12 @@ public class Verifier {
     /** Output reader. */
     private void readOutputInit() {
         Choosen = new boolean[N];
+        ChoosenCls = new boolean[N];
         while (_output.hasNextLine()) {
             String s = _output.nextLine();
             int k = NameIndexMap.get(s);
             Choosen[k] = true;
+            ChoosenCls[ClassArr[k]] = true;
         }
     }
 
@@ -182,33 +184,51 @@ public class Verifier {
 
 
     private void printResult() {
-        if (ActualP > P) {
+        int counter = 0;
+        if (ActualP *100 > P) {
             _result.println("Too heavy. P is " + P + " but got " + ActualP);
+            counter += 1;
         }
-        if (ActualM > M) {
-            _result.println("Too heavy. M is " + M + " but got " + ActualM);
+        if (ActualM*100 > M) {
+            _result.println("Too greedy. M is " + M + " but got " + ActualM);
+            counter += 1;
+        }
+        if (constrainMessed) {
+            counter += 1;
+        }
+        if (counter == 0) {
+            VERDIT = true;
         }
     }
 
     private void calculateResult() {
+        constrainMessed = false;
         /*Weight part. */
+        long ActualPL = 0;
         for (int i = 0; i < N; i += 1) {
             if (Choosen[i]) {
-                ActualP += WeightArr[i];
+                ActualPL += WeightArr[i];
+
             }
         }
+        ActualP = ActualPL/(double) 100;
         _result.println("The Actual Weight is: " + ActualP);
 
 
+
         /*Cost part. */
+        long ActualML = 0;
         for (int i = 0; i < N; i += 1) {
             if (Choosen[i]) {
-                ActualM += CostArr[i];
+                ActualML += CostArr[i];
             }
         }
+        ActualM = ActualML/(double) 100;
         _result.println("The Actual Cost is: " + ActualM);
 
 
+
+        System.out.println("YOOOOOO.");
 
         /*Constrain part. */
         for (int j = 0; j < C; j += 1) {
@@ -229,16 +249,21 @@ public class Verifier {
                 cstrList.add(Integer.parseInt(s.substring(0,s.length() - 1)));
             }
 
-            int b = cstrList.size();
 
             int counter = 0;
 
+            int[] bad = new int[2];
+
             /*Add incompatible class L into the blacklist of the class K.*/
-            for (int k = 0; k < b; k += 1) {
-                if (Choosen[k]) {
+            for (int k : cstrList) {
+                if (ChoosenCls[k]) {
+                    bad[counter] = k;
                     counter += 1;
                     if (counter > 1) {
                         _result.println("Constrain " + constrainString + " is violated.");
+                        _result.println("Because of " + bad[0] + " and " + bad[1]);
+                        constrainMessed = true;
+                        break;
                     }
                 }
             }
@@ -256,7 +281,12 @@ public class Verifier {
         readOutputInit();
         calculateResult();
         printResult();
-        //System.out.println("For file " + fn + " the verdit is: " + VERDIT);
+        if (VERDIT) {
+            System.out.println("For file " + fn + " the output is valid ");
+        } else {
+            System.out.println("Oh Uh.");
+        }
+
     }
 
 
@@ -264,6 +294,8 @@ public class Verifier {
 
 
     private boolean VERDIT;
+
+    private boolean constrainMessed;
 
     /** Source of input. */
     private Scanner _input;
@@ -278,7 +310,7 @@ public class Verifier {
     private long P;
 
     /** Actual number of Pounds. */
-    private long ActualP;
+    private double ActualP;
 
     /** Budget. */
     private long M;
@@ -287,8 +319,12 @@ public class Verifier {
     /** Choosen boolean array. */
     private boolean[] Choosen;
 
+
+    /** Choosen boolean array for class. */
+    private boolean[] ChoosenCls;
+
     /** Actual money spent. */
-    private long ActualM;
+    private double ActualM;
 
     /** Number of items in sourcesFile. */
     private int N;

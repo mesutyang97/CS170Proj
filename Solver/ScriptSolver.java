@@ -73,13 +73,6 @@ public class ScriptSolver {
 
 
 
-
-
-
-
-
-
-
     private int startIndex;
 
     private int endIndex;

@@ -25,13 +25,13 @@ public class SimAnSolverHeuristic {
 
     private final boolean bumpingItem = false;
     private long bucketedItem;
-    private final long TIMEOUTSEC = 30;
+    private final long TIMEOUTSEC = 200;
     private int alarmLmt;
     private final double tempChange = 0.95;
     private int MAXITER;
     private final int MAXOUTER = 20000;
     private final double percentKicked = 0.1;
-    private final double percentKickedCls = 0.1;
+    private final double percentKickedCls = 0.2;
     private double initTemp;
 
 
@@ -102,8 +102,8 @@ public class SimAnSolverHeuristic {
         System.out.println("Using Heuristic");
 
 
-        alarmLmt = n/30;
-        MAXITER = n/20;
+        alarmLmt = n/10;
+        MAXITER = n*30;
 
         P = p;
         M = m;
@@ -307,6 +307,7 @@ public class SimAnSolverHeuristic {
             S_in.numContained += 1;
 
             S_in.p_r -= WeightArr[eleAdd];
+
             S_in.m_r -= CostArr[eleAdd];
             S_in.tVal += RevArr[eleAdd];
 
@@ -367,6 +368,9 @@ public class SimAnSolverHeuristic {
                     S_new.numContained -= 1;
 
                     S_new.p_r += WeightArr[bumpIdx];
+                    if (S_new.p_r > P) {
+                        System.out.println("To the negative when adding item with weight" + WeightArr[bumpIdx]);
+                    }
                     S_new.m_r += CostArr[bumpIdx];
                     S_new.tVal -= RevArr[bumpIdx];
 
