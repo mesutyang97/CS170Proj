@@ -1,6 +1,8 @@
 package Solver;
 
 import java.util.HashSet;
+import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Random;
 import java.util.concurrent.*;
@@ -17,14 +19,19 @@ public class SimAnSolverHeuristic {
     private boolean bucketStarted;
     private int bucketbit;
     private int bucketTicker;
+    private int bucketsize;
+
     /** how many item has been put into buckets. */
-    private int bucketedItem;
-    private final long TIMEOUTSEC = 700;
+
+    private final boolean bumpingItem = false;
+    private long bucketedItem;
+    private final long TIMEOUTSEC = 30;
     private int alarmLmt;
     private final double tempChange = 0.95;
     private int MAXITER;
     private final int MAXOUTER = 20000;
     private final double percentKicked = 0.1;
+    private final double percentKickedCls = 0.1;
     private double initTemp;
 
 
@@ -95,8 +102,8 @@ public class SimAnSolverHeuristic {
         System.out.println("Using Heuristic");
 
 
-        alarmLmt = 2*n;
-        MAXITER = n/2;
+        alarmLmt = n/30;
+        MAXITER = n/20;
 
         P = p;
         M = m;
@@ -173,12 +180,16 @@ public class SimAnSolverHeuristic {
 
 
             SolInstance CurSol = CreateInitialSolution();
-            if (bucketStarted) {
+/*            if (bucketStarted) {
                 int bucketIdx = (int) (CurSol.tVal >>> bucketbit);
                 edBuckets[bucketIdx] += 1;
                 bucketedItem += 1;
+                if (edBuckets[bucketIdx]> (2* bucketedItem/ (long)bucketsize)){
+                    System.out.println("Discarting " + CurSol.tVal + ".");
+                    continue;
+                }
 
-            }
+            }*/
 
 
             double temp = initTemp;
@@ -191,16 +202,18 @@ public class SimAnSolverHeuristic {
                     //System.out.println("Local improvement from " + val_cur + " to " + val_i);
                     temp = temp * tempChange;
                     CurSol = Sol_i;
-                    if (val_i > BestSol.tVal) {
+
+/*                    if (val_i > BestSol.tVal) {
                         BestSol = Sol_i;
                         System.out.println(F + " global improvement: " + Sol_i.tVal);
-                        bucketTicker += 1;
+*//*                        bucketTicker += 1;
                         if (bucketTicker == 4) {
                             System.out.println("Ticking bucket with value " + Sol_i.tVal);
                             initBuckets(Sol_i.tVal);
-                        }
+                        }*//*
 
-                    }
+                    }*/
+
                 }
                 else if (Math.exp((Sol_i.tVal - CurSol.tVal)/temp) > 0.998) {
                     break;
@@ -211,10 +224,20 @@ public class SimAnSolverHeuristic {
                // }
 
                 //System.out.println("Finish an OuterLoop with" + CurSol.tVal);
-                //System.out.println("-------------------------------");
-            }
-            if (CurSol.tVal == BestSol.tVal) {
+
+            } if (CurSol.tVal > BestSol.tVal) {
+                BestSol = CurSol;
+                System.out.println(F + " global improvement: " + CurSol.tVal);
+/*                        bucketTicker += 1;
+                        if (bucketTicker == 4) {
+                            System.out.println("Ticking bucket with value " + Sol_i.tVal);
+                            initBuckets(Sol_i.tVal);
+                        }*/
+
+            } else if (CurSol.tVal == BestSol.tVal) {
+                BestSol = CurSol;
                 overallTemp *= 0.95;
+                System.out.println("-------------------------------!");
             }
         }
 
@@ -244,24 +267,23 @@ public class SimAnSolverHeuristic {
 
     }*/
 
-    private void initBuckets(long bucketRef) {
+/*    private void initBuckets(long bucketRef) {
         bucketedItem = 0;
 
         bucketbit = 0;
-        while(bucketRef > (long)1048576) {
+        while(bucketRef > (long)16283) {
             bucketbit += 1;
             bucketRef = bucketRef >>> 1;
         }
-        int bucksize = (int) (bucketRef >>> bucketbit);
-        System.out.println("The bucketsize is destined to be: " + bucksize);
-        edBuckets = new long[bucksize];
+        bucketsize = (int) (bucketRef >>> bucketbit) << 2;
+        System.out.println("The bucketsize is destined to be: " + bucketsize);
+        edBuckets = new long[bucketsize];
+
         bucketStarted = true;
-    }
+    }*/
 
 
     private void addItem(SolInstance S_in) {
-        //System.out.println("pBound: " + pBound);
-        //System.out.println("mBound: " + mBound);
 
         rd = new Random(System.currentTimeMillis());
         // Alarm to prevent overflow;
@@ -314,6 +336,21 @@ public class SimAnSolverHeuristic {
 
         SolInstance S_new = new SolInstance(S_cur);
 
+        if (bumpingItem) {
+            bumpItem(S_new);
+        } else {
+            bumpClass(S_new);
+        }
+
+
+        addItem(S_new);
+
+        return S_new;
+    }
+
+
+    /** Bump S_new by item. */
+    private void bumpItem(SolInstance S_new) {
         boolean[] result = S_new.choosenArr;
         int[] contArr = S_new.containedArr;
 
@@ -342,11 +379,57 @@ public class SimAnSolverHeuristic {
                 }
             }
         }
+    }
 
+    /** Bump S_new by class. */
+    private void bumpClass(SolInstance S_new) {
+        boolean[] result = S_new.choosenArr;
+        //int[] classChosen = new int[N];
+        boolean[] classCn = new boolean[N];
+        ArrayList<Integer> clsExistList = new ArrayList<>();
 
-        addItem(S_new);
+        int[] contArr = S_new.containedArr;
 
-        return S_new;
+        for (int i = 0; i < contArr.length; i += 1) {
+            int cls_i = ClassArr[contArr[i]];
+            //classChosen[n_i] = cls_i;
+            if (!classCn[cls_i]) {
+                classCn[cls_i] = true;
+                clsExistList.add(cls_i);
+            }
+        }
+
+        int numCls = clsExistList.size();
+
+        if (numCls > 0) {
+            int bumpingCls = Math.max(1, (int)(percentKickedCls* (double) numCls));
+
+            while(bumpingCls > 0){
+                int bumpCIndex = (int)(Math.random() * numCls);
+                int bumpC = clsExistList.get(bumpCIndex);
+                if (classCn[bumpC]) {
+                    for (int i = 0; i < contArr.length; i += 1) {
+                        if (ClassArr[i] == bumpC) {
+                            result[i] = false;
+                            S_new.numContained -= 1;
+
+                            S_new.p_r += WeightArr[i];
+                            S_new.m_r += CostArr[i];
+                            S_new.tVal -= RevArr[i];
+                        }
+                    }
+
+                    S_new.classTrack[bumpC] = 0;
+                    kickRestriction(bumpC, S_new.blockedClsArr);
+
+                    classCn[bumpC] = false;
+
+                    bumpingCls -= 1;
+                }
+
+            }
+        }
+
     }
 
 

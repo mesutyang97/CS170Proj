@@ -2,23 +2,24 @@ package Solver;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintStream;
-import java.util.HashSet;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static Solver.SolverException.*;
+import static Solver.SolverException.error;
 
 /**
- * Created by yxiaocheng1997 on 4/19/17.
+ * Created by yxiaocheng1997 on 4/23/17.
  */
-public class Solver {
-
+public class Verifier {
     public static void main(String... args) {
         try {
-            new Solver(args).process();
+            new Verifier(args).process();
             return;
         } catch (SolverException excp) {
             System.err.printf("Error: %s%n", excp.getMessage());
@@ -27,15 +28,18 @@ public class Solver {
     }
 
     /** Check ARGS and open the necessary files (see comment on main). */
-    Solver(String[] args) {
-        if (args.length != 2) {
+    Verifier(String[] args) {
+        if (args.length != 3) {
             throw error("Only 2 command-line arguments allowed");
         }
-        fn = args[0];
+        fn = args[1];
         _input = getInput(args[0]);
-        _output = getOutput(args[1]);
+        _output = getInput(args[1]);
+        _result = getOutput(args[2]);
 
     }
+
+
 
 
     /** Convert Double in a String to Long that has no decimal (multiply by 100).*/
@@ -63,6 +67,7 @@ public class Solver {
         WeightArr = new long[N];
         CostArr = new long[N];
         RevArr = new long[N];
+        NameIndexMap = new HashMap<>(N);
 
 
         //ClassIdxTable = new Hashtable<>(N);
@@ -127,6 +132,8 @@ public class Solver {
                 CostArr[i] = cost;
                 RevArr[i] = val - cost;
 
+                NameIndexMap.put(name, i);
+
                 if (ClassIdxArr[cls].isEmpty()) {
                     ClsN += 1;
                 }
@@ -137,45 +144,20 @@ public class Solver {
 
         }
 
-        for (int j = 0; j < C; j += 1) {
-            ArrayList<Integer> cstrList = new ArrayList<>(2);
-            Scanner cstrSC = null;
-
-            try {
-                cstrSC = new Scanner(_input.nextLine().replaceAll("[,]", "$0 ") + ",");
-            } catch (java.util.NoSuchElementException e) {
-                System.out.println( "The problem is with: " +C);
-            }
-
-
-            while (cstrSC.hasNext()) {
-                String s = cstrSC.next();
-                cstrList.add(Integer.parseInt(s.substring(0,s.length() - 1)));
-            }
-
-            int b = cstrList.size();
-
-            /*Add incompatible class L into the blacklist of the class K.*/
-            for (int k = 0; k < b; k += 1) {
-                for (int l = 0; l < b; l += 1) {
-                    if (l != k) {
-                        //ClassIncTable.get(k).add(l);
-                        if (cstrList.get(k) == 40000) {
-                            System.out.println("Shit");
-                        }
-                        ClassIncArr[cstrList.get(k)].add(cstrList.get(l));
-                    }
-                }
-            }
-
-
-        }
-
         System.out.println("Done");
 
 
     }
 
+    /** Output reader. */
+    private void readOutputInit() {
+        Choosen = new boolean[N];
+        while (_output.hasNextLine()) {
+            String s = _output.nextLine();
+            int k = NameIndexMap.get(s);
+            Choosen[k] = true;
+        }
+    }
 
 
 
@@ -199,39 +181,114 @@ public class Solver {
     }
 
 
-    private void printResult(boolean[] choosenArr) {
-        for (int i = 0; i < N; i += 1) {
-            if (choosenArr[i]) {
-                if (NameArr[i] != null) {
-                    _output.println(NameArr[i]);
-                }
-            }
+    private void printResult() {
+        if (ActualP > P) {
+            _result.println("Too heavy. P is " + P + " but got " + ActualP);
+        }
+        if (ActualM > M) {
+            _result.println("Too heavy. M is " + M + " but got " + ActualM);
         }
     }
+
+    private void calculateResult() {
+        /*Weight part. */
+        for (int i = 0; i < N; i += 1) {
+            if (Choosen[i]) {
+                ActualP += WeightArr[i];
+            }
+        }
+        _result.println("The Actual Weight is: " + ActualP);
+
+
+        /*Cost part. */
+        for (int i = 0; i < N; i += 1) {
+            if (Choosen[i]) {
+                ActualM += CostArr[i];
+            }
+        }
+        _result.println("The Actual Cost is: " + ActualM);
+
+
+
+        /*Constrain part. */
+        for (int j = 0; j < C; j += 1) {
+            ArrayList<Integer> cstrList = new ArrayList<>(2);
+            Scanner cstrSC = null;
+
+            String constrainString = _input.nextLine();
+
+            try {
+                cstrSC = new Scanner(constrainString.replaceAll("[,]", "$0 ") + ",");
+            } catch (java.util.NoSuchElementException e) {
+                System.out.println( "The problem is with: " +C);
+            }
+
+
+            while (cstrSC.hasNext()) {
+                String s = cstrSC.next();
+                cstrList.add(Integer.parseInt(s.substring(0,s.length() - 1)));
+            }
+
+            int b = cstrList.size();
+
+            int counter = 0;
+
+            /*Add incompatible class L into the blacklist of the class K.*/
+            for (int k = 0; k < b; k += 1) {
+                if (Choosen[k]) {
+                    counter += 1;
+                    if (counter > 1) {
+                        _result.println("Constrain " + constrainString + " is violated.");
+                    }
+                }
+            }
+
+
+        }
+
+
+    }
+
 
     /** process the input and makes the output. */
     private void process(){
         readInputInit();
-        SimAnSolverHeuristic sol =
-                new SimAnSolverHeuristic(P, M, N, ClassArr, WeightArr, CostArr, RevArr, ClassIncArr, fn);
-        printResult(sol.getOptSolution());
-        System.out.println("For file " + fn +
-                " =====Percentage Profit is: " + sol.getOptVal());
+        readOutputInit();
+        calculateResult();
+        printResult();
+        //System.out.println("For file " + fn + " the verdit is: " + VERDIT);
     }
 
+
+
+
+
+    private boolean VERDIT;
 
     /** Source of input. */
     private Scanner _input;
 
     /** File for encoded/decoded messages. */
-    private PrintStream _output;
+    private Scanner _output;
 
+    /** File for result. */
+    private PrintStream _result;
 
     /** Number of Pounds. */
     private long P;
 
+    /** Actual number of Pounds. */
+    private long ActualP;
+
     /** Budget. */
     private long M;
+
+
+    /** Choosen boolean array. */
+    private boolean[] Choosen;
+
+    /** Actual money spent. */
+    private long ActualM;
 
     /** Number of items in sourcesFile. */
     private int N;
@@ -242,7 +299,9 @@ public class Solver {
 
     /** Mapping from item index to its name. */
     private String[] NameArr;
-    //Hashtable<Integer, String> NameTable;
+
+
+    HashMap<String, Integer> NameIndexMap;
 
     /** Mapping from item index to its class. */
     private int[] ClassArr;
@@ -273,7 +332,6 @@ public class Solver {
 
     /** File Name. */
     private String fn;
-
 
 
 

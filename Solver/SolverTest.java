@@ -100,5 +100,15 @@ public class SolverTest {
 
     }
 
+    @Test
+    public void testBumpClass() {
+        Solver.main("Input/small4.in", "Input/small4.out");
+    }
+
+    @Test
+    public void testAutograder() {
+        Verifier.main("project_instances/problem21.in", "project_out/problem21.out", "project_ver/problem21.ver");
+    }
+
 
 }
