@@ -170,6 +170,25 @@ public class Solver {
 
 
         }
+        
+        /*
+        
+        PrintStream ps = null;
+        try{
+            ps = new PrintStream(new File("constrain/problem4.cons"));
+        } catch(Exception e) {
+            System.exit(1);
+        }
+
+        
+
+        for (int i = 0; i < N; i += 1) {
+            ps.print(i + " ");
+            for (Integer j : ClassIncArr[i]) {
+                ps.print(j + " ");
+            }
+            ps.println();
+        }*/
 
         System.out.println("Done");
 
@@ -209,6 +228,11 @@ public class Solver {
         }
     }
 
+
+
+
+
+
     /** process the input and makes the output. */
     private void process(){
         readInputInit();
@@ -218,6 +242,11 @@ public class Solver {
         System.out.println("For file " + fn +
                 " =====Percentage Profit is: " + sol.getOptVal());
     }
+
+
+
+
+
 
 
     /** Source of input. */

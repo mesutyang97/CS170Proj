@@ -25,13 +25,13 @@ public class SimAnSolverHeuristic {
 
     private final boolean bumpingItem = false;
     private long bucketedItem;
-    private final long TIMEOUTSEC = 100;
+    private final long TIMEOUTSEC = 200;
     private int alarmLmt;
-    private final double tempChange = 0.98;
+    private final double tempChange = 0.9999;
     private int MAXITER;
     private final int MAXOUTER = 200;
     private final double percentKicked = 0.1;
-    private final double percentKickedCls = 0.3;
+    private final double percentKickedCls = 0.1;
     private long initTemp = 92247758L;
 
 
@@ -102,8 +102,8 @@ public class SimAnSolverHeuristic {
         System.out.println("Using Heuristic");
 
 
-        alarmLmt = n/10;
-        MAXITER = n;
+        alarmLmt = n/2;
+        MAXITER = n/50;
 
         P = p;
         M = m;
@@ -193,18 +193,24 @@ public class SimAnSolverHeuristic {
 
             double temp = 1;
             for (int i = 0; i < MAXITER; i += 1) {
+                if (temp < 0.5) {
+                    break;
+                }
+                
                 SolInstance Sol_i = CreateNeighborSolution(CurSol);
-                temp = temp * tempChange;
+                //temp = temp * tempChange;
                 long val_i = Sol_i.tVal;
                 long val_cur = CurSol.tVal;
                 if (val_i > val_cur) {
                     //System.out.println("Local improvement from " + val_cur + " to " + val_i);
                     CurSol = Sol_i;
-                    System.out.println(F + " Semi-global improvement: " + Sol_i.tVal);
+                    //System.out.println(F + " Semi-global improvement: " + Sol_i.tVal);
                     if (val_i > BestSol.tVal) {
+                        temp = 1;
                         BestSol = Sol_i;
                         System.out.println(F + " Actual global improvement: " + CurSol.tVal);
                     }
+                    Sol_i = null;
 
 /*                    if (val_i > CurSol.tVal) {
                         CurSol = Sol_i;
@@ -221,14 +227,21 @@ public class SimAnSolverHeuristic {
 
                     }*/
 
-                } else if (temp > Math.random()) {
-                    CurSol = Sol_i;
-                    //System.out.println("Random re-shuffle" + val_cur + " to " + val_i);
+                } else {
+                    temp = temp*tempChange;
                 }
+                /*else if (temp > Math.random()) {
+                    CurSol = Sol_i;
+                    Sol_i = null;
+                    //System.out.println("Random re-shuffle" + val_cur + " to " + val_i);
+                }*/
+
+
 
                 //System.out.println("Finish an OuterLoop with" + CurSol.tVal);
 
             }
+            CurSol = null;
 /*            if (CurBestSol.tVal > BestSol.tVal) {
                 BestSol = CurBestSol;
                 System.out.println(F + " Actual global improvement: " + CurSol.tVal);
