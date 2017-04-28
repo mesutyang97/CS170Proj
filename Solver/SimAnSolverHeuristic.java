@@ -23,16 +23,17 @@ public class SimAnSolverHeuristic {
 
     /** how many item has been put into buckets. */
 
-    private final boolean bumpingItem = false;
+    private boolean bumpingItem;
     private long bucketedItem;
-    private final long TIMEOUTSEC = 200;
+    private final long TIMEOUTSEC = 800;
     private int alarmLmt;
-    private final double tempChange = 0.9999;
+    private final double tempChange = 0.999;
+    private final double RepeatTempChange = 0.90;
     private int MAXITER;
-    private final int MAXOUTER = 200;
-    private final double percentKicked = 0.1;
-    private final double percentKickedCls = 0.1;
-    private long initTemp = 92247758L;
+    private int TICKER;
+    private final int MAXOUTER = 20000;
+    private final double percentKicked = 0.2;
+    private final double percentKickedCls = 0.2;
 
 
 
@@ -102,8 +103,9 @@ public class SimAnSolverHeuristic {
         System.out.println("Using Heuristic");
 
 
-        alarmLmt = n/2;
-        MAXITER = n/50;
+        alarmLmt = n/3;
+        MAXITER = n/3;
+        TICKER = n/2;
 
         P = p;
         M = m;
@@ -115,22 +117,26 @@ public class SimAnSolverHeuristic {
         ClassIncArr = classIncArr;
         F = fn;
 
-        initTemp = p;
+        //initTemp = p;
         bucketStarted = false;
 
         //FillRevRatioPQ();
         //temp = initTemp;
+        
+        Solve();
+        /*
         try {
             timingSolve();
         } catch (Exception e) {
             System.out.println("Timer Fail :(");
-        }
+        }*/
 
     }
 
 
 
-    /**Timer method. */
+    /*
+    //Timer method.
     public void timingSolve() throws Exception {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Future<String> future = executor.submit(new Task());
@@ -149,7 +155,7 @@ public class SimAnSolverHeuristic {
 
 
 
-    /** Wrapping Solve() */
+    //Wrapping Solve()
     class Task implements Callable<String> {
         @Override
         public String call() throws Exception {
@@ -157,14 +163,24 @@ public class SimAnSolverHeuristic {
             return "Ready!";
         }
     }
+    
+    */
 
 
     public void Solve() {
         System.out.println("Entering Solve....");
         overallTemp = 1;
         BestSol = CreateInitialSolution();
+        long Start = System.currentTimeMillis();
+        long End1 = Start + 1000 * TIMEOUTSEC;
+        long End2 = End1 + 1000 * TIMEOUTSEC;
+        
+        bumpingItem = false;
+        
         for (int out = 0; out < MAXOUTER; out += 1) {
-            if (out == MAXOUTER/10) {
+            if (System.currentTimeMillis() > End1 || overallTemp < 0.5) {
+                break;
+            } else if (out == MAXOUTER/10) {
                 System.out.println("10% done");
             } else if (out == MAXOUTER/4) {
                 System.out.println("25% done.");
@@ -198,7 +214,6 @@ public class SimAnSolverHeuristic {
                 }
                 
                 SolInstance Sol_i = CreateNeighborSolution(CurSol);
-                //temp = temp * tempChange;
                 long val_i = Sol_i.tVal;
                 long val_cur = CurSol.tVal;
                 if (val_i > val_cur) {
@@ -207,6 +222,7 @@ public class SimAnSolverHeuristic {
                     //System.out.println(F + " Semi-global improvement: " + Sol_i.tVal);
                     if (val_i > BestSol.tVal) {
                         temp = 1;
+                        overallTemp = 1;
                         BestSol = Sol_i;
                         System.out.println(F + " Actual global improvement: " + CurSol.tVal);
                     }
@@ -241,7 +257,6 @@ public class SimAnSolverHeuristic {
                 //System.out.println("Finish an OuterLoop with" + CurSol.tVal);
 
             }
-            CurSol = null;
 /*            if (CurBestSol.tVal > BestSol.tVal) {
                 BestSol = CurBestSol;
                 System.out.println(F + " Actual global improvement: " + CurSol.tVal);
@@ -251,13 +266,119 @@ public class SimAnSolverHeuristic {
                             initBuckets(Sol_i.tVal);
                         }
 
-            }
-            if (CurBestSol.tVal == BestSol.tVal) {
-                overallTemp *= tempChange;
-                System.out.println("-------------------------------!");
             }*/
+            if (CurSol.tVal == BestSol.tVal) {
+                overallTemp *= RepeatTempChange;
+                System.out.println("-------------------------------!");
+            }
+            CurSol = null;
         }
-
+        
+        System.out.println("Entering Bump Item. ");
+        
+        bumpingItem = true;
+        
+        for (int out = 0; out < MAXOUTER; out += 1) {
+            if (System.currentTimeMillis() > End2 || overallTemp < 0.5) {
+                break;
+            } else if (out == MAXOUTER/10) {
+                System.out.println("10% done");
+            } else if (out == MAXOUTER/4) {
+                System.out.println("25% done.");
+            } else if (out == MAXOUTER/2) {
+                System.out.println("50% done.");
+            } else if (out == 3*MAXOUTER/4) {
+                System.out.println("75% done.");
+            }
+            
+            
+            SolInstance CurSol = CreateInitialSolution();
+            //SolInstance CurBestSol = CurSol;
+            
+            
+            /*            if (bucketStarted) {
+             int bucketIdx = (int) (CurSol.tVal >>> bucketbit);
+             edBuckets[bucketIdx] += 1;
+             bucketedItem += 1;
+             if (edBuckets[bucketIdx]> (2* bucketedItem/ (long)bucketsize)){
+             System.out.println("Discarting " + CurSol.tVal + ".");
+             continue;
+             }
+             
+             }*/
+            
+            
+            double temp = 1;
+            for (int i = 0; i < MAXITER; i += 1) {
+                if (temp < 0.5) {
+                    break;
+                }
+                
+                SolInstance Sol_i = CreateNeighborSolution(CurSol);
+                long val_i = Sol_i.tVal;
+                long val_cur = CurSol.tVal;
+                if (val_i > val_cur) {
+                    //System.out.println("Local improvement from " + val_cur + " to " + val_i);
+                    CurSol = Sol_i;
+                    //System.out.println(F + " Semi-global improvement: " + Sol_i.tVal);
+                    if (val_i > BestSol.tVal) {
+                        temp = 1;
+                        overallTemp = 1;
+                        BestSol = Sol_i;
+                        System.out.println(F + " Actual global improvement: " + CurSol.tVal);
+                    }
+                    Sol_i = null;
+                    
+                    /*                    if (val_i > CurSol.tVal) {
+                     CurSol = Sol_i;
+                     System.out.println(F + " Semi-global improvement: " + Sol_i.tVal);
+                     if (val_i > BestSol.tVal) {
+                     BestSol = Sol_i;
+                     System.out.println(F + " Actual global improvement: " + CurSol.tVal);
+                     }
+                     bucketTicker += 1;
+                     if (bucketTicker == 4) {
+                     System.out.println("Ticking bucket with value " + Sol_i.tVal);
+                     initBuckets(Sol_i.tVal);
+                     }
+                     
+                     }*/
+                    
+                } else {
+                    temp = temp*tempChange;
+                }
+                /*else if (temp > Math.random()) {
+                 CurSol = Sol_i;
+                 Sol_i = null;
+                 //System.out.println("Random re-shuffle" + val_cur + " to " + val_i);
+                 }*/
+                
+                
+                
+                //System.out.println("Finish an OuterLoop with" + CurSol.tVal);
+                
+            }
+            /*            if (CurBestSol.tVal > BestSol.tVal) {
+             BestSol = CurBestSol;
+             System.out.println(F + " Actual global improvement: " + CurSol.tVal);
+             bucketTicker += 1;
+             if (bucketTicker == 4) {
+             System.out.println("Ticking bucket with value " + Sol_i.tVal);
+             initBuckets(Sol_i.tVal);
+             }
+             
+             }*/
+            if (CurSol.tVal == BestSol.tVal) {
+                overallTemp *= RepeatTempChange;
+                System.out.println("-------------------------------!");
+            }
+            CurSol = null;
+        }
+        
+        
+        
+        
+        
         System.out.println(BestSol.tVal);
     }
 
