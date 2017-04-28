@@ -25,15 +25,15 @@ public class SimAnSolverHeuristic {
 
     private boolean bumpingItem;
     private long bucketedItem;
-    private final long TIMEOUTSEC = 800;
+    private final long TIMEOUTSEC = 600;
     private int alarmLmt;
     private final double tempChange = 0.999;
     private final double RepeatTempChange = 0.90;
     private int MAXITER;
     private int TICKER;
     private final int MAXOUTER = 20000;
-    private final double percentKicked = 0.2;
-    private final double percentKickedCls = 0.2;
+    private double percentKicked = 0.05;
+    private final double percentKickedCls = 0.08;
 
 
 
@@ -62,8 +62,8 @@ public class SimAnSolverHeuristic {
 
         public SolInstance(SolInstance SolI) {
             tVal = SolI.tVal;
-            p_r = SolI.p_r;
-            m_r = SolI.m_r;
+            p_r = P;
+            m_r = M;
             choosenArr = new boolean[N];
             System.arraycopy(SolI.choosenArr, 0, choosenArr, 0, N);
             containedArr = new int[N];
@@ -73,6 +73,8 @@ public class SimAnSolverHeuristic {
                 if (SolI.choosenArr[i]) {
                     containedArr[n_c] = i;
                     n_c += 1;
+                    p_r -= WeightArr[i];
+                    m_r -= CostArr[i];
                 }
             }
 
@@ -104,7 +106,7 @@ public class SimAnSolverHeuristic {
 
 
         alarmLmt = n/3;
-        MAXITER = n/3;
+        MAXITER = 5*n;
         TICKER = n/2;
 
         P = p;
@@ -117,54 +119,12 @@ public class SimAnSolverHeuristic {
         ClassIncArr = classIncArr;
         F = fn;
 
-        //initTemp = p;
-        bucketStarted = false;
-
-        //FillRevRatioPQ();
-        //temp = initTemp;
+        //bucketStarted = false;
         
         Solve();
-        /*
-        try {
-            timingSolve();
-        } catch (Exception e) {
-            System.out.println("Timer Fail :(");
-        }*/
+        verifyResult();
 
     }
-
-
-
-    /*
-    //Timer method.
-    public void timingSolve() throws Exception {
-        ExecutorService executor = Executors.newSingleThreadExecutor();
-        Future<String> future = executor.submit(new Task());
-
-        try {
-            //System.out.println("Started..");
-            System.out.println(future.get(TIMEOUTSEC, TimeUnit.SECONDS));
-            //System.out.println("Finished!");
-        } catch (TimeoutException e) {
-            future.cancel(true);
-            //System.out.println("Terminated!");
-        }
-
-        executor.shutdownNow();
-    }
-
-
-
-    //Wrapping Solve()
-    class Task implements Callable<String> {
-        @Override
-        public String call() throws Exception {
-            Solve();
-            return "Ready!";
-        }
-    }
-    
-    */
 
 
     public void Solve() {
@@ -176,6 +136,7 @@ public class SimAnSolverHeuristic {
         long End2 = End1 + 1000 * TIMEOUTSEC;
         
         bumpingItem = false;
+        int tick = 0;
         
         for (int out = 0; out < MAXOUTER; out += 1) {
             if (System.currentTimeMillis() > End1 || overallTemp < 0.5) {
@@ -191,7 +152,7 @@ public class SimAnSolverHeuristic {
             }
 
 
-            SolInstance CurSol = CreateInitialSolution();
+            SolInstance CurSol = CreateGreedyInitial();
             //SolInstance CurBestSol = CurSol;
 
 
@@ -225,6 +186,11 @@ public class SimAnSolverHeuristic {
                         overallTemp = 1;
                         BestSol = Sol_i;
                         System.out.println(F + " Actual global improvement: " + CurSol.tVal);
+                        if (percentKicked < 0.20) {
+                            percentKicked *= 2;
+                        } else if (MAXITER <= 20000000) {
+                            MAXITER *= 2;
+                        }
                     }
                     Sol_i = null;
 
@@ -270,6 +236,13 @@ public class SimAnSolverHeuristic {
             if (CurSol.tVal == BestSol.tVal) {
                 overallTemp *= RepeatTempChange;
                 System.out.println("-------------------------------!");
+            } if (CurSol.tVal > BestSol.tVal) {
+                System.out.println(F + " Simply with Greedy, global improvement: " + CurSol.tVal);
+                BestSol = CurSol;
+                tick += 1;
+                if (tick > 2 && percentKicked < 0.20) {
+                    percentKicked *= 1.5;
+                }
             }
             CurSol = null;
         }
@@ -292,7 +265,7 @@ public class SimAnSolverHeuristic {
             }
             
             
-            SolInstance CurSol = CreateInitialSolution();
+            SolInstance CurSol = CreateGreedyInitial();
             //SolInstance CurBestSol = CurSol;
             
             
@@ -371,12 +344,12 @@ public class SimAnSolverHeuristic {
             if (CurSol.tVal == BestSol.tVal) {
                 overallTemp *= RepeatTempChange;
                 System.out.println("-------------------------------!");
+            } if (CurSol.tVal > BestSol.tVal) {
+                System.out.println(F + "Simply with Greedy, global improvement: " + CurSol.tVal);
+                BestSol = CurSol;
             }
             CurSol = null;
         }
-        
-        
-        
         
         
         System.out.println(BestSol.tVal);
@@ -385,25 +358,7 @@ public class SimAnSolverHeuristic {
 
 
 
-/*    private void addGreedyOneItem(SolInstance S_in) {
-        int eleAdd = RevRatioPQ.remove();
-        if (!S_in.choosenArr[eleAdd]) {
-            S_in.choosenArr[eleAdd] = true;
-            S_in.numContained += 1;
 
-            S_in.p_r -= WeightArr[eleAdd];
-            S_in.m_r -= CostArr[eleAdd];
-            S_in.tVal += RevArr[eleAdd];
-
-            int clsAdd = ClassArr[eleAdd];
-            S_in.classTrack[clsAdd] += 1;
-
-            for (int e_block : ClassIncArr[clsAdd]) {
-                S_in.blockedClsArr[e_block] += 1;
-            }
-        }
-
-    }*/
 
 /*    private void initBuckets(long bucketRef) {
         bucketedItem = 0;
@@ -428,32 +383,48 @@ public class SimAnSolverHeuristic {
         int alarm1 = 0;
         //int blockBound = (int) blockingPerc * ClsN;
 
-        OuterLoop:
-        while (alarm1 < alarmLmt && S_in.p_r >= 0 && S_in.m_r >= 0) {
+        int runningIdx = 0;
+        int[] candidateArr = new int[N];
+        for (int i = 0; i < N; i += 1) {
+            if (S_in.blockedClsArr[ClassArr[i]] == 0 && !S_in.choosenArr[i] &&
+                WeightArr[i] < S_in.p_r &&  CostArr[i] < S_in.m_r) {
+                candidateArr[runningIdx] = i;
+                runningIdx += 1;
+            }
+        }
+        if (runningIdx == 0) {
+            return;
+        }
+        
+    OuterLoop:
+        while (alarm1 < alarmLmt) {
             int alarm2 = 0;
-            int eleAdd = rd.nextInt(N);
+            int eleAdd = candidateArr[rd.nextInt(runningIdx)];
             while (S_in.blockedClsArr[ClassArr[eleAdd]] > 0 || WeightArr[eleAdd] > S_in.p_r
-                    || CostArr[eleAdd] > S_in.m_r || S_in.choosenArr[eleAdd]) {
+                   || CostArr[eleAdd] > S_in.m_r || S_in.choosenArr[eleAdd]) {
                 if (alarm2 > alarmLmt) {
                     break OuterLoop;
                 }
                 eleAdd = rd.nextInt(N);
                 alarm2 += 1;
             }
-
+            
             S_in.choosenArr[eleAdd] = true;
             S_in.numContained += 1;
-
+            
             S_in.p_r -= WeightArr[eleAdd];
-
+            
             S_in.m_r -= CostArr[eleAdd];
             S_in.tVal += RevArr[eleAdd];
-
+            
             int clsAdd = ClassArr[eleAdd];
             S_in.classTrack[clsAdd] += 1;
-
+            
             for (int e_block : ClassIncArr[clsAdd]) {
                 S_in.blockedClsArr[e_block] += 1;
+            }
+            if (S_in.p_r < 0 ||S_in.m_r < 0) {
+                System.out.println("When adding item " + eleAdd + " something teeeerible happended.");
             }
         }
 
@@ -468,6 +439,34 @@ public class SimAnSolverHeuristic {
         addItem(initSolution);
         return initSolution;
     }
+    
+    
+    private SolInstance CreateGreedyInitial() {
+        PriorityQueue<Integer> RevRatPQ = FillRevRatioPQ();
+        SolInstance initSolution;
+        initSolution = new SolInstance();
+        
+        while(!RevRatPQ.isEmpty()) {
+            int eleAdd = RevRatPQ.remove();
+            if (initSolution.blockedClsArr[ClassArr[eleAdd]] == 0 &&
+                WeightArr[eleAdd] < initSolution.p_r &&  CostArr[eleAdd] < initSolution.m_r) {
+                initSolution.choosenArr[eleAdd] = true;
+                initSolution.numContained += 1;
+                
+                initSolution.p_r -= WeightArr[eleAdd];
+                initSolution.m_r -= CostArr[eleAdd];
+                initSolution.tVal += RevArr[eleAdd];
+                
+                int clsAdd = ClassArr[eleAdd];
+                initSolution.classTrack[clsAdd] += 1;
+                
+                for (int e_block : ClassIncArr[clsAdd]) {
+                    initSolution.blockedClsArr[e_block] += 1;
+                }
+            }
+        }
+        return initSolution;
+    }
 
 
     private SolInstance CreateNeighborSolution(SolInstance S_cur) {
@@ -475,11 +474,7 @@ public class SimAnSolverHeuristic {
 
         SolInstance S_new = new SolInstance(S_cur);
 
-        if (bumpingItem) {
-            bumpItem(S_new);
-        } else {
-            bumpClass(S_new);
-        }
+        bumpItem(S_new);
 
 
         addItem(S_new);
@@ -490,7 +485,6 @@ public class SimAnSolverHeuristic {
 
     /** Bump S_new by item. */
     private void bumpItem(SolInstance S_new) {
-        boolean[] result = S_new.choosenArr;
         int[] contArr = S_new.containedArr;
 
         int n_c = S_new.numContained;
@@ -501,13 +495,12 @@ public class SimAnSolverHeuristic {
                 int bump = (int)(Math.random() * n_c);
                 int bumpIdx = contArr[bump];
                 //int bump = rd.nextInt(n_c);
-                if (result[bumpIdx]) {
-                    result[bumpIdx] = false;
-                    S_new.numContained -= 1;
+                if (bumpIdx != -1) {
+                    S_new.choosenArr[bumpIdx] = false;
 
                     S_new.p_r += WeightArr[bumpIdx];
                     if (S_new.p_r > P) {
-                        System.out.println("To the negative when adding item with weight" + WeightArr[bumpIdx]);
+                        System.out.println("Exceed maximum P when bumping item with weight" + WeightArr[bumpIdx]);
                     }
                     S_new.m_r += CostArr[bumpIdx];
                     S_new.tVal -= RevArr[bumpIdx];
@@ -518,9 +511,23 @@ public class SimAnSolverHeuristic {
                         kickRestriction(clsBump, S_new.blockedClsArr);
                     }
                     bumping -= 1;
+                    contArr[bump] = -1;
                 }
             }
         }
+        
+        S_new.containedArr = new int[N];
+        
+        int n_k = 0;
+        for (int i = 0; i < N; i += 1) {
+            if (S_new.choosenArr[i]) {
+                S_new.containedArr[n_k] = i;
+                n_k += 1;
+            }
+        }
+        S_new.numContained = n_k;
+        
+        
     }
 
     /** Bump S_new by class. */
@@ -549,7 +556,7 @@ public class SimAnSolverHeuristic {
             while(bumpingCls > 0){
                 int bumpCIndex = (int)(Math.random() * numCls);
                 int bumpC = clsExistList.get(bumpCIndex);
-                if (classCn[bumpC]) {
+                if (bumpC != -1) {
                     for (int i = 0; i < contArr.length; i += 1) {
                         if (ClassArr[i] == bumpC) {
                             result[i] = false;
@@ -567,10 +574,21 @@ public class SimAnSolverHeuristic {
                     classCn[bumpC] = false;
 
                     bumpingCls -= 1;
+                    clsExistList.set(bumpCIndex, -1);
                 }
 
             }
         }
+        S_new.containedArr = new int[N];
+        
+        int n_c = 0;
+        for (int i = 0; i < N; i += 1) {
+            if (S_new.choosenArr[i]) {
+                S_new.containedArr[n_c] = i;
+                n_c += 1;
+            }
+        }
+        S_new.numContained = n_c;
 
     }
 
@@ -594,43 +612,97 @@ public class SimAnSolverHeuristic {
     /** Comparator for revenue/cost ratio. */
     class RevComparator implements Comparator<Integer> {
         // Return 1 if obj1 is more profitable than obj2
+        RevComparator(int c, int w) {
+            costCoef = c;
+            weightCoef = w;
+        }
+        
         @Override
         public int compare(Integer obj1, Integer obj2) {
-            double revRatio1 = (RevArr[obj1] / ((double) CostArr[obj1] + 1));
-            double revRatio2 = (RevArr[obj2] / ((double) CostArr[obj2] + 1));
+            double revRatio1 = (RevArr[obj1] / (costCoef * (double) CostArr[obj1] + weightCoef * (double) WeightArr[obj1] + 1));
+            double revRatio2 = (RevArr[obj2] / (costCoef * (double) CostArr[obj2] + weightCoef * (double) WeightArr[obj2] + 1));
             if (revRatio1 > revRatio2) {
                 return -1;
             } else {
                 return 1;
             }
         }
+        
+        int costCoef;
+        int weightCoef;
     }
 
     /** Fill the Rev Ratio PQ for initial processing,
      * which will gurantee the most profitable items are at least
      * considered once.
      */
-    /*
-    private void FillRevRatioPQ() {
-        RevRatioPQ = new PriorityQueue<>(N, new RevComparator());
+    private PriorityQueue<Integer> FillRevRatioPQ() {
+        int costC = (int) (Math.random() * 40);
+        int weightC = 40 - costC;
+        System.out.println("Using CostC: " + costC);
+        
+        
+        PriorityQueue<Integer> RevRatioPQ = new PriorityQueue<>(N, new RevComparator(costC, weightC));
         for (int i = 0; i < N; i+= 1) {
             if (RevArr[i] != 0) {
                 RevRatioPQ.add(i);
             }
         }
+        return RevRatioPQ;
+        /*
         while (!RevRatioPQ.isEmpty()) {
             Integer ej = RevRatioPQ.poll();
             long c = CostArr[ej];
             long r = RevArr[ej];
             double rat = r/((double) c + 0.01);
             //System.out.println("Ejecting item" + ej + " with revenue ratio" + rat );
-        }
-
-
+        }*/
     }
-    */
+    
 
 
+
+    
+    
+    
+    
+    private void verifyResult() {
+        /*Weight part. */
+        long ActualPL = 0;
+        for (int i = 0; i < N; i += 1) {
+            if (BestSol.choosenArr[i]) {
+                ActualPL += WeightArr[i];
+                
+            }
+        }
+        
+        System.out.println("The Actual Weight is: " + ActualPL);
+        if (ActualPL > P) {
+            System.out.println("Exceeded Weight limit: " + P);
+        }
+        
+        
+        
+        
+        /*Cost part. */
+        long ActualML = 0;
+        for (int i = 0; i < N; i += 1) {
+            if (BestSol.choosenArr[i]) {
+                ActualML += CostArr[i];
+            }
+        }
+        
+        System.out.println("The Actual Cost is: " + ActualML);
+        if (ActualML > M) {
+            System.out.println("Exceeded Cost limit: " + M);
+        }
+        
+        
+        
+        System.out.println("YOOOOOO.");
+        
+        
+    }
 
 
 
@@ -660,7 +732,7 @@ public class SimAnSolverHeuristic {
 
 
     /** PriorityQueue of Profits. */
-    PriorityQueue<Integer> RevRatioPQ;
+    //PriorityQueue<Integer> RevRatioPQ;
 
 
     /** The Best Choosen Solution Instance. */

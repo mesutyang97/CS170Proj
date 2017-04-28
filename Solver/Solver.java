@@ -243,6 +243,14 @@ public class Solver {
                 " =====Percentage Profit is: " + sol.getOptVal());
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 
