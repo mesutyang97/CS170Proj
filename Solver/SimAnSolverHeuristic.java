@@ -7,6 +7,7 @@ import java.util.PriorityQueue;
 import java.util.Random;
 import java.util.concurrent.*;
 import java.util.Comparator;
+import java.util.Stack;
 
 /**
  * Created by yxiaocheng1997 on 4/20/17.
@@ -25,14 +26,15 @@ public class SimAnSolverHeuristic {
 
     private boolean bumpingItem;
     private long bucketedItem;
-    private final long TIMEOUTSEC = 900;
+    private final long TIMEOUTSEC = 20;
+    private final int pres = 40;
     private int alarmLmt;
     private final double tempChange = 0.995;
-    private final double RepeatTempChange = 1;
+    private final double RepeatTempChange = 0.9;
     private int MAXITER;
     private int TICKER;
     private final int MAXOUTER = 200;
-    private double percentKicked = 0.2;
+    private double percentKicked = 0.1;
     private final double percentKickedCls = 0.1;
 
 
@@ -106,8 +108,13 @@ public class SimAnSolverHeuristic {
         System.out.println("Using Heuristic");
 
 
-        alarmLmt = n*2;
-        MAXITER = n*100;
+        s = new Stack();
+        s.add(0);
+        s.add(pres);
+        
+        
+        alarmLmt = n*3;
+        MAXITER = n*30;
         TICKER = n/2;
 
         P = p;
@@ -404,13 +411,15 @@ public class SimAnSolverHeuristic {
     OuterLoop:
         while (alarm1 < alarmLmt) {
             int alarm2 = 0;
-            int eleAdd = candidateArr[rd.nextInt(runningIdx)];
-            while (S_in.blockedClsArr[ClassArr[eleAdd]] > 0 || WeightArr[eleAdd] > S_in.p_r
+            int candIdx = rd.nextInt(runningIdx);
+            int eleAdd = candidateArr[candIdx];
+            while (eleAdd == -1 || S_in.blockedClsArr[ClassArr[eleAdd]] > 0 || WeightArr[eleAdd] > S_in.p_r
                    || CostArr[eleAdd] > S_in.m_r || S_in.choosenArr[eleAdd]) {
                 if (alarm2 > alarmLmt) {
                     break OuterLoop;
                 }
-                eleAdd = rd.nextInt(N);
+                candIdx = rd.nextInt(runningIdx);
+                eleAdd = candidateArr[candIdx];
                 alarm2 += 1;
             }
             
@@ -425,14 +434,24 @@ public class SimAnSolverHeuristic {
             int clsAdd = ClassArr[eleAdd];
             S_in.classTrack[clsAdd] += 1;
             
-            for (int e_block : ClassIncArr[clsAdd]) {
-                S_in.blockedClsArr[e_block] += 1;
+            if (S_in.classTrack[clsAdd] == 1) {
+                for (int e_block : ClassIncArr[clsAdd]) {
+                    S_in.blockedClsArr[e_block] += 1;
+                }
             }
-            if (S_in.p_r < 0 ||S_in.m_r < 0) {
-                System.out.println("When adding item " + eleAdd + " something teeeerible happended.");
+            candidateArr[candIdx] = -1;
+        }
+        
+        S_in.containedArr = new int[N];
+        
+        int n_k = 0;
+        for (int i = 0; i < N; i += 1) {
+            if (S_in.choosenArr[i]) {
+                S_in.containedArr[n_k] = i;
+                n_k += 1;
             }
         }
-
+        S_in.numContained = n_k;
 
     }
 
@@ -465,11 +484,30 @@ public class SimAnSolverHeuristic {
                 int clsAdd = ClassArr[eleAdd];
                 initSolution.classTrack[clsAdd] += 1;
                 
-                for (int e_block : ClassIncArr[clsAdd]) {
-                    initSolution.blockedClsArr[e_block] += 1;
+                if (initSolution.classTrack[clsAdd] == 1) {
+                    for (int e_block : ClassIncArr[clsAdd]) {
+                        initSolution.blockedClsArr[e_block] += 1;
+                    }
                 }
             }
         }
+        
+        
+        initSolution.containedArr = new int[N];
+        
+        int n_k = 0;
+        for (int i = 0; i < N; i += 1) {
+            if (initSolution.choosenArr[i]) {
+                initSolution.containedArr[n_k] = i;
+                n_k += 1;
+            }
+        }
+        initSolution.numContained = n_k;
+        
+        
+        
+        //checkTrack(initSolution);
+        System.out.println("Safely go out of initial solution. ");
         return initSolution;
     }
 
@@ -479,10 +517,11 @@ public class SimAnSolverHeuristic {
 
         SolInstance S_new = new SolInstance(S_cur);
 
-        bumpItem(S_new);
-
+        bumpClass(S_new);
+        //checkTrack(S_new);
 
         addItem(S_new);
+        //checkTrack(S_new);
 
         return S_new;
     }
@@ -534,22 +573,45 @@ public class SimAnSolverHeuristic {
         
         
     }
+    
+    
+    
+    
+    private void checkTrack(SolInstance S) {
+        for (int i = 0; i < N; i += 1) {
+            //classChosen[n_i] = cls_i;
+            if (S.choosenArr[i]) {
+                int cls_i = ClassArr[i];
+                if (S.classTrack[cls_i] == 0) {
+                    System.out.println("Item " + i + "s class went untracked.");
+                    System.exit(1);
+                }
+                
+            }
+        }
+        //System.out.println("All class safe.");
+    }
 
     /** Bump S_new by class. */
     private void bumpClass(SolInstance S_new) {
-        boolean[] result = S_new.choosenArr;
         //int[] classChosen = new int[N];
         boolean[] classCn = new boolean[N];
         ArrayList<Integer> clsExistList = new ArrayList<>();
 
         int[] contArr = S_new.containedArr;
 
-        for (int i = 0; i < contArr.length; i += 1) {
-            int cls_i = ClassArr[contArr[i]];
+        for (int i = 0; i < N; i += 1) {
+            
             //classChosen[n_i] = cls_i;
-            if (!classCn[cls_i]) {
-                classCn[cls_i] = true;
-                clsExistList.add(cls_i);
+            if (S_new.choosenArr[i]) {
+                int cls_i = ClassArr[i];
+                if (!classCn[cls_i]) {
+                    if (S_new.classTrack[cls_i] == 0) {
+                        //System.out.println("Bumping untracked Class");
+                    }
+                    classCn[cls_i] = true;
+                    clsExistList.add(cls_i);
+                }
             }
         }
 
@@ -561,24 +623,27 @@ public class SimAnSolverHeuristic {
             while(bumpingCls > 0){
                 int bumpCIndex = (int)(Math.random() * numCls);
                 int bumpC = clsExistList.get(bumpCIndex);
-                if (bumpC != -1 && classCn[bumpC]) {
-                    for (int i = 0; i < contArr.length; i += 1) {
-                        if (ClassArr[i] == bumpC && S_new.containedArr[i] != -1) {
+                if (bumpC != -1) {
+                    if (S_new.classTrack[bumpC] == 0) {
+                        //System.out.println("Bumping class " + bumpC);
+                    }
+                    
+                    for (int i = 0; i < S_new.numContained; i += 1) {
+                        int itemIdx = contArr[i];
+                        if (itemIdx != -1 && ClassArr[itemIdx] == bumpC) {
+                            //System.out.println("Bumping item " + itemIdx + " at index" + i);
                             S_new.containedArr[i] = -1;
-
-                            S_new.p_r += WeightArr[i];
-                            S_new.m_r += CostArr[i];
-                            S_new.tVal -= RevArr[i];
+                            S_new.p_r += WeightArr[itemIdx];
+                            S_new.m_r += CostArr[itemIdx];
+                            S_new.tVal -= RevArr[itemIdx];
+                            S_new.choosenArr[itemIdx] = false;
                         }
                     }
-
                     S_new.classTrack[bumpC] = 0;
                     kickRestriction(bumpC, S_new.blockedClsArr);
-
-                    classCn[bumpC] = false;
-
                     bumpingCls -= 1;
                     clsExistList.set(bumpCIndex, -1);
+                    //checkTrack(S_new);
                 }
 
             }
@@ -593,13 +658,18 @@ public class SimAnSolverHeuristic {
             }
         }
         S_new.numContained = n_c;
-
     }
 
 
     private void kickRestriction(int clsKicked, int[] blockedClsArr) {
         for (int e_release : ClassIncArr[clsKicked]) {
-            blockedClsArr[e_release] -= 1;
+            
+            if(blockedClsArr[e_release] <=0) {
+                //System.out.println("FFF");
+            }
+            if(blockedClsArr[e_release] >0) {
+                blockedClsArr[e_release] -=1;
+            }
         }
     }
 
@@ -641,9 +711,16 @@ public class SimAnSolverHeuristic {
      * considered once.
      */
     private PriorityQueue<Integer> FillRevRatioPQ() {
-        //int costC = (int) (Math.random() * (40 + 1));
-        int costC = 40;
-        int weightC = 40 - costC;
+        int costC = 0;
+        if (s.isEmpty()) {
+            costC = (int) (Math.random() * (pres + 1));
+            //int costC = pres;
+        } else {
+            costC = s.pop();
+        }
+        int weightC = pres - costC;
+        
+
         System.out.println("Using CostC: " + costC);
         
         
@@ -750,6 +827,8 @@ public class SimAnSolverHeuristic {
     /** The random number generator of the random functions. */
     private Random rd;
 
+    
+    Stack<Integer> s;
 
     /** The Temperature. */
     private double overallTemp;

@@ -78,9 +78,9 @@ public class ScriptSolver {
     private int endIndex;
 
     private static String inputF = "project_instances/problem%d.in";
-    private static String outputF = "project_out_overnight/Fastloop/problem%d.out";
+    private static String outputF = "project_out_overnight/problem%d.out";
 
-    //private static String inputF = "project_instances_extracredit/problem%d.in";
+    //private static String inputF = "new_problems/problem%d.in";
     //private static String outputF = "project_out_extracredit/problem%d.out";
 
 
