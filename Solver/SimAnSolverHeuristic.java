@@ -25,15 +25,16 @@ public class SimAnSolverHeuristic {
 
     private boolean bumpingItem;
     private long bucketedItem;
-    private final long TIMEOUTSEC = 600;
+    private final long TIMEOUTSEC = 900;
     private int alarmLmt;
-    private final double tempChange = 0.999;
-    private final double RepeatTempChange = 0.90;
+    private final double tempChange = 0.995;
+    private final double RepeatTempChange = 1;
     private int MAXITER;
     private int TICKER;
-    private final int MAXOUTER = 20000;
-    private double percentKicked = 0.05;
-    private final double percentKickedCls = 0.08;
+    private final int MAXOUTER = 200;
+    private double percentKicked = 0.2;
+    private final double percentKickedCls = 0.1;
+
 
 
 
@@ -105,8 +106,8 @@ public class SimAnSolverHeuristic {
         System.out.println("Using Heuristic");
 
 
-        alarmLmt = n/3;
-        MAXITER = 5*n;
+        alarmLmt = n*2;
+        MAXITER = n*100;
         TICKER = n/2;
 
         P = p;
@@ -186,10 +187,10 @@ public class SimAnSolverHeuristic {
                         overallTemp = 1;
                         BestSol = Sol_i;
                         System.out.println(F + " Actual global improvement: " + CurSol.tVal);
-                        if (percentKicked < 0.20) {
-                            percentKicked *= 2;
-                        } else if (MAXITER <= 20000000) {
-                            MAXITER *= 2;
+                        if (tick > 1) {
+                            if (MAXITER <= 20000000) {
+                                MAXITER *= 2;
+                            }
                         }
                     }
                     Sol_i = null;
@@ -234,9 +235,13 @@ public class SimAnSolverHeuristic {
 
             }*/
             if (CurSol.tVal == BestSol.tVal) {
+                if (percentKicked < 0.1 && alarmLmt < 2000000) {
+                    percentKicked *= 2;
+                    alarmLmt*=2;
+                }
                 overallTemp *= RepeatTempChange;
                 System.out.println("-------------------------------!");
-            } if (CurSol.tVal > BestSol.tVal) {
+            } else if (CurSol.tVal > BestSol.tVal) {
                 System.out.println(F + " Simply with Greedy, global improvement: " + CurSol.tVal);
                 BestSol = CurSol;
                 tick += 1;
@@ -344,7 +349,7 @@ public class SimAnSolverHeuristic {
             if (CurSol.tVal == BestSol.tVal) {
                 overallTemp *= RepeatTempChange;
                 System.out.println("-------------------------------!");
-            } if (CurSol.tVal > BestSol.tVal) {
+            } else if (CurSol.tVal > BestSol.tVal) {
                 System.out.println(F + "Simply with Greedy, global improvement: " + CurSol.tVal);
                 BestSol = CurSol;
             }
@@ -556,11 +561,10 @@ public class SimAnSolverHeuristic {
             while(bumpingCls > 0){
                 int bumpCIndex = (int)(Math.random() * numCls);
                 int bumpC = clsExistList.get(bumpCIndex);
-                if (bumpC != -1) {
+                if (bumpC != -1 && classCn[bumpC]) {
                     for (int i = 0; i < contArr.length; i += 1) {
-                        if (ClassArr[i] == bumpC) {
-                            result[i] = false;
-                            S_new.numContained -= 1;
+                        if (ClassArr[i] == bumpC && S_new.containedArr[i] != -1) {
+                            S_new.containedArr[i] = -1;
 
                             S_new.p_r += WeightArr[i];
                             S_new.m_r += CostArr[i];
@@ -637,7 +641,8 @@ public class SimAnSolverHeuristic {
      * considered once.
      */
     private PriorityQueue<Integer> FillRevRatioPQ() {
-        int costC = (int) (Math.random() * 40);
+        //int costC = (int) (Math.random() * (40 + 1));
+        int costC = 40;
         int weightC = 40 - costC;
         System.out.println("Using CostC: " + costC);
         
@@ -678,7 +683,7 @@ public class SimAnSolverHeuristic {
         
         System.out.println("The Actual Weight is: " + ActualPL);
         if (ActualPL > P) {
-            System.out.println("Exceeded Weight limit: " + P);
+            System.out.println("Uh oh. Exceeded Weight limit: " + P);
         }
         
         
@@ -694,7 +699,7 @@ public class SimAnSolverHeuristic {
         
         System.out.println("The Actual Cost is: " + ActualML);
         if (ActualML > M) {
-            System.out.println("Exceeded Cost limit: " + M);
+            System.out.println("Uh oh. Exceeded Cost limit: " + M);
         }
         
         

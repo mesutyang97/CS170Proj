@@ -106,6 +106,7 @@ local.properties
 /project_out/
 /project_ver/
 /OneDrive/
+/new_problems/
 
 
 # mpeltonen/sbt-idea plugin
