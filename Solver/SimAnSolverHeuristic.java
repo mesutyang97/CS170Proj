@@ -26,7 +26,7 @@ public class SimAnSolverHeuristic {
 
     private boolean bumpingItem;
     private long bucketedItem;
-    private final long TIMEOUTSEC = 20;
+    private final long TIMEOUTSEC = 300;
     private final int pres = 40;
     private int alarmLmt;
     private final double tempChange = 0.995;
