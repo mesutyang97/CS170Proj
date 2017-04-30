@@ -57,7 +57,12 @@ public class ScriptSolver {
             for (int i = startIndex; i < endIndex; i += 1) {
                 String inFile = String.format(inputF, i);
                 String outFile = String.format(outputF, i);
-                Solver.main(inFile, outFile);
+                try {
+                    Solver.main(inFile, outFile);
+                } catch (Exception e) {
+                    continue;
+                }
+                
 
             }
         } else {
@@ -77,11 +82,11 @@ public class ScriptSolver {
 
     private int endIndex;
 
-    private static String inputF = "project_instances/problem%d.in";
-    private static String outputF = "project_out_overnight/problem%d.out";
+    //private static String inputF = "project_instances/problem%d.in";
+    //private static String outputF = "project_out_overnight/problem%d.out";
 
-    //private static String inputF = "new_problems/problem%d.in";
-    //private static String outputF = "project_out_extracredit/problem%d.out";
+    private static String inputF = "new_problems/problem%d.in";
+    private static String outputF = "project_out_extracredit/problem%d.out";
 
 
     private boolean ITERATING;

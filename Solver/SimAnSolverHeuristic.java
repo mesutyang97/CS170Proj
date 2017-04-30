@@ -7,15 +7,12 @@ import java.util.PriorityQueue;
 import java.util.Random;
 import java.util.concurrent.*;
 import java.util.Comparator;
-import java.util.Stack;
+import java.util.ArrayDeque;
 
 /**
  * Created by yxiaocheng1997 on 4/20/17.
  */
 public class SimAnSolverHeuristic {
-
-    //private final double confidence = 0.8;
-    //private final double blockingPerc = 0.9;
 
     private boolean bucketStarted;
     private int bucketbit;
@@ -26,29 +23,20 @@ public class SimAnSolverHeuristic {
 
     private boolean bumpingItem;
     private long bucketedItem;
-    private final long TIMEOUTSEC = 300;
-    private final int pres = 40;
+    private final long TIMEOUTSEC = 20;
+    private final int pres = 10;
+    //GGGG private final int pres = 40;
+
     private int alarmLmt;
     private final double tempChange = 0.995;
+    //GGGG private final double tempChange = 0.998;
     private final double RepeatTempChange = 0.9;
     private int MAXITER;
     private int TICKER;
     private final int MAXOUTER = 200;
     private double percentKicked = 0.1;
-    private final double percentKickedCls = 0.1;
-
-
-
-
-    /*
-    private final long TIMEOUTSEC = 30;
-    private final int alarmLmt = 80;
-    private final double tempChange = 0.95;
-    private final int MAXITER = 400;
-    private final int MAXOUTER = 600;
-    private final double percentKicked = 0.3;
-    private double initTemp;
-    */
+    private final double percentKickedCls = 0.05;
+    //GGGG private final double percentKickedCls = 0.3;
 
 
     private class SolInstance {
@@ -61,6 +49,7 @@ public class SimAnSolverHeuristic {
             blockedClsArr = new int[N];
             classTrack = new int[N];
             numContained = 0;
+            costCo = -1;
         }
 
         public SolInstance(SolInstance SolI) {
@@ -88,7 +77,7 @@ public class SimAnSolverHeuristic {
 
             classTrack = new int[N];
             System.arraycopy(SolI.classTrack, 0, classTrack, 0, N);
-
+            costCo = SolI.costCo;
         }
 
         public long p_r;
@@ -99,6 +88,7 @@ public class SimAnSolverHeuristic {
         public int[] blockedClsArr;
         public int[] containedArr;
         public int[] classTrack;
+        public double costCo;
 
     }
 
@@ -107,14 +97,23 @@ public class SimAnSolverHeuristic {
                                 long[]RArr, HashSet<Integer>[] classIncArr, String fn) {
         System.out.println("Using Heuristic");
 
+        //2000 should be good enough.
+        goodRatArr = new double[2000];
+        numGoodRat = 0;
 
-        s = new Stack();
-        s.add(0);
-        s.add(pres);
+        s = new ArrayDeque();
+        double candid = 0;
+        for (int i = 0; i < (pres/2 -1) ; i += 1) {
+            s.add(1 - candid);
+            s.add(candid);
+            candid += (1.0/pres);
+        }
+        s.add(0.5);
         
-        
-        alarmLmt = n*3;
-        MAXITER = n*30;
+        alarmLmt = n/10;
+        //GGGG alarmLmt = n*3;
+        MAXITER = n*10;
+        //GGGG MAXITER = n*300;
         TICKER = n/2;
 
         P = p;
@@ -130,7 +129,7 @@ public class SimAnSolverHeuristic {
         //bucketStarted = false;
         
         Solve();
-        verifyResult();
+        // GGGG verifyResult();
 
     }
 
@@ -161,20 +160,9 @@ public class SimAnSolverHeuristic {
 
 
             SolInstance CurSol = CreateGreedyInitial();
-            //SolInstance CurBestSol = CurSol;
-
-
-/*            if (bucketStarted) {
-                int bucketIdx = (int) (CurSol.tVal >>> bucketbit);
-                edBuckets[bucketIdx] += 1;
-                bucketedItem += 1;
-                if (edBuckets[bucketIdx]> (2* bucketedItem/ (long)bucketsize)){
-                    System.out.println("Discarting " + CurSol.tVal + ".");
-                    continue;
-                }
-
-            }*/
-
+            if (BestSol == null) {
+                BestSol = CurSol;
+            }
 
             double temp = 1;
             for (int i = 0; i < MAXITER; i += 1) {
@@ -182,86 +170,61 @@ public class SimAnSolverHeuristic {
                     break;
                 }
                 
+                
                 SolInstance Sol_i = CreateNeighborSolution(CurSol);
                 long val_i = Sol_i.tVal;
                 long val_cur = CurSol.tVal;
                 if (val_i > val_cur) {
-                    //System.out.println("Local improvement from " + val_cur + " to " + val_i);
                     CurSol = Sol_i;
-                    //System.out.println(F + " Semi-global improvement: " + Sol_i.tVal);
                     if (val_i > BestSol.tVal) {
                         temp = 1;
                         overallTemp = 1;
                         BestSol = Sol_i;
-                        System.out.println(F + " Actual global improvement: " + CurSol.tVal);
-                        if (tick > 1) {
-                            if (MAXITER <= 20000000) {
+                        // GGGG System.out.println(F + " Actual global improvement: " + CurSol.tVal);
+                        
+                        /* GGGG if (tick > 1) {
+                            if (MAXITER <= 200000000) {
                                 MAXITER *= 2;
                             }
-                        }
+                        }*/
                     }
                     Sol_i = null;
-
-/*                    if (val_i > CurSol.tVal) {
-                        CurSol = Sol_i;
-                        System.out.println(F + " Semi-global improvement: " + Sol_i.tVal);
-                        if (val_i > BestSol.tVal) {
-                            BestSol = Sol_i;
-                            System.out.println(F + " Actual global improvement: " + CurSol.tVal);
-                        }
-                        bucketTicker += 1;
-                        if (bucketTicker == 4) {
-                            System.out.println("Ticking bucket with value " + Sol_i.tVal);
-                            initBuckets(Sol_i.tVal);
-                        }
-
-                    }*/
-
                 } else {
                     temp = temp*tempChange;
                 }
-                /*else if (temp > Math.random()) {
-                    CurSol = Sol_i;
-                    Sol_i = null;
-                    //System.out.println("Random re-shuffle" + val_cur + " to " + val_i);
-                }*/
-
-
-
-                //System.out.println("Finish an OuterLoop with" + CurSol.tVal);
-
             }
-/*            if (CurBestSol.tVal > BestSol.tVal) {
-                BestSol = CurBestSol;
-                System.out.println(F + " Actual global improvement: " + CurSol.tVal);
-                      bucketTicker += 1;
-                        if (bucketTicker == 4) {
-                            System.out.println("Ticking bucket with value " + Sol_i.tVal);
-                            initBuckets(Sol_i.tVal);
-                        }
-
-            }*/
             if (CurSol.tVal == BestSol.tVal) {
-                if (percentKicked < 0.1 && alarmLmt < 2000000) {
-                    percentKicked *= 2;
+                /* GGGG if (percentKicked < 0.1 && alarmLmt < 2000000) {
+                     GGGG percentKicked *= 2;
                     alarmLmt*=2;
-                }
+                } */
                 overallTemp *= RepeatTempChange;
-                System.out.println("-------------------------------!");
+                goodRatArr[numGoodRat] = CurSol.costCo;
+                numGoodRat += 1;
+                System.out.println(F + " Hardwork improvement: " + CurSol.tVal);
+                // GGGG System.out.println("-------------------------------!");
             } else if (CurSol.tVal > BestSol.tVal) {
                 System.out.println(F + " Simply with Greedy, global improvement: " + CurSol.tVal);
                 BestSol = CurSol;
                 tick += 1;
-                if (tick > 2 && percentKicked < 0.20) {
+                /* GGGG if (tick > 2 && percentKicked < 0.20) {
                     percentKicked *= 1.5;
-                }
+                }*/
+                goodRatArr[numGoodRat] = CurSol.costCo;
+                numGoodRat += 1;
+            } else {
+                goodRatArr[numGoodRat] = goodRatArr[numGoodRat - 1];
+                numGoodRat += 1;
             }
             CurSol = null;
         }
         
         System.out.println("Entering Bump Item. ");
         
-        bumpingItem = true;
+        if (!s.isEmpty()) {
+            MAXITER /= 10000;
+            alarmLmt /= 10;
+        }
         
         for (int out = 0; out < MAXOUTER; out += 1) {
             if (System.currentTimeMillis() > End2 || overallTemp < 0.5) {
@@ -278,20 +241,6 @@ public class SimAnSolverHeuristic {
             
             
             SolInstance CurSol = CreateGreedyInitial();
-            //SolInstance CurBestSol = CurSol;
-            
-            
-            /*            if (bucketStarted) {
-             int bucketIdx = (int) (CurSol.tVal >>> bucketbit);
-             edBuckets[bucketIdx] += 1;
-             bucketedItem += 1;
-             if (edBuckets[bucketIdx]> (2* bucketedItem/ (long)bucketsize)){
-             System.out.println("Discarting " + CurSol.tVal + ".");
-             continue;
-             }
-             
-             }*/
-            
             
             double temp = 1;
             for (int i = 0; i < MAXITER; i += 1) {
@@ -303,64 +252,37 @@ public class SimAnSolverHeuristic {
                 long val_i = Sol_i.tVal;
                 long val_cur = CurSol.tVal;
                 if (val_i > val_cur) {
-                    //System.out.println("Local improvement from " + val_cur + " to " + val_i);
                     CurSol = Sol_i;
-                    //System.out.println(F + " Semi-global improvement: " + Sol_i.tVal);
                     if (val_i > BestSol.tVal) {
                         temp = 1;
                         overallTemp = 1;
                         BestSol = Sol_i;
-                        System.out.println(F + " Actual global improvement: " + CurSol.tVal);
+                        // GGGG System.out.println(F + " Actual global improvement: " + CurSol.tVal);
                     }
                     Sol_i = null;
-                    
-                    /*                    if (val_i > CurSol.tVal) {
-                     CurSol = Sol_i;
-                     System.out.println(F + " Semi-global improvement: " + Sol_i.tVal);
-                     if (val_i > BestSol.tVal) {
-                     BestSol = Sol_i;
-                     System.out.println(F + " Actual global improvement: " + CurSol.tVal);
-                     }
-                     bucketTicker += 1;
-                     if (bucketTicker == 4) {
-                     System.out.println("Ticking bucket with value " + Sol_i.tVal);
-                     initBuckets(Sol_i.tVal);
-                     }
-                     
-                     }*/
                     
                 } else {
                     temp = temp*tempChange;
                 }
-                /*else if (temp > Math.random()) {
-                 CurSol = Sol_i;
-                 Sol_i = null;
-                 //System.out.println("Random re-shuffle" + val_cur + " to " + val_i);
-                 }*/
-                
-                
-                
-                //System.out.println("Finish an OuterLoop with" + CurSol.tVal);
-                
             }
-            /*            if (CurBestSol.tVal > BestSol.tVal) {
-             BestSol = CurBestSol;
-             System.out.println(F + " Actual global improvement: " + CurSol.tVal);
-             bucketTicker += 1;
-             if (bucketTicker == 4) {
-             System.out.println("Ticking bucket with value " + Sol_i.tVal);
-             initBuckets(Sol_i.tVal);
-             }
-             
-             }*/
+            
             if (CurSol.tVal == BestSol.tVal) {
                 overallTemp *= RepeatTempChange;
-                System.out.println("-------------------------------!");
+                goodRatArr[numGoodRat] = CurSol.costCo;
+                numGoodRat += 1;
+                System.out.println(F + " Hardwork improvement: " + CurSol.tVal);
+                // GGGG System.out.println("-------------------------------!");
             } else if (CurSol.tVal > BestSol.tVal) {
-                System.out.println(F + "Simply with Greedy, global improvement: " + CurSol.tVal);
+                System.out.println(F + " Simply with Greedy, global improvement: " + CurSol.tVal);
                 BestSol = CurSol;
+                goodRatArr[numGoodRat] = CurSol.costCo;
+                numGoodRat += 1;
+            } else {
+                goodRatArr[numGoodRat] = goodRatArr[numGoodRat - 1];
+                numGoodRat += 1;
             }
             CurSol = null;
+
         }
         
         
@@ -368,24 +290,6 @@ public class SimAnSolverHeuristic {
     }
 
 
-
-
-
-
-/*    private void initBuckets(long bucketRef) {
-        bucketedItem = 0;
-
-        bucketbit = 0;
-        while(bucketRef > (long)16283) {
-            bucketbit += 1;
-            bucketRef = bucketRef >>> 1;
-        }
-        bucketsize = (int) (bucketRef >>> bucketbit) << 2;
-        System.out.println("The bucketsize is destined to be: " + bucketsize);
-        edBuckets = new long[bucketsize];
-
-        bucketStarted = true;
-    }*/
 
 
     private void addItem(SolInstance S_in) {
@@ -466,9 +370,31 @@ public class SimAnSolverHeuristic {
     
     
     private SolInstance CreateGreedyInitial() {
-        PriorityQueue<Integer> RevRatPQ = FillRevRatioPQ();
+        double costC = 0;
+        if (!s.isEmpty()) {
+            costC = s.poll();
+        } else {
+            /*
+            double sum = 0;
+            int numRec = (numGoodRat + 1)*numGoodRat/2;
+            for (int i = 0; i < numGoodRat; i++) {
+                sum += (i + 1) * goodRatArr[i];
+            }
+            System.out.println(sum + " " + numRec);
+            costC = sum / numRec;*/
+            if (Math.random() < 0.9) {
+                costC = goodRatArr[numGoodRat - 1];
+            } else {
+                costC = Math.random();
+            }
+        }
+        
+        
+        
+        PriorityQueue<Integer> RevRatPQ = FillRevRatioPQ(costC);
         SolInstance initSolution;
         initSolution = new SolInstance();
+        initSolution.costCo = costC;
         
         while(!RevRatPQ.isEmpty()) {
             int eleAdd = RevRatPQ.remove();
@@ -507,7 +433,7 @@ public class SimAnSolverHeuristic {
         
         
         //checkTrack(initSolution);
-        System.out.println("Safely go out of initial solution. ");
+        //System.out.println("Safely go out of initial solution. ");
         return initSolution;
     }
 
@@ -543,9 +469,6 @@ public class SimAnSolverHeuristic {
                     S_new.choosenArr[bumpIdx] = false;
 
                     S_new.p_r += WeightArr[bumpIdx];
-                    if (S_new.p_r > P) {
-                        System.out.println("Exceed maximum P when bumping item with weight" + WeightArr[bumpIdx]);
-                    }
                     S_new.m_r += CostArr[bumpIdx];
                     S_new.tVal -= RevArr[bumpIdx];
 
@@ -624,9 +547,6 @@ public class SimAnSolverHeuristic {
                 int bumpCIndex = (int)(Math.random() * numCls);
                 int bumpC = clsExistList.get(bumpCIndex);
                 if (bumpC != -1) {
-                    if (S_new.classTrack[bumpC] == 0) {
-                        //System.out.println("Bumping class " + bumpC);
-                    }
                     
                     for (int i = 0; i < S_new.numContained; i += 1) {
                         int itemIdx = contArr[i];
@@ -663,10 +583,7 @@ public class SimAnSolverHeuristic {
 
     private void kickRestriction(int clsKicked, int[] blockedClsArr) {
         for (int e_release : ClassIncArr[clsKicked]) {
-            
-            if(blockedClsArr[e_release] <=0) {
-                //System.out.println("FFF");
-            }
+            //FIXME
             if(blockedClsArr[e_release] >0) {
                 blockedClsArr[e_release] -=1;
             }
@@ -686,7 +603,7 @@ public class SimAnSolverHeuristic {
     /** Comparator for revenue/cost ratio. */
     class RevComparator implements Comparator<Integer> {
         // Return 1 if obj1 is more profitable than obj2
-        RevComparator(int c, int w) {
+        RevComparator(double c, double w) {
             costCoef = c;
             weightCoef = w;
         }
@@ -702,26 +619,19 @@ public class SimAnSolverHeuristic {
             }
         }
         
-        int costCoef;
-        int weightCoef;
+        double costCoef;
+        double weightCoef;
     }
 
     /** Fill the Rev Ratio PQ for initial processing,
      * which will gurantee the most profitable items are at least
      * considered once.
      */
-    private PriorityQueue<Integer> FillRevRatioPQ() {
-        int costC = 0;
-        if (s.isEmpty()) {
-            costC = (int) (Math.random() * (pres + 1));
-            //int costC = pres;
-        } else {
-            costC = s.pop();
-        }
-        int weightC = pres - costC;
+    private PriorityQueue<Integer> FillRevRatioPQ(double costC) {
+        double weightC = 1 - costC;
         
 
-        System.out.println("Using CostC: " + costC);
+        // GGGG System.out.println("Using CostC: " + costC);
         
         
         PriorityQueue<Integer> RevRatioPQ = new PriorityQueue<>(N, new RevComparator(costC, weightC));
@@ -731,22 +641,11 @@ public class SimAnSolverHeuristic {
             }
         }
         return RevRatioPQ;
-        /*
-        while (!RevRatioPQ.isEmpty()) {
-            Integer ej = RevRatioPQ.poll();
-            long c = CostArr[ej];
-            long r = RevArr[ej];
-            double rat = r/((double) c + 0.01);
-            //System.out.println("Ejecting item" + ej + " with revenue ratio" + rat );
-        }*/
     }
     
 
 
 
-    
-    
-    
     
     private void verifyResult() {
         /*Weight part. */
@@ -813,10 +712,6 @@ public class SimAnSolverHeuristic {
     private long[] RevArr;
 
 
-    /** PriorityQueue of Profits. */
-    //PriorityQueue<Integer> RevRatioPQ;
-
-
     /** The Best Choosen Solution Instance. */
     private SolInstance BestSol;
 
@@ -828,7 +723,15 @@ public class SimAnSolverHeuristic {
     private Random rd;
 
     
-    Stack<Integer> s;
+    /** ArrayDeque that keep track of all initial candidates. */
+    private ArrayDeque<Double> s;
+    
+    /** Array that keep track of all good ratios that either produce a maximum or keep one. */
+    private double[] goodRatArr;
+    
+    /** Number of good costCoef recorded. */
+    private int numGoodRat;
+    
 
     /** The Temperature. */
     private double overallTemp;

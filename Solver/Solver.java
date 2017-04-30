@@ -15,6 +15,8 @@ import static Solver.SolverException.*;
  * Created by yxiaocheng1997 on 4/19/17.
  */
 public class Solver {
+    
+    private final long TIMEOUTSEC = 20;
 
     public static void main(String... args) {
         try {
@@ -34,6 +36,7 @@ public class Solver {
         fn = args[0];
         _input = getInput(args[0]);
         _output = getOutput(args[1]);
+        
 
     }
 
@@ -46,18 +49,13 @@ public class Solver {
 
     /** Read the information from the input file. **/
     private void readInputInit() {
-
-        //Pattern digit = Pattern.compile("([0-9]+.[0-9]{2})");
+        valid = true;
 
         P = convertDouble(_input.nextLine());
         M = convertDouble(_input.nextLine());
         N = Integer.parseInt(_input.nextLine());
 
         ClsN = 0;
-
-        // NameTable = new Hashtable<>(N);
-        // ClassTable = new Hashtable<>(N);
-
         NameArr = new String[N];
         ClassArr = new int[N];
         WeightArr = new long[N];
@@ -136,8 +134,17 @@ public class Solver {
             }
 
         }
+        
+        
+        long Start = System.currentTimeMillis();
+        long End = Start + 1000 * TIMEOUTSEC;
 
         for (int j = 0; j < C; j += 1) {
+            if (System.currentTimeMillis() > End) {
+                System.out.println("FLAG!!!!! Input " + fn + " constrain timeout!!");
+                valid = false;
+                break;
+            }
             ArrayList<Integer> cstrList = new ArrayList<>(2);
             Scanner cstrSC = null;
 
@@ -147,10 +154,16 @@ public class Solver {
                 System.out.println( "The problem is with: " +C);
             }
 
-
+            int ticker = 0;
             while (cstrSC.hasNext()) {
+                if (ticker > 2048) {
+                    System.out.println("FLAG!!!!! Input " + fn + " one constrain with length greater than 2048. ");
+                    valid = false;
+                    return;
+                }
                 String s = cstrSC.next();
                 cstrList.add(Integer.parseInt(s.substring(0,s.length() - 1)));
+                ticker += 1;
             }
 
             int b = cstrList.size();
@@ -160,9 +173,6 @@ public class Solver {
                 for (int l = 0; l < b; l += 1) {
                     if (l != k) {
                         //ClassIncTable.get(k).add(l);
-                        if (cstrList.get(k) == 40000) {
-                            System.out.println("Shit");
-                        }
                         ClassIncArr[cstrList.get(k)].add(cstrList.get(l));
                     }
                 }
@@ -236,11 +246,13 @@ public class Solver {
     /** process the input and makes the output. */
     private void process(){
         readInputInit();
-        SimAnSolverHeuristic sol =
-                new SimAnSolverHeuristic(P, M, N, ClassArr, WeightArr, CostArr, RevArr, ClassIncArr, fn);
-        printResult(sol.getOptSolution());
-        System.out.println("For file " + fn +
-                " =====Percentage Profit is: " + sol.getOptVal());
+        if (valid) {
+            SimAnSolverHeuristic sol =
+            new SimAnSolverHeuristic(P, M, N, ClassArr, WeightArr, CostArr, RevArr, ClassIncArr, fn);
+            printResult(sol.getOptSolution());
+            System.out.println("For file " + fn +
+                               " =====Percentage Profit is: " + sol.getOptVal());
+        }
     }
 
     
@@ -311,6 +323,9 @@ public class Solver {
     /** File Name. */
     private String fn;
 
+    
+    /** control boolean. */
+    private boolean valid;
 
 
 
