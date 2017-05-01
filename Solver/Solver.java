@@ -51,9 +51,9 @@ public class Solver {
     private void readInputInit() {
         valid = true;
 
-        P = convertDouble(_input.nextLine());
-        M = convertDouble(_input.nextLine());
-        N = Integer.parseInt(_input.nextLine());
+        P = convertDouble(_input.nextLine().replaceAll("\\s+", ""));
+        M = convertDouble(_input.nextLine().replaceAll("\\s+", ""));
+        N = Integer.parseInt(_input.nextLine().replaceAll("\\s+", ""));
 
         ClsN = 0;
         NameArr = new String[N];
@@ -63,54 +63,81 @@ public class Solver {
         RevArr = new long[N];
 
 
-        //ClassIdxTable = new Hashtable<>(N);
-        ClassIdxArr = new HashSet[N];
-
-        //ClassIncTable = new Hashtable<>(N);
         ClassIncArr = new HashSet[N];
+        
+        ClassConstIdxArr = new HashSet[N];
 
-        /** Initializing all class to be an empty HSet. */
-        for (int cls = 0; cls < N; cls += 1) {
-            //ClassIdxTable.put(cls, new HashSet<>());
-            ClassIdxArr[cls] = new HashSet<>();
-        }
 
         /** Initializing all class to be an empty HSet. */
         for (int cls = 0; cls < N; cls += 1) {
             //ClassIncTable.put(cls, new HashSet<>());
             ClassIncArr[cls] = new HashSet<>();
         }
+        
+        
+        for (int cls = 0; cls < N; cls += 1) {
+            //ClassIncTable.put(cls, new HashSet<>());
+            ClassConstIdxArr[cls] = new HashSet<>();
+        }
+        
 
 
-        C = Integer.parseInt(_input.nextLine());
-
-
+        C = Integer.parseInt(_input.nextLine()).replaceAll("\\s+", ""));
+        
+        
+        ConstArr = new ArrayList[C];
+        for (int cst = 0; cst < C; cst += 1) {
+            ConstArr[cst] = new ArrayList<>();
+        }
+        
+        
+        
+        Pattern item_pat0 = Pattern.compile("(.*?) ; (.*?) ; (.*?) ; (.*?) ; (.*?)");
         Pattern item_pat1 = Pattern.compile("(.*?); (.*?); (.*?); (.*?); (.*?)");
-        Pattern item_pat2 = Pattern.compile("(.*?);(.*?);(.*?);(.*?);(.*?)");
+        Pattern item_pat2 = Pattern.compile("(.*?) ;(.*?) ;(.*?) ;(.*?) ;(.*?)");
+        Pattern item_pat3 = Pattern.compile("(.*?);(.*?);(.*?);(.*?);(.*?)");
+
+
         for (int i = 0; i < N; i += 1) {
             String nextL = _input.nextLine();
+            //String nextL = nextLine.replaceAll("\\s+", "");
+            Matcher m0 = item_pat0.matcher(nextL);
             Matcher m1 = item_pat1.matcher(nextL);
             Matcher m2 = item_pat2.matcher(nextL);
+            Matcher m3 = item_pat3.matcher(nextL);
             String name;
             int cls;
             long wt;
             long cost;
             long val;
 
-            if (m1.matches()) {
+            
+            if (m0.matches()) {
+                name = m0.group(1);
+                cls = Integer.parseInt(m0.group(2));
+                wt = convertDouble(m0.group(3));
+                cost = convertDouble(m0.group(4));
+                val = convertDouble(m0.group(5));
+            } else if (m1.matches()) {
                 name = m1.group(1);
                 cls = Integer.parseInt(m1.group(2));
                 wt = convertDouble(m1.group(3));
                 cost = convertDouble(m1.group(4));
                 val = convertDouble(m1.group(5));
 
-            } else {
-                m2.matches();
+            } else if (m2.matches()){
                 name = m2.group(1);
                 cls = Integer.parseInt(m2.group(2));
                 wt = convertDouble(m2.group(3));
                 cost = convertDouble(m2.group(4));
                 val = convertDouble(m2.group(5));
+            } else {
+                m3.matches();
+                name = m3.group(1);
+                cls = Integer.parseInt(m3.group(2));
+                wt = convertDouble(m3.group(3));
+                cost = convertDouble(m3.group(4));
+                val = convertDouble(m3.group(5));
             }
 
 
@@ -125,80 +152,92 @@ public class Solver {
                 CostArr[i] = cost;
                 RevArr[i] = val - cost;
 
-                if (ClassIdxArr[cls].isEmpty()) {
-                    ClsN += 1;
-                }
+                //if (ClassIdxArr[cls].isEmpty()) {
+                //    ClsN += 1;
+                //}
 
-                ClassIdxArr[cls].add(i);
+                //ClassIdxArr[cls].add(i);
                 //ClassIdxTable.get(cls).add(i);
             }
 
         }
         
+        // Number of constrains
+        int constNum = 0;
+        
         
         long Start = System.currentTimeMillis();
         long End = Start + 1000 * TIMEOUTSEC;
 
+        //DELETEME, Just to speed up.
+        valid = false;
+        
+        
         for (int j = 0; j < C; j += 1) {
-            if (System.currentTimeMillis() > End) {
-                System.out.println("FLAG!!!!! Input " + fn + " constrain timeout!!");
-                valid = false;
-                break;
-            }
             ArrayList<Integer> cstrList = new ArrayList<>(2);
             Scanner cstrSC = null;
-
+            
             try {
                 cstrSC = new Scanner(_input.nextLine().replaceAll("[,]", "$0 ") + ",");
             } catch (java.util.NoSuchElementException e) {
                 System.out.println( "The problem is with: " +C);
             }
-
+            
             int ticker = 0;
             while (cstrSC.hasNext()) {
-                if (ticker > 2048) {
-                    System.out.println("FLAG!!!!! Input " + fn + " one constrain with length greater than 2048. ");
+                if (ticker == 2048) {
+                    //System.out.println("FLAG!!!!! Input " + fn + " one constrain with length greater than 2048. ");
                     valid = false;
-                    return;
+                    ClassIncArr = null;
+                    //return;
                 }
                 String s = cstrSC.next();
-                cstrList.add(Integer.parseInt(s.substring(0,s.length() - 1)));
+                //try{
+                    cstrList.add(Integer.parseInt(s.substring(0,s.length() - 1)));
+                //} catch (NumberFormatException e) {
+                //    System.out.println("The problem is " + s);
+                //}
+                
                 ticker += 1;
             }
-
+            
             int b = cstrList.size();
-
-            /*Add incompatible class L into the blacklist of the class K.*/
+            
             for (int k = 0; k < b; k += 1) {
-                for (int l = 0; l < b; l += 1) {
-                    if (l != k) {
-                        //ClassIncTable.get(k).add(l);
-                        ClassIncArr[cstrList.get(k)].add(cstrList.get(l));
+                if (cstrList.get(k) > (N - 1)) {
+                    continue;
+                }
+                ClassConstIdxArr[cstrList.get(k)].add(constNum);
+            }
+            
+            ConstArr[constNum] = cstrList;
+            constNum += 1;
+            
+            
+            if (valid) {
+                if (System.currentTimeMillis() > End) {
+                    //System.out.println("FLAG!!!!! Input " + fn + " constrain timeout!!");
+                    valid = false;
+                    ClassIncArr = null;
+                    continue;
+                    //break;
+                }
+                
+                for (int k = 0; k < b; k += 1) {
+                    for (int l = 0; l < b; l += 1) {
+                        if (l != k) {
+                            //ClassIncTable.get(k).add(l);
+                            ClassIncArr[cstrList.get(k)].add(cstrList.get(l));
+                        }
                     }
                 }
+                
             }
+            
 
 
         }
-        
-        /*
-        
-        PrintStream ps = null;
-        try{
-            ps = new PrintStream(new File("constrain/problem4.cons"));
-        } catch(Exception e) {
-            System.exit(1);
-        }
 
-        
-
-        for (int i = 0; i < N; i += 1) {
-            ps.print(i + " ");
-            for (Integer j : ClassIncArr[i]) {
-                ps.print(j + " ");
-            }
-            ps.println();
-        }*/
 
         System.out.println("Done");
 
@@ -251,7 +290,14 @@ public class Solver {
             new SimAnSolverHeuristic(P, M, N, ClassArr, WeightArr, CostArr, RevArr, ClassIncArr, fn);
             printResult(sol.getOptSolution());
             System.out.println("For file " + fn +
-                               " =====Percentage Profit is: " + sol.getOptVal());
+                               " =====Profit is: " + sol.getOptVal());
+        } else {
+            SimAnSolverHeuristicBackup sol =
+            new SimAnSolverHeuristicBackup(P, M, N, C, ClassArr, WeightArr, CostArr, RevArr, ClassConstIdxArr,
+                                           ConstArr, fn);
+            printResult(sol.getOptSolution());
+            System.out.println("For file " + fn +
+                               " =====GOOOOOOD Profit is: " + sol.getOptVal());
         }
     }
 
@@ -260,10 +306,6 @@ public class Solver {
     
     
     
-    
-    
-    
-
 
 
 
@@ -308,13 +350,15 @@ public class Solver {
     /** Mapping from item index to its weight. */
     private long[] RevArr;
 
-    /** Mapping from class index to item index. */
-    private HashSet<Integer>[] ClassIdxArr;
-    //Hashtable<Integer, HashSet<Integer>> ClassIdxTable;
-
     /** Mapping from class index to HSet of class index that is incompatible. */
     private HashSet<Integer>[] ClassIncArr;
     //Hashtable<Integer, HashSet<Integer>> ClassIncTable;
+    
+    /** Map from class index to constrain index that contain that class. */
+    private HashSet<Integer>[] ClassConstIdxArr;
+    
+    /** Map from constrain index to constrain stored in ArrayList. */
+    private ArrayList<Integer>[] ConstArr;
 
 
     /** Number of constrains. */

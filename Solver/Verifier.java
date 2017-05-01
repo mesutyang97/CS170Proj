@@ -203,6 +203,19 @@ public class Verifier {
 
     private void calculateResult() {
         constrainMessed = false;
+        /*Value part. */
+        long ActualRevL = 0;
+        for (int i = 0; i < N; i += 1) {
+            if (Choosen[i]) {
+                ActualRevL += RevArr[i];
+                
+            }
+        }
+        double ActualVal = (ActualRevL + M)/(double) 100;
+        _result.println("The Actual Value is: " + ActualVal);
+        
+        
+        
         /*Weight part. */
         long ActualPL = 0;
         for (int i = 0; i < N; i += 1) {
@@ -256,11 +269,14 @@ public class Verifier {
 
             /*Add incompatible class L into the blacklist of the class K.*/
             for (int k : cstrList) {
+                if (k > (N -1)) {
+                    continue;
+                }
                 if (ChoosenCls[k]) {
                     bad[counter] = k;
                     counter += 1;
                     if (counter > 1) {
-                        _result.println("Constrain " + constrainString + " is violated.");
+                        _result.println("Constrain " + j + " is violated.");
                         _result.println("Because of " + bad[0] + " and " + bad[1]);
                         constrainMessed = true;
                         break;

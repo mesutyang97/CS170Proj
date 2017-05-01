@@ -12,7 +12,7 @@ import java.util.ArrayDeque;
 /**
  * Created by yxiaocheng1997 on 4/20/17.
  */
-public class SimAnSolverHeuristic {
+public class SimAnSolverHeuristicBackup {
 
     private boolean bucketStarted;
     private int bucketbit;
@@ -46,8 +46,9 @@ public class SimAnSolverHeuristic {
             m_r = M;
             choosenArr = new boolean[N];
             containedArr = new int[N];
-            blockedClsArr = new int[N];
+            //blockedClsArr = new int[N];
             classTrack = new int[N];
+            numUsedInConstr = new int[C];
             numContained = 0;
             costCo = -1;
         }
@@ -72,8 +73,8 @@ public class SimAnSolverHeuristic {
 
             numContained = SolI.numContained;
 
-            blockedClsArr = new int[N];
-            System.arraycopy(SolI.blockedClsArr, 0, blockedClsArr, 0, N);
+            numUsedInConstr = new int[C];
+            System.arraycopy(SolI.numUsedInConstr, 0, numUsedInConstr, 0, C);
 
             classTrack = new int[N];
             System.arraycopy(SolI.classTrack, 0, classTrack, 0, N);
@@ -85,17 +86,20 @@ public class SimAnSolverHeuristic {
         private long tVal;
         public int numContained;
         public boolean[] choosenArr;
-        public int[] blockedClsArr;
+        //public int[] blockedClsArr;
         public int[] containedArr;
         public int[] classTrack;
         public double costCo;
+        /** Mapping from constrain index to how many element in that constrain is used. */
+        private int[] numUsedInConstr;
 
     }
 
-    public SimAnSolverHeuristic(long p, long m, int n,
+    public SimAnSolverHeuristicBackup(long p, long m, int n, int c,
                                 int[] ClsArr, long[]WArr, long[]CArr,
-                                long[]RArr, HashSet<Integer>[] classIncArr, String fn) {
-        System.out.println("Using Heuristic");
+                                long[]RArr, HashSet<Integer>[] clsConstIdxArr,
+                                      ArrayList<Integer>[] constArr,String fn) {
+        System.out.println("Using Backup Heuristic");
 
         //2000 should be good enough.
         goodRatArr = new double[2000];
@@ -119,13 +123,19 @@ public class SimAnSolverHeuristic {
         P = p;
         M = m;
         N = n;
+        C = c;
         ClassArr = ClsArr;
         WeightArr = WArr;
         CostArr = CArr;
         RevArr = RArr;
-        ClassIncArr = classIncArr;
+        ClassConstIdxArr = clsConstIdxArr;
+        ConstArr = constArr;
+        
         F = fn;
 
+        //numUsedInConstr[] = new int[C]
+        
+        
         //bucketStarted = false;
         
         Solve();
@@ -138,6 +148,7 @@ public class SimAnSolverHeuristic {
         System.out.println("Entering Solve....");
         overallTemp = 1;
         BestSol = CreateInitialSolution();
+        
         long Start = System.currentTimeMillis();
         long End1 = Start + 1000 * TIMEOUTSEC;
         long End2 = End1 + 1000 * TIMEOUTSEC;
@@ -298,34 +309,28 @@ public class SimAnSolverHeuristic {
         // Alarm to prevent overflow;
         int alarm1 = 0;
         //int blockBound = (int) blockingPerc * ClsN;
-
-        int runningIdx = 0;
-        int[] candidateArr = new int[N];
-        for (int i = 0; i < N; i += 1) {
-            if (S_in.blockedClsArr[ClassArr[i]] == 0 && !S_in.choosenArr[i] &&
-                WeightArr[i] < S_in.p_r &&  CostArr[i] < S_in.m_r) {
-                candidateArr[runningIdx] = i;
-                runningIdx += 1;
-            }
-        }
-        if (runningIdx == 0) {
-            return;
-        }
         
     OuterLoop:
         while (alarm1 < alarmLmt) {
             int alarm2 = 0;
-            int candIdx = rd.nextInt(runningIdx);
-            int eleAdd = candidateArr[candIdx];
-            while (eleAdd == -1 || S_in.blockedClsArr[ClassArr[eleAdd]] > 0 || WeightArr[eleAdd] > S_in.p_r
-                   || CostArr[eleAdd] > S_in.m_r || S_in.choosenArr[eleAdd]) {
+            int eleAdd = rd.nextInt(N);
+            int clsAdd = ClassArr[eleAdd];
+            
+
+            while (eleAdd == -1 || WeightArr[eleAdd] > S_in.p_r
+                   || CostArr[eleAdd] > S_in.m_r || S_in.choosenArr[eleAdd]
+                   || !validateItem(eleAdd, S_in)) {
                 if (alarm2 > alarmLmt) {
                     break OuterLoop;
                 }
-                candIdx = rd.nextInt(runningIdx);
-                eleAdd = candidateArr[candIdx];
+                eleAdd = rd.nextInt(N);
+                clsAdd = ClassArr[eleAdd];
+                
                 alarm2 += 1;
+                
             }
+
+            
             
             S_in.choosenArr[eleAdd] = true;
             S_in.numContained += 1;
@@ -335,15 +340,14 @@ public class SimAnSolverHeuristic {
             S_in.m_r -= CostArr[eleAdd];
             S_in.tVal += RevArr[eleAdd];
             
-            int clsAdd = ClassArr[eleAdd];
             S_in.classTrack[clsAdd] += 1;
             
             if (S_in.classTrack[clsAdd] == 1) {
-                for (int e_block : ClassIncArr[clsAdd]) {
-                    S_in.blockedClsArr[e_block] += 1;
+                for (int cst_block : ClassConstIdxArr[clsAdd]) {
+                    S_in.numUsedInConstr[cst_block] += 1;
+                    //System.out.println("Constrain " + cst_block + " is incremented");
                 }
             }
-            candidateArr[candIdx] = -1;
         }
         
         S_in.containedArr = new int[N];
@@ -398,8 +402,7 @@ public class SimAnSolverHeuristic {
         
         while(!RevRatPQ.isEmpty()) {
             int eleAdd = RevRatPQ.remove();
-            if (initSolution.blockedClsArr[ClassArr[eleAdd]] == 0 &&
-                WeightArr[eleAdd] < initSolution.p_r &&  CostArr[eleAdd] < initSolution.m_r) {
+            if (WeightArr[eleAdd] < initSolution.p_r &&  CostArr[eleAdd] < initSolution.m_r && validateItem(eleAdd, initSolution)) {
                 initSolution.choosenArr[eleAdd] = true;
                 initSolution.numContained += 1;
                 
@@ -411,8 +414,8 @@ public class SimAnSolverHeuristic {
                 initSolution.classTrack[clsAdd] += 1;
                 
                 if (initSolution.classTrack[clsAdd] == 1) {
-                    for (int e_block : ClassIncArr[clsAdd]) {
-                        initSolution.blockedClsArr[e_block] += 1;
+                    for (int cst_block : ClassConstIdxArr[clsAdd]) {
+                        initSolution.numUsedInConstr[cst_block] += 1;
                     }
                 }
             }
@@ -435,6 +438,24 @@ public class SimAnSolverHeuristic {
         //checkTrack(initSolution);
         //System.out.println("Safely go out of initial solution. ");
         return initSolution;
+    }
+    
+    
+    
+    boolean validateItem(int idx, SolInstance S) {
+        int cls = ClassArr[idx];
+        if (S.classTrack[cls] > 0) {
+            return true;
+        }
+        
+        for (int i : ClassConstIdxArr[cls]) {
+            
+            if (S.numUsedInConstr[i] > 0) {
+                return false;
+            }
+        }
+        
+        return true;
     }
 
 
@@ -475,7 +496,7 @@ public class SimAnSolverHeuristic {
                     int clsBump = ClassArr[bumpIdx];
                     S_new.classTrack[clsBump] -= 1;
                     if (S_new.classTrack[clsBump] == 0) {
-                        kickRestriction(clsBump, S_new.blockedClsArr);
+                        kickRestriction(clsBump, S_new);
                     }
                     bumping -= 1;
                     contArr[bump] = -1;
@@ -560,7 +581,7 @@ public class SimAnSolverHeuristic {
                         }
                     }
                     S_new.classTrack[bumpC] = 0;
-                    kickRestriction(bumpC, S_new.blockedClsArr);
+                    kickRestriction(bumpC, S_new);
                     bumpingCls -= 1;
                     clsExistList.set(bumpCIndex, -1);
                     //checkTrack(S_new);
@@ -581,11 +602,11 @@ public class SimAnSolverHeuristic {
     }
 
 
-    private void kickRestriction(int clsKicked, int[] blockedClsArr) {
-        for (int e_release : ClassIncArr[clsKicked]) {
+    private void kickRestriction(int clsKicked, SolInstance S) {
+        for (int e_release : ClassConstIdxArr[clsKicked]) {
             //FIXME
-            if(blockedClsArr[e_release] >0) {
-                blockedClsArr[e_release] -=1;
+            if(S.numUsedInConstr[e_release] >0) {
+                S.numUsedInConstr[e_release] -=1;
             }
         }
     }
@@ -695,6 +716,7 @@ public class SimAnSolverHeuristic {
 
     private int N;
 
+    private int C;
 
 
     /** Mapping from item index to its class. */
@@ -716,8 +738,7 @@ public class SimAnSolverHeuristic {
     private SolInstance BestSol;
 
 
-    /** Mapping from class index to HSet of class index that is incompatible. */
-    private HashSet<Integer>[] ClassIncArr;
+
 
     /** The random number generator of the random functions. */
     private Random rd;
@@ -738,8 +759,11 @@ public class SimAnSolverHeuristic {
 
     /** Input File Name. */
     private String F;
-
-    /** Educated buckets. */
-    private long[] edBuckets;
+    
+    /** Map from class index to constrain index that contain that class. */
+    private HashSet<Integer>[] ClassConstIdxArr;
+    
+    /** Map from constrain index to constrain stored in ArrayList. */
+    private ArrayList<Integer>[] ConstArr;
     
 }
