@@ -1,0 +1,3185 @@
+Last login: Mon May  1 01:42:13 on ttys000
+airbears2-10-142-77-70:~ yxiaocheng1997$ cd repo/CS170Proj-reg
+airbears2-10-142-77-70:CS170Proj-reg yxiaocheng1997$ javac Solver/Solver.java
+Note: Solver/Solver.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+airbears2-10-142-77-70:CS170Proj-reg yxiaocheng1997$ javac Solver/SimAnSolverHeuristic.java
+Note: Solver/SimAnSolverHeuristic.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+airbears2-10-142-77-70:CS170Proj-reg yxiaocheng1997$ java Solver/ScriptSolver s 1 22
+^Cairbears2-10-142-77-70:CS170Proj-reg yxiaocheng1997$ jac Solver/SimAnSolverHeuristic.java
+Note: Solver/SimAnSolverHeuristic.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+airbears2-10-142-77-70:CS170Proj-reg yxiaocheng1997$ java Solver/ScriptSolver s 1 22
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem1.in Actual global improvement: 6796219417
+project_instances/problem1.in Actual global improvement: 6825193265
+project_instances/problem1.in Actual global improvement: 6825230185
+project_instances/problem1.in Actual global improvement: 6830462898
+project_instances/problem1.in Actual global improvement: 6880968844
+project_instances/problem1.in Actual global improvement: 6898708888
+project_instances/problem1.in Actual global improvement: 6928272667
+project_instances/problem1.in Actual global improvement: 6994847629
+project_instances/problem1.in Actual global improvement: 7018313517
+project_instances/problem1.in Actual global improvement: 7066038703
+project_instances/problem1.in Actual global improvement: 7077811552
+project_instances/problem1.in Actual global improvement: 7095738264
+project_instances/problem1.in Actual global improvement: 7117397440
+project_instances/problem1.in Actual global improvement: 7124433326
+project_instances/problem1.in Actual global improvement: 7140193283
+project_instances/problem1.in Actual global improvement: 7158821567
+project_instances/problem1.in Actual global improvement: 7161297990
+project_instances/problem1.in Actual global improvement: 7172223079
+project_instances/problem1.in Actual global improvement: 7180144953
+project_instances/problem1.in Actual global improvement: 7184511230
+project_instances/problem1.in Actual global improvement: 7207069429
+project_instances/problem1.in Actual global improvement: 7218426196
+project_instances/problem1.in Actual global improvement: 7246196561
+project_instances/problem1.in Actual global improvement: 7250710132
+project_instances/problem1.in Actual global improvement: 7259944479
+project_instances/problem1.in Actual global improvement: 7264702011
+project_instances/problem1.in Actual global improvement: 7266139470
+project_instances/problem1.in Actual global improvement: 7273582884
+project_instances/problem1.in Actual global improvement: 7286550957
+project_instances/problem1.in Actual global improvement: 7293548965
+project_instances/problem1.in Actual global improvement: 7321463528
+project_instances/problem1.in Actual global improvement: 7334406656
+project_instances/problem1.in Actual global improvement: 7352561782
+project_instances/problem1.in Actual global improvement: 7359520650
+project_instances/problem1.in Actual global improvement: 7361997073
+project_instances/problem1.in Actual global improvement: 7370174726
+project_instances/problem1.in Actual global improvement: 7378448786
+project_instances/problem1.in Actual global improvement: 7382949158
+project_instances/problem1.in Actual global improvement: 7402423510
+project_instances/problem1.in Actual global improvement: 7433804483
+project_instances/problem1.in Actual global improvement: 7446438085
+project_instances/problem1.in Actual global improvement: 7470583564
+project_instances/problem1.in Actual global improvement: 7476343932
+project_instances/problem1.in Actual global improvement: 7481288150
+project_instances/problem1.in Actual global improvement: 7481414395
+project_instances/problem1.in Actual global improvement: 7486856736
+project_instances/problem1.in Actual global improvement: 7490507827
+project_instances/problem1.in Actual global improvement: 7492534991
+project_instances/problem1.in Actual global improvement: 7496694729
+project_instances/problem1.in Actual global improvement: 7497488694
+project_instances/problem1.in Actual global improvement: 7502931035
+project_instances/problem1.in Actual global improvement: 7506097425
+project_instances/problem1.in Actual global improvement: 7510967386
+project_instances/problem1.in Actual global improvement: 7515127124
+project_instances/problem1.in Actual global improvement: 7520766285
+project_instances/problem1.in Actual global improvement: 7535759753
+-------------------------------!
+Using CostC: 0.0
+project_instances/problem1.in Actual global improvement: 7536618066
+project_instances/problem1.in Actual global improvement: 7542249141
+project_instances/problem1.in Actual global improvement: 7546532842
+project_instances/problem1.in Actual global improvement: 7551471720
+project_instances/problem1.in Actual global improvement: 7551899532
+project_instances/problem1.in Actual global improvement: 7553196921
+project_instances/problem1.in Actual global improvement: 7577223237
+project_instances/problem1.in Actual global improvement: 7581006160
+project_instances/problem1.in Actual global improvement: 7581039727
+project_instances/problem1.in Actual global improvement: 7603328032
+project_instances/problem1.in Actual global improvement: 7608701482
+project_instances/problem1.in Actual global improvement: 7622337589
+project_instances/problem1.in Actual global improvement: 7647126115
+project_instances/problem1.in Actual global improvement: 7647752481
+project_instances/problem1.in Actual global improvement: 7649851196
+project_instances/problem1.in Actual global improvement: 7656528839
+project_instances/problem1.in Actual global improvement: 7665144862
+project_instances/problem1.in Actual global improvement: 7678112909
+project_instances/problem1.in Actual global improvement: 7710498910
+project_instances/problem1.in Actual global improvement: 7726765132
+project_instances/problem1.in Actual global improvement: 7742859202
+project_instances/problem1.in Actual global improvement: 7744637225
+project_instances/problem1.in Actual global improvement: 7747092999
+-------------------------------!
+Using CostC: 0.975
+Using CostC: 0.025
+Using CostC: 0.95
+Using CostC: 0.05
+Using CostC: 0.925
+Using CostC: 0.07500000000000001
+Using CostC: 0.9
+Using CostC: 0.1
+^Cairbears2-10-142-77-70:CS170Proj-reg yxiaocheng1997$ jac Solver/SimAnSolverHeuristic.java
+Note: Solver/SimAnSolverHeuristic.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+airbears2-10-142-77-70:CS170Proj-reg yxiaocheng1997$ java Solver/ScriptSolver s 1 22
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem1.in Actual global improvement: 6808320284
+project_instances/problem1.in Actual global improvement: 6810630636
+project_instances/problem1.in Actual global improvement: 6831110324
+project_instances/problem1.in Actual global improvement: 6884876853
+project_instances/problem1.in Actual global improvement: 6898545459
+project_instances/problem1.in Actual global improvement: 6900510931
+project_instances/problem1.in Actual global improvement: 6920427585
+project_instances/problem1.in Actual global improvement: 6930540209
+project_instances/problem1.in Actual global improvement: 6934594812
+project_instances/problem1.in Actual global improvement: 6975404918
+project_instances/problem1.in Actual global improvement: 7004854538
+project_instances/problem1.in Actual global improvement: 7005150763
+project_instances/problem1.in Actual global improvement: 7026538130
+project_instances/problem1.in Actual global improvement: 7032024067
+project_instances/problem1.in Actual global improvement: 7062437419
+project_instances/problem1.in Actual global improvement: 7074544689
+project_instances/problem1.in Actual global improvement: 7089871719
+project_instances/problem1.in Actual global improvement: 7091931830
+project_instances/problem1.in Actual global improvement: 7111061292
+project_instances/problem1.in Actual global improvement: 7131080693
+project_instances/problem1.in Actual global improvement: 7170038764
+project_instances/problem1.in Actual global improvement: 7180859815
+project_instances/problem1.in Actual global improvement: 7183827989
+project_instances/problem1.in Actual global improvement: 7196977328
+project_instances/problem1.in Actual global improvement: 7212004251
+project_instances/problem1.in Actual global improvement: 7248911953
+project_instances/problem1.in Actual global improvement: 7252469358
+project_instances/problem1.in Actual global improvement: 7253850779
+project_instances/problem1.in Actual global improvement: 7256875841
+project_instances/problem1.in Actual global improvement: 7258374729
+project_instances/problem1.in Actual global improvement: 7259210286
+project_instances/problem1.in Actual global improvement: 7274289384
+project_instances/problem1.in Actual global improvement: 7287490010
+project_instances/problem1.in Actual global improvement: 7289771758
+project_instances/problem1.in Actual global improvement: 7290048799
+project_instances/problem1.in Actual global improvement: 7295653503
+project_instances/problem1.in Actual global improvement: 7296493101
+project_instances/problem1.in Actual global improvement: 7301115083
+project_instances/problem1.in Actual global improvement: 7307537593
+project_instances/problem1.in Actual global improvement: 7310227141
+project_instances/problem1.in Actual global improvement: 7323986499
+project_instances/problem1.in Actual global improvement: 7356792469
+project_instances/problem1.in Actual global improvement: 7368091086
+project_instances/problem1.in Actual global improvement: 7379038530
+project_instances/problem1.in Actual global improvement: 7387302864
+project_instances/problem1.in Actual global improvement: 7391166813
+project_instances/problem1.in Actual global improvement: 7394511017
+project_instances/problem1.in Actual global improvement: 7398401338
+project_instances/problem1.in Actual global improvement: 7409575918
+project_instances/problem1.in Actual global improvement: 7410072979
+project_instances/problem1.in Actual global improvement: 7416264806
+project_instances/problem1.in Actual global improvement: 7419318763
+project_instances/problem1.in Actual global improvement: 7419537556
+project_instances/problem1.in Actual global improvement: 7424575412
+project_instances/problem1.in Actual global improvement: 7432281862
+project_instances/problem1.in Actual global improvement: 7438623015
+project_instances/problem1.in Actual global improvement: 7450041045
+project_instances/problem1.in Actual global improvement: 7460707720
+project_instances/problem1.in Actual global improvement: 7482954909
+project_instances/problem1.in Actual global improvement: 7487831884
+project_instances/problem1.in Actual global improvement: 7498860041
+project_instances/problem1.in Actual global improvement: 7510090494
+project_instances/problem1.in Actual global improvement: 7539389313
+project_instances/problem1.in Actual global improvement: 7550541738
+project_instances/problem1.in Actual global improvement: 7555563845
+project_instances/problem1.in Actual global improvement: 7562624047
+project_instances/problem1.in Actual global improvement: 7563572856
+project_instances/problem1.in Actual global improvement: 7568143418
+project_instances/problem1.in Actual global improvement: 7572586354
+-------------------------------!
+Using CostC: 0.0
+project_instances/problem1.in Actual global improvement: 7581572544
+project_instances/problem1.in Actual global improvement: 7581945218
+project_instances/problem1.in Actual global improvement: 7594391221
+project_instances/problem1.in Actual global improvement: 7612166577
+project_instances/problem1.in Actual global improvement: 7614297885
+project_instances/problem1.in Actual global improvement: 7637935704
+project_instances/problem1.in Actual global improvement: 7657152164
+project_instances/problem1.in Actual global improvement: 7669631482
+project_instances/problem1.in Actual global improvement: 7671667321
+project_instances/problem1.in Actual global improvement: 7676517810
+project_instances/problem1.in Actual global improvement: 7677822322
+project_instances/problem1.in Actual global improvement: 7677994288
+project_instances/problem1.in Actual global improvement: 7680812631
+project_instances/problem1.in Actual global improvement: 7684094100
+project_instances/problem1.in Actual global improvement: 7685422326
+project_instances/problem1.in Actual global improvement: 7689898424
+project_instances/problem1.in Actual global improvement: 7690271098
+project_instances/problem1.in Actual global improvement: 7691207273
+project_instances/problem1.in Actual global improvement: 7693395931
+project_instances/problem1.in Actual global improvement: 7699660851
+project_instances/problem1.in Actual global improvement: 7717190361
+project_instances/problem1.in Actual global improvement: 7733731756
+-------------------------------!
+Using CostC: 0.98
+Using CostC: 0.02
+Using CostC: 0.96
+Using CostC: 0.04
+Using CostC: 0.94
+Using CostC: 0.06
+Using CostC: 0.92
+Using CostC: 0.08
+Using CostC: 0.9
+Using CostC: 0.1
+Using CostC: 0.88
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+Using CostC: 0.14
+Using CostC: 0.84
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+Using CostC: 0.8
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+Using CostC: 0.21999999999999997
+Using CostC: 0.76
+Using CostC: 0.23999999999999996
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+Using CostC: 0.38000000000000006
+Using CostC: 0.5999999999999999
+Using CostC: 0.4000000000000001
+Using CostC: 0.5799999999999998
+Using CostC: 0.4200000000000001
+Using CostC: 0.5599999999999998
+Using CostC: 0.4400000000000001
+Entering Bump Item. 
+Using CostC: 0.5399999999999998
+Using CostC: 0.46000000000000013
+Using CostC: 0.5
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.6423138202289903
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.2765890374695329
+Using CostC: 0.0
+Using CostC: 0.2880778106608126
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.44260778751028307
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.9377996785642725
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+7733731756
+The Actual Weight is: 4859901468
+The Actual Cost is: 791216635
+YOOOOOO.
+For file project_instances/problem1.in =========Profit is: 7733731756
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem2.in Actual global improvement: 200464139160
+project_instances/problem2.in Actual global improvement: 200466333770
+project_instances/problem2.in Actual global improvement: 200488675604
+project_instances/problem2.in Actual global improvement: 200491147577
+project_instances/problem2.in Actual global improvement: 200492767017
+project_instances/problem2.in Actual global improvement: 200494821478
+project_instances/problem2.in Actual global improvement: 200498589991
+project_instances/problem2.in Actual global improvement: 200503782934
+project_instances/problem2.in Actual global improvement: 200515018601
+project_instances/problem2.in Actual global improvement: 200519400298
+project_instances/problem2.in Actual global improvement: 200522157835
+project_instances/problem2.in Actual global improvement: 200534871568
+project_instances/problem2.in Actual global improvement: 200539094587
+project_instances/problem2.in Actual global improvement: 200539939903
+project_instances/problem2.in Actual global improvement: 200569097794
+project_instances/problem2.in Actual global improvement: 200571626456
+project_instances/problem2.in Actual global improvement: 200571851196
+project_instances/problem2.in Actual global improvement: 200584966062
+project_instances/problem2.in Actual global improvement: 200589848055
+project_instances/problem2.in Actual global improvement: 200591665574
+project_instances/problem2.in Actual global improvement: 200592491662
+project_instances/problem2.in Actual global improvement: 200605207378
+project_instances/problem2.in Actual global improvement: 200606440295
+-------------------------------!
+Using CostC: 0.0
+project_instances/problem2.in Actual global improvement: 200620238310
+project_instances/problem2.in Actual global improvement: 200639701662
+project_instances/problem2.in Actual global improvement: 200643854496
+-------------------------------!
+Using CostC: 0.98
+Using CostC: 0.02
+Using CostC: 0.96
+project_instances/problem2.in Actual global improvement: 200649811735
+-------------------------------!
+Using CostC: 0.04
+Using CostC: 0.94
+Using CostC: 0.06
+Using CostC: 0.92
+Using CostC: 0.08
+Using CostC: 0.9
+Using CostC: 0.1
+Using CostC: 0.88
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+Using CostC: 0.14
+Using CostC: 0.84
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+Using CostC: 0.8
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+Using CostC: 0.21999999999999997
+Using CostC: 0.76
+Using CostC: 0.23999999999999996
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Using CostC: 0.27999999999999997
+project_instances/problem2.in Actual global improvement: 200653379181
+-------------------------------!
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Entering Bump Item. 
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+Using CostC: 0.38000000000000006
+Using CostC: 0.5999999999999999
+Using CostC: 0.4000000000000001
+project_instances/problem2.in Actual global improvement: 200661937143
+project_instances/problem2.in Actual global improvement: 200668321072
+-------------------------------!
+Using CostC: 0.5799999999999998
+Using CostC: 0.4200000000000001
+Using CostC: 0.5599999999999998
+Using CostC: 0.4400000000000001
+Using CostC: 0.5399999999999998
+Using CostC: 0.46000000000000013
+Using CostC: 0.5
+Using CostC: 0.4000000000000001
+Using CostC: 0.22240963575099326
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+200668321072
+The Actual Weight is: 38397162882
+The Actual Cost is: 620544586
+YOOOOOO.
+For file project_instances/problem2.in =========Profit is: 200668321072
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem3.in Simply with Greedy, global improvement: 51092970669
+Using CostC: 0.0
+Using CostC: 0.98
+project_instances/problem3.in Simply with Greedy, global improvement: 53523743879
+Using CostC: 0.02
+Using CostC: 0.96
+project_instances/problem3.in Simply with Greedy, global improvement: 54148114377
+Using CostC: 0.04
+Using CostC: 0.94
+Using CostC: 0.06
+Using CostC: 0.92
+Using CostC: 0.08
+Using CostC: 0.9
+Using CostC: 0.1
+Using CostC: 0.88
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+Using CostC: 0.14
+Using CostC: 0.84
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+Using CostC: 0.8
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+Using CostC: 0.21999999999999997
+Using CostC: 0.76
+Using CostC: 0.23999999999999996
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+Using CostC: 0.38000000000000006
+Using CostC: 0.5999999999999999
+Using CostC: 0.4000000000000001
+Using CostC: 0.5799999999999998
+Using CostC: 0.4200000000000001
+Using CostC: 0.5599999999999998
+Using CostC: 0.4400000000000001
+Using CostC: 0.5399999999999998
+Using CostC: 0.46000000000000013
+Using CostC: 0.5
+Using CostC: 0.96
+-------------------------------!
+Using CostC: 0.96
+project_instances/problem3.in Actual global improvement: 54166607744
+-------------------------------!
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+project_instances/problem3.in Actual global improvement: 54191494120
+-------------------------------!
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.5382682133458478
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.9496054084452878
+Using CostC: 0.5857226613301529
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Entering Bump Item. 
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.8234710154152761
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+project_instances/problem3.in Actual global improvement: 54211910375
+-------------------------------!
+Using CostC: 0.96
+Using CostC: 0.96
+Using CostC: 0.96
+54211910375
+The Actual Weight is: 33725815194
+The Actual Cost is: 2623528715
+YOOOOOO.
+For file project_instances/problem3.in =========Profit is: 54211910375
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem4.in Actual global improvement: 5261791
+project_instances/problem4.in Actual global improvement: 5293863
+project_instances/problem4.in Actual global improvement: 5326420
+project_instances/problem4.in Actual global improvement: 5328264
+project_instances/problem4.in Actual global improvement: 5374410
+project_instances/problem4.in Actual global improvement: 5424986
+project_instances/problem4.in Actual global improvement: 5440018
+project_instances/problem4.in Actual global improvement: 5461830
+project_instances/problem4.in Actual global improvement: 5466402
+project_instances/problem4.in Actual global improvement: 5502142
+project_instances/problem4.in Actual global improvement: 5506645
+project_instances/problem4.in Actual global improvement: 5618045
+project_instances/problem4.in Actual global improvement: 5668790
+project_instances/problem4.in Actual global improvement: 5719845
+project_instances/problem4.in Actual global improvement: 5738135
+project_instances/problem4.in Actual global improvement: 5795783
+project_instances/problem4.in Actual global improvement: 5805283
+project_instances/problem4.in Actual global improvement: 5825404
+project_instances/problem4.in Actual global improvement: 5827535
+project_instances/problem4.in Actual global improvement: 5828093
+project_instances/problem4.in Actual global improvement: 5831217
+project_instances/problem4.in Actual global improvement: 5855406
+project_instances/problem4.in Actual global improvement: 5879001
+project_instances/problem4.in Actual global improvement: 5883238
+project_instances/problem4.in Actual global improvement: 5887790
+project_instances/problem4.in Actual global improvement: 5890806
+project_instances/problem4.in Actual global improvement: 5908978
+project_instances/problem4.in Actual global improvement: 5936788
+project_instances/problem4.in Actual global improvement: 5994584
+project_instances/problem4.in Actual global improvement: 6023762
+project_instances/problem4.in Actual global improvement: 6076303
+project_instances/problem4.in Actual global improvement: 6100655
+project_instances/problem4.in Actual global improvement: 6116104
+project_instances/problem4.in Actual global improvement: 6119048
+project_instances/problem4.in Actual global improvement: 6120256
+project_instances/problem4.in Actual global improvement: 6123314
+project_instances/problem4.in Actual global improvement: 6130664
+project_instances/problem4.in Actual global improvement: 6133082
+project_instances/problem4.in Actual global improvement: 6170098
+project_instances/problem4.in Actual global improvement: 6202126
+project_instances/problem4.in Actual global improvement: 6207693
+project_instances/problem4.in Actual global improvement: 6215277
+project_instances/problem4.in Actual global improvement: 6248741
+project_instances/problem4.in Actual global improvement: 6248952
+project_instances/problem4.in Actual global improvement: 6259707
+project_instances/problem4.in Actual global improvement: 6284923
+project_instances/problem4.in Actual global improvement: 6302952
+project_instances/problem4.in Actual global improvement: 6309820
+project_instances/problem4.in Actual global improvement: 6319448
+project_instances/problem4.in Actual global improvement: 6343684
+project_instances/problem4.in Actual global improvement: 6364896
+project_instances/problem4.in Actual global improvement: 6374524
+project_instances/problem4.in Actual global improvement: 6386572
+project_instances/problem4.in Actual global improvement: 6405765
+project_instances/problem4.in Actual global improvement: 6410218
+project_instances/problem4.in Actual global improvement: 6413476
+project_instances/problem4.in Actual global improvement: 6427706
+project_instances/problem4.in Actual global improvement: 6429052
+project_instances/problem4.in Actual global improvement: 6431230
+project_instances/problem4.in Actual global improvement: 6431869
+project_instances/problem4.in Actual global improvement: 6460126
+project_instances/problem4.in Actual global improvement: 6486241
+project_instances/problem4.in Actual global improvement: 6522747
+project_instances/problem4.in Actual global improvement: 6526647
+project_instances/problem4.in Actual global improvement: 6528569
+project_instances/problem4.in Actual global improvement: 6533443
+project_instances/problem4.in Actual global improvement: 6558753
+project_instances/problem4.in Actual global improvement: 6565537
+project_instances/problem4.in Actual global improvement: 6568594
+project_instances/problem4.in Actual global improvement: 6578566
+project_instances/problem4.in Actual global improvement: 6578751
+project_instances/problem4.in Actual global improvement: 6607714
+project_instances/problem4.in Actual global improvement: 6624271
+project_instances/problem4.in Actual global improvement: 6625799
+project_instances/problem4.in Actual global improvement: 6627980
+project_instances/problem4.in Actual global improvement: 6640036
+project_instances/problem4.in Actual global improvement: 6663285
+project_instances/problem4.in Actual global improvement: 6667032
+project_instances/problem4.in Actual global improvement: 6674020
+project_instances/problem4.in Actual global improvement: 6701027
+project_instances/problem4.in Actual global improvement: 6704675
+project_instances/problem4.in Actual global improvement: 6721902
+project_instances/problem4.in Actual global improvement: 6731765
+project_instances/problem4.in Actual global improvement: 6741519
+project_instances/problem4.in Actual global improvement: 6747891
+project_instances/problem4.in Actual global improvement: 6752570
+project_instances/problem4.in Actual global improvement: 6772051
+project_instances/problem4.in Actual global improvement: 6778740
+project_instances/problem4.in Actual global improvement: 6788910
+project_instances/problem4.in Actual global improvement: 6798460
+project_instances/problem4.in Actual global improvement: 6800230
+project_instances/problem4.in Actual global improvement: 6807958
+project_instances/problem4.in Actual global improvement: 6813111
+project_instances/problem4.in Actual global improvement: 6814129
+project_instances/problem4.in Actual global improvement: 6825478
+project_instances/problem4.in Actual global improvement: 6830165
+project_instances/problem4.in Actual global improvement: 6842337
+project_instances/problem4.in Actual global improvement: 6846827
+project_instances/problem4.in Actual global improvement: 6865840
+project_instances/problem4.in Actual global improvement: 6869710
+project_instances/problem4.in Actual global improvement: 6876126
+project_instances/problem4.in Actual global improvement: 6878141
+project_instances/problem4.in Actual global improvement: 6881863
+project_instances/problem4.in Actual global improvement: 6887934
+project_instances/problem4.in Actual global improvement: 6891967
+project_instances/problem4.in Actual global improvement: 6892579
+project_instances/problem4.in Actual global improvement: 6893242
+project_instances/problem4.in Actual global improvement: 6896187
+project_instances/problem4.in Actual global improvement: 6897189
+project_instances/problem4.in Actual global improvement: 6912971
+project_instances/problem4.in Actual global improvement: 6916841
+project_instances/problem4.in Actual global improvement: 6916910
+project_instances/problem4.in Actual global improvement: 6924212
+project_instances/problem4.in Actual global improvement: 6928578
+project_instances/problem4.in Actual global improvement: 6942807
+project_instances/problem4.in Actual global improvement: 6946555
+project_instances/problem4.in Actual global improvement: 6955992
+project_instances/problem4.in Actual global improvement: 6956029
+project_instances/problem4.in Actual global improvement: 6960110
+project_instances/problem4.in Actual global improvement: 6960554
+project_instances/problem4.in Actual global improvement: 6962998
+project_instances/problem4.in Actual global improvement: 6963379
+project_instances/problem4.in Actual global improvement: 6963666
+project_instances/problem4.in Actual global improvement: 6966322
+project_instances/problem4.in Actual global improvement: 6970293
+project_instances/problem4.in Actual global improvement: 6979456
+project_instances/problem4.in Actual global improvement: 6987595
+project_instances/problem4.in Actual global improvement: 6990310
+project_instances/problem4.in Actual global improvement: 6991571
+project_instances/problem4.in Actual global improvement: 6995563
+project_instances/problem4.in Actual global improvement: 6995638
+project_instances/problem4.in Actual global improvement: 6997064
+project_instances/problem4.in Actual global improvement: 7001056
+project_instances/problem4.in Actual global improvement: 7014426
+project_instances/problem4.in Actual global improvement: 7022825
+project_instances/problem4.in Actual global improvement: 7024791
+project_instances/problem4.in Actual global improvement: 7025600
+project_instances/problem4.in Actual global improvement: 7029435
+project_instances/problem4.in Actual global improvement: 7035901
+project_instances/problem4.in Actual global improvement: 7048712
+project_instances/problem4.in Actual global improvement: 7049912
+project_instances/problem4.in Actual global improvement: 7065944
+project_instances/problem4.in Actual global improvement: 7078655
+project_instances/problem4.in Actual global improvement: 7085524
+project_instances/problem4.in Actual global improvement: 7085831
+project_instances/problem4.in Actual global improvement: 7088700
+project_instances/problem4.in Actual global improvement: 7089479
+project_instances/problem4.in Actual global improvement: 7090003
+project_instances/problem4.in Actual global improvement: 7091391
+project_instances/problem4.in Actual global improvement: 7098057
+project_instances/problem4.in Actual global improvement: 7098276
+project_instances/problem4.in Actual global improvement: 7100124
+project_instances/problem4.in Actual global improvement: 7100926
+-------------------------------!
+Using CostC: 0.0
+Using CostC: 0.98
+Using CostC: 0.02
+Using CostC: 0.96
+Using CostC: 0.04
+Using CostC: 0.94
+Using CostC: 0.06
+Using CostC: 0.92
+Using CostC: 0.08
+Using CostC: 0.9
+Using CostC: 0.1
+Using CostC: 0.88
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+Using CostC: 0.14
+Using CostC: 0.84
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+Using CostC: 0.8
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+Using CostC: 0.21999999999999997
+Using CostC: 0.76
+Entering Bump Item. 
+Using CostC: 0.23999999999999996
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+Using CostC: 0.38000000000000006
+Using CostC: 0.5999999999999999
+Using CostC: 0.4000000000000001
+Using CostC: 0.5799999999999998
+Using CostC: 0.4200000000000001
+Using CostC: 0.5599999999999998
+Using CostC: 0.4400000000000001
+Using CostC: 0.5399999999999998
+Using CostC: 0.46000000000000013
+Using CostC: 0.5
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+7100926
+The Actual Weight is: 2506887
+The Actual Cost is: 2071669
+YOOOOOO.
+For file project_instances/problem4.in =========Profit is: 7100926
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem5.in Actual global improvement: 71330796821200
+project_instances/problem5.in Actual global improvement: 71482578360200
+project_instances/problem5.in Actual global improvement: 74616911308400
+project_instances/problem5.in Actual global improvement: 76590439304300
+project_instances/problem5.in Actual global improvement: 79250543145300
+project_instances/problem5.in Actual global improvement: 82171136887600
+project_instances/problem5.in Actual global improvement: 84052101804400
+project_instances/problem5.in Actual global improvement: 87867460564000
+project_instances/problem5.in Actual global improvement: 87914267529000
+project_instances/problem5.in Actual global improvement: 89961972457700
+-------------------------------!
+Using CostC: 0.0
+Using CostC: 0.98
+Using CostC: 0.02
+project_instances/problem5.in Actual global improvement: 92178911004400
+project_instances/problem5.in Actual global improvement: 92276882650700
+project_instances/problem5.in Actual global improvement: 92347970500600
+project_instances/problem5.in Actual global improvement: 92765459654800
+-------------------------------!
+Using CostC: 0.96
+Using CostC: 0.04
+Using CostC: 0.94
+project_instances/problem5.in Actual global improvement: 93939220836300
+-------------------------------!
+Using CostC: 0.06
+project_instances/problem5.in Actual global improvement: 96114195817000
+project_instances/problem5.in Actual global improvement: 96384334848400
+project_instances/problem5.in Actual global improvement: 98480777606600
+project_instances/problem5.in Actual global improvement: 98685942110200
+-------------------------------!
+Using CostC: 0.92
+Using CostC: 0.08
+Using CostC: 0.9
+Using CostC: 0.1
+Using CostC: 0.88
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+Using CostC: 0.14
+Using CostC: 0.84
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+Using CostC: 0.8
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+Using CostC: 0.21999999999999997
+Entering Bump Item. 
+Using CostC: 0.76
+Using CostC: 0.23999999999999996
+Using CostC: 0.74
+project_instances/problem5.in Actual global improvement: 99511952240700
+project_instances/problem5.in Actual global improvement: 99516616942100
+-------------------------------!
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+Using CostC: 0.38000000000000006
+Using CostC: 0.5999999999999999
+Using CostC: 0.4000000000000001
+Using CostC: 0.5799999999999998
+Using CostC: 0.4200000000000001
+Using CostC: 0.5599999999999998
+99516616942100
+The Actual Weight is: 54548575000
+The Actual Cost is: 63928810100
+YOOOOOO.
+For file project_instances/problem5.in =========Profit is: 99516616942100
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem6.in Actual global improvement: 11310293
+project_instances/problem6.in Actual global improvement: 11315979
+project_instances/problem6.in Actual global improvement: 11326167
+project_instances/problem6.in Actual global improvement: 11340595
+project_instances/problem6.in Actual global improvement: 11366312
+project_instances/problem6.in Actual global improvement: 11374541
+project_instances/problem6.in Actual global improvement: 11388328
+project_instances/problem6.in Actual global improvement: 11390986
+project_instances/problem6.in Actual global improvement: 11391657
+project_instances/problem6.in Actual global improvement: 11404815
+project_instances/problem6.in Actual global improvement: 11411985
+project_instances/problem6.in Actual global improvement: 11423774
+project_instances/problem6.in Actual global improvement: 11430815
+project_instances/problem6.in Actual global improvement: 11431212
+project_instances/problem6.in Actual global improvement: 11438175
+project_instances/problem6.in Actual global improvement: 11442887
+project_instances/problem6.in Actual global improvement: 11445745
+project_instances/problem6.in Actual global improvement: 11467120
+project_instances/problem6.in Actual global improvement: 11478966
+project_instances/problem6.in Actual global improvement: 11491208
+project_instances/problem6.in Actual global improvement: 11497607
+project_instances/problem6.in Actual global improvement: 11502687
+project_instances/problem6.in Actual global improvement: 11506595
+project_instances/problem6.in Actual global improvement: 11509780
+-------------------------------!
+Using CostC: 0.0
+project_instances/problem6.in Actual global improvement: 11533093
+project_instances/problem6.in Actual global improvement: 11543006
+project_instances/problem6.in Actual global improvement: 11552560
+project_instances/problem6.in Actual global improvement: 11553919
+project_instances/problem6.in Actual global improvement: 11554215
+project_instances/problem6.in Actual global improvement: 11555574
+project_instances/problem6.in Actual global improvement: 11557533
+project_instances/problem6.in Actual global improvement: 11567573
+project_instances/problem6.in Actual global improvement: 11571709
+project_instances/problem6.in Actual global improvement: 11575097
+project_instances/problem6.in Actual global improvement: 11590936
+project_instances/problem6.in Actual global improvement: 11603602
+project_instances/problem6.in Actual global improvement: 11612678
+project_instances/problem6.in Actual global improvement: 11629524
+project_instances/problem6.in Actual global improvement: 11632149
+project_instances/problem6.in Actual global improvement: 11647056
+project_instances/problem6.in Actual global improvement: 11651338
+project_instances/problem6.in Actual global improvement: 11655037
+project_instances/problem6.in Actual global improvement: 11658635
+project_instances/problem6.in Actual global improvement: 11660090
+project_instances/problem6.in Actual global improvement: 11668349
+-------------------------------!
+Using CostC: 0.98
+Using CostC: 0.02
+Using CostC: 0.96
+Using CostC: 0.04
+Using CostC: 0.94
+Using CostC: 0.06
+Using CostC: 0.92
+Using CostC: 0.08
+Using CostC: 0.9
+Using CostC: 0.1
+Using CostC: 0.88
+project_instances/problem6.in Actual global improvement: 11678212
+project_instances/problem6.in Actual global improvement: 11678921
+project_instances/problem6.in Actual global improvement: 11679887
+project_instances/problem6.in Actual global improvement: 11679936
+project_instances/problem6.in Actual global improvement: 11680383
+project_instances/problem6.in Actual global improvement: 11680804
+project_instances/problem6.in Actual global improvement: 11681758
+-------------------------------!
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+Using CostC: 0.14
+Using CostC: 0.84
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+Using CostC: 0.8
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+Using CostC: 0.21999999999999997
+Using CostC: 0.76
+Using CostC: 0.23999999999999996
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+Using CostC: 0.38000000000000006
+Using CostC: 0.5999999999999999
+Using CostC: 0.4000000000000001
+Entering Bump Item. 
+Using CostC: 0.5799999999999998
+Using CostC: 0.4200000000000001
+Using CostC: 0.5599999999999998
+Using CostC: 0.4400000000000001
+Using CostC: 0.5399999999999998
+Using CostC: 0.46000000000000013
+Using CostC: 0.5
+Using CostC: 0.88
+Using CostC: 0.2593583574103181
+Using CostC: 0.88
+Using CostC: 0.88
+Using CostC: 0.88
+Using CostC: 0.88
+Using CostC: 0.88
+Using CostC: 0.88
+Using CostC: 0.88
+Using CostC: 0.6039309728402834
+Using CostC: 0.88
+Using CostC: 0.2567414638547151
+Using CostC: 0.88
+Using CostC: 0.88
+Using CostC: 0.88
+Using CostC: 0.88
+Using CostC: 0.88
+Using CostC: 0.40085948973976027
+Using CostC: 0.88
+Using CostC: 0.88
+Using CostC: 0.0033766250483941995
+Using CostC: 0.88
+Using CostC: 0.88
+Using CostC: 0.88
+Using CostC: 0.88
+Using CostC: 0.88
+Using CostC: 0.47333835361297616
+Using CostC: 0.88
+Using CostC: 0.88
+Using CostC: 0.88
+Using CostC: 0.88
+11681758
+The Actual Weight is: 9988127
+The Actual Cost is: 9992539
+YOOOOOO.
+For file project_instances/problem6.in =========Profit is: 11681758
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem7.in Simply with Greedy, global improvement: 287434180700
+Using CostC: 0.0
+Using CostC: 0.98
+-------------------------------!
+Using CostC: 0.02
+Using CostC: 0.96
+-------------------------------!
+Using CostC: 0.04
+Using CostC: 0.94
+-------------------------------!
+Using CostC: 0.06
+Using CostC: 0.92
+-------------------------------!
+Using CostC: 0.08
+Using CostC: 0.9
+-------------------------------!
+Using CostC: 0.1
+Using CostC: 0.88
+-------------------------------!
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+-------------------------------!
+Entering Bump Item. 
+Using CostC: 0.14
+Using CostC: 0.84
+-------------------------------!
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+-------------------------------!
+Using CostC: 0.18
+Using CostC: 0.8
+-------------------------------!
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+-------------------------------!
+287434180700
+The Actual Weight is: 100002112900
+The Actual Cost is: 4225400
+YOOOOOO.
+For file project_instances/problem7.in =========Profit is: 287434180700
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem8.in Actual global improvement: 3734344875
+project_instances/problem8.in Actual global improvement: 3734386091
+project_instances/problem8.in Actual global improvement: 3734399638
+project_instances/problem8.in Actual global improvement: 3734769586
+project_instances/problem8.in Actual global improvement: 3734814224
+project_instances/problem8.in Actual global improvement: 3734968098
+project_instances/problem8.in Actual global improvement: 3735183281
+project_instances/problem8.in Actual global improvement: 3735757819
+project_instances/problem8.in Actual global improvement: 3735887863
+project_instances/problem8.in Actual global improvement: 3736282209
+project_instances/problem8.in Actual global improvement: 3736736482
+project_instances/problem8.in Actual global improvement: 3736836256
+project_instances/problem8.in Actual global improvement: 3737148658
+project_instances/problem8.in Actual global improvement: 3737189573
+project_instances/problem8.in Actual global improvement: 3737884529
+project_instances/problem8.in Actual global improvement: 3738343036
+project_instances/problem8.in Actual global improvement: 3738371697
+project_instances/problem8.in Actual global improvement: 3738600749
+project_instances/problem8.in Actual global improvement: 3739452693
+project_instances/problem8.in Actual global improvement: 3739550198
+project_instances/problem8.in Actual global improvement: 3739812588
+project_instances/problem8.in Actual global improvement: 3739961109
+project_instances/problem8.in Actual global improvement: 3740050617
+project_instances/problem8.in Actual global improvement: 3740151127
+project_instances/problem8.in Actual global improvement: 3740389214
+project_instances/problem8.in Actual global improvement: 3740551685
+project_instances/problem8.in Actual global improvement: 3740600098
+project_instances/problem8.in Actual global improvement: 3740905885
+project_instances/problem8.in Actual global improvement: 3740920858
+project_instances/problem8.in Actual global improvement: 3741248707
+project_instances/problem8.in Actual global improvement: 3741481517
+project_instances/problem8.in Actual global improvement: 3742929882
+project_instances/problem8.in Actual global improvement: 3743037089
+project_instances/problem8.in Actual global improvement: 3743335391
+-------------------------------!
+Entering Bump Item. 
+Using CostC: 0.0
+project_instances/problem8.inSimply with Greedy, global improvement: 3769801553
+Using CostC: 0.98
+project_instances/problem8.inSimply with Greedy, global improvement: 3785071284
+Using CostC: 0.02
+Using CostC: 0.96
+project_instances/problem8.inSimply with Greedy, global improvement: 3805290669
+3805290669
+The Actual Weight is: 1268721100
+The Actual Cost is: 1460419900
+YOOOOOO.
+For file project_instances/problem8.in =========Profit is: 3805290669
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem9.in Actual global improvement: 1320170891100
+-------------------------------!
+Using CostC: 0.0
+Using CostC: 0.98
+Using CostC: 0.02
+Using CostC: 0.96
+Using CostC: 0.04
+Using CostC: 0.94
+Using CostC: 0.06
+Using CostC: 0.92
+Using CostC: 0.08
+Using CostC: 0.9
+Using CostC: 0.1
+Using CostC: 0.88
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+Using CostC: 0.14
+Using CostC: 0.84
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+project_instances/problem9.in Actual global improvement: 1378855490500
+project_instances/problem9.in Actual global improvement: 1397307491900
+project_instances/problem9.in Actual global improvement: 1434497934400
+project_instances/problem9.in Actual global improvement: 1516073142500
+-------------------------------!
+Using CostC: 0.8
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+Using CostC: 0.21999999999999997
+Using CostC: 0.76
+Using CostC: 0.23999999999999996
+-------------------------------!
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+Using CostC: 0.38000000000000006
+Using CostC: 0.5999999999999999
+Using CostC: 0.4000000000000001
+-------------------------------!
+Using CostC: 0.5799999999999998
+Using CostC: 0.4200000000000001
+Using CostC: 0.5599999999999998
+Using CostC: 0.4400000000000001
+Using CostC: 0.5399999999999998
+Using CostC: 0.46000000000000013
+Using CostC: 0.5
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+-------------------------------!
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.9346356699122913
+Using CostC: 0.31087766565745734
+Using CostC: 0.4000000000000001
+Using CostC: 0.40238723161553547
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.43712353417960714
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.9207067778681604
+Using CostC: 0.4000000000000001
+Using CostC: 0.6165547308176292
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+-------------------------------!
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+-------------------------------!
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.9498839317495364
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+-------------------------------!
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.00548212093341538
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Entering Bump Item. 
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+-------------------------------!
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4070446278341395
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.8743909171803869
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.4000000000000001
+Using CostC: 0.349604882768756
+Using CostC: 0.4000000000000001
+1516073142500
+The Actual Weight is: 174756298000
+The Actual Cost is: 114953134600
+YOOOOOO.
+For file project_instances/problem9.in =========Profit is: 1516073142500
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem10.in Simply with Greedy, global improvement: 88388408
+Using CostC: 0.0
+Using CostC: 0.98
+project_instances/problem10.in Simply with Greedy, global improvement: 95909605
+Using CostC: 0.02
+Using CostC: 0.96
+project_instances/problem10.in Simply with Greedy, global improvement: 96506328
+Using CostC: 0.04
+Using CostC: 0.94
+project_instances/problem10.in Simply with Greedy, global improvement: 98233215
+Using CostC: 0.06
+Using CostC: 0.92
+Using CostC: 0.08
+Using CostC: 0.9
+project_instances/problem10.in Simply with Greedy, global improvement: 98496643
+Using CostC: 0.1
+Using CostC: 0.88
+project_instances/problem10.in Simply with Greedy, global improvement: 98875351
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+project_instances/problem10.in Simply with Greedy, global improvement: 99535437
+Using CostC: 0.14
+Using CostC: 0.84
+project_instances/problem10.in Simply with Greedy, global improvement: 99935410
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+Using CostC: 0.8
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+project_instances/problem10.in Simply with Greedy, global improvement: 100164807
+Using CostC: 0.21999999999999997
+Using CostC: 0.76
+project_instances/problem10.in Simply with Greedy, global improvement: 100172729
+Using CostC: 0.23999999999999996
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+Using CostC: 0.38000000000000006
+Using CostC: 0.5999999999999999
+Using CostC: 0.4000000000000001
+Using CostC: 0.5799999999999998
+Using CostC: 0.4200000000000001
+Using CostC: 0.5599999999999998
+Using CostC: 0.4400000000000001
+Using CostC: 0.5399999999999998
+Using CostC: 0.46000000000000013
+Using CostC: 0.5
+Using CostC: 0.76
+project_instances/problem10.in Actual global improvement: 100184948
+project_instances/problem10.in Actual global improvement: 100237347
+-------------------------------!
+Using CostC: 0.5872615319440826
+Using CostC: 0.76
+project_instances/problem10.in Actual global improvement: 100259544
+project_instances/problem10.in Actual global improvement: 100326451
+project_instances/problem10.in Actual global improvement: 100352159
+project_instances/problem10.in Actual global improvement: 100355121
+-------------------------------!
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.7139026863167727
+Using CostC: 0.76
+Using CostC: 0.245115692161751
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Entering Bump Item. 
+Using CostC: 0.76
+project_instances/problem10.in Actual global improvement: 100378648
+-------------------------------!
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.22911852737876726
+Using CostC: 0.76
+Using CostC: 0.76
+project_instances/problem10.in Actual global improvement: 100435211
+project_instances/problem10.in Actual global improvement: 100488171
+project_instances/problem10.in Actual global improvement: 100496078
+project_instances/problem10.in Actual global improvement: 100517572
+project_instances/problem10.in Actual global improvement: 100573425
+-------------------------------!
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.3747670773252284
+Using CostC: 0.76
+100573425
+The Actual Weight is: 17020900
+The Actual Cost is: 608702
+YOOOOOO.
+For file project_instances/problem10.in =========Profit is: 100573425
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem11.in Actual global improvement: 3198382749
+project_instances/problem11.in Actual global improvement: 3199483487
+project_instances/problem11.in Actual global improvement: 3200385581
+project_instances/problem11.in Actual global improvement: 3200707988
+project_instances/problem11.in Actual global improvement: 3200915042
+project_instances/problem11.in Actual global improvement: 3201620222
+-------------------------------!
+Using CostC: 0.0
+project_instances/problem11.in Actual global improvement: 3203045330
+project_instances/problem11.in Actual global improvement: 3203555191
+-------------------------------!
+Using CostC: 0.98
+project_instances/problem11.in Actual global improvement: 3203776509
+project_instances/problem11.in Actual global improvement: 3204030390
+project_instances/problem11.in Actual global improvement: 3204335763
+project_instances/problem11.in Actual global improvement: 3204594914
+project_instances/problem11.in Actual global improvement: 3205306559
+project_instances/problem11.in Actual global improvement: 3206167846
+-------------------------------!
+Using CostC: 0.02
+project_instances/problem11.in Actual global improvement: 3206851645
+-------------------------------!
+Using CostC: 0.96
+Using CostC: 0.04
+Using CostC: 0.94
+Using CostC: 0.06
+Using CostC: 0.92
+Using CostC: 0.08
+Using CostC: 0.9
+Using CostC: 0.1
+Using CostC: 0.88
+Using CostC: 0.12000000000000001
+project_instances/problem11.in Actual global improvement: 3207757136
+project_instances/problem11.in Actual global improvement: 3207928373
+project_instances/problem11.in Actual global improvement: 3208077905
+project_instances/problem11.in Actual global improvement: 3208546167
+project_instances/problem11.in Actual global improvement: 3208844371
+-------------------------------!
+Using CostC: 0.86
+Using CostC: 0.14
+Using CostC: 0.84
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+Using CostC: 0.8
+Entering Bump Item. 
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+Using CostC: 0.21999999999999997
+Using CostC: 0.76
+Using CostC: 0.23999999999999996
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+project_instances/problem11.in Actual global improvement: 3209039414
+project_instances/problem11.in Actual global improvement: 3209047868
+-------------------------------!
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+3209047868
+The Actual Weight is: 1398421
+The Actual Cost is: 30642636
+YOOOOOO.
+For file project_instances/problem11.in =========Profit is: 3209047868
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem12.in Actual global improvement: 431466845246
+project_instances/problem12.in Actual global improvement: 431473751248
+project_instances/problem12.in Actual global improvement: 431476259346
+project_instances/problem12.in Actual global improvement: 431483603758
+project_instances/problem12.in Actual global improvement: 431488964604
+project_instances/problem12.in Actual global improvement: 431549875621
+project_instances/problem12.in Actual global improvement: 431555165298
+project_instances/problem12.in Actual global improvement: 431555819698
+project_instances/problem12.in Actual global improvement: 431582126569
+project_instances/problem12.in Actual global improvement: 431592777092
+project_instances/problem12.in Actual global improvement: 431644697206
+project_instances/problem12.in Actual global improvement: 431654413700
+project_instances/problem12.in Actual global improvement: 431662413658
+project_instances/problem12.in Actual global improvement: 431704677033
+project_instances/problem12.in Actual global improvement: 431737649694
+project_instances/problem12.in Actual global improvement: 431746188717
+project_instances/problem12.in Actual global improvement: 431757140332
+project_instances/problem12.in Actual global improvement: 431793767295
+project_instances/problem12.in Actual global improvement: 431827224119
+project_instances/problem12.in Actual global improvement: 431828158217
+-------------------------------!
+Using CostC: 0.0
+Using CostC: 0.98
+Using CostC: 0.02
+project_instances/problem12.in Actual global improvement: 431890056447
+project_instances/problem12.in Actual global improvement: 431893860318
+project_instances/problem12.in Actual global improvement: 431899531419
+project_instances/problem12.in Actual global improvement: 431913220095
+project_instances/problem12.in Actual global improvement: 431917549542
+-------------------------------!
+Using CostC: 0.96
+Using CostC: 0.04
+Using CostC: 0.94
+Using CostC: 0.06
+Using CostC: 0.92
+Using CostC: 0.08
+Using CostC: 0.9
+Using CostC: 0.1
+Using CostC: 0.88
+Using CostC: 0.12000000000000001
+project_instances/problem12.in Actual global improvement: 431929835611
+project_instances/problem12.in Actual global improvement: 431930666141
+project_instances/problem12.in Actual global improvement: 431930835379
+project_instances/problem12.in Actual global improvement: 431938845154
+project_instances/problem12.in Actual global improvement: 431944779498
+project_instances/problem12.in Actual global improvement: 431984444059
+project_instances/problem12.in Actual global improvement: 431984672545
+project_instances/problem12.in Actual global improvement: 431985149915
+-------------------------------!
+Using CostC: 0.86
+Using CostC: 0.14
+Using CostC: 0.84
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+Using CostC: 0.8
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+Using CostC: 0.21999999999999997
+Using CostC: 0.76
+Using CostC: 0.23999999999999996
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Entering Bump Item. 
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+Using CostC: 0.38000000000000006
+Using CostC: 0.5999999999999999
+Using CostC: 0.4000000000000001
+Using CostC: 0.5799999999999998
+Using CostC: 0.4200000000000001
+Using CostC: 0.5599999999999998
+Using CostC: 0.4400000000000001
+Using CostC: 0.5399999999999998
+Using CostC: 0.46000000000000013
+Using CostC: 0.5
+Using CostC: 0.12000000000000001
+Using CostC: 0.12000000000000001
+Using CostC: 0.12000000000000001
+Using CostC: 0.12000000000000001
+Using CostC: 0.12000000000000001
+Using CostC: 0.12000000000000001
+Using CostC: 0.12000000000000001
+Using CostC: 0.12000000000000001
+Using CostC: 0.12000000000000001
+Using CostC: 0.12000000000000001
+431985149915
+The Actual Weight is: 29427269114
+The Actual Cost is: 29418589529
+YOOOOOO.
+For file project_instances/problem12.in =========Profit is: 431985149915
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem13.in Simply with Greedy, global improvement: 7380343090
+Using CostC: 0.0
+project_instances/problem13.in Simply with Greedy, global improvement: 7398739490
+Using CostC: 0.98
+project_instances/problem13.in Simply with Greedy, global improvement: 7407968682
+Using CostC: 0.02
+Using CostC: 0.96
+project_instances/problem13.in Simply with Greedy, global improvement: 7426182489
+Using CostC: 0.04
+Using CostC: 0.94
+project_instances/problem13.in Simply with Greedy, global improvement: 7429646561
+Using CostC: 0.06
+Using CostC: 0.92
+project_instances/problem13.in Simply with Greedy, global improvement: 7432939989
+Using CostC: 0.08
+Using CostC: 0.9
+project_instances/problem13.in Simply with Greedy, global improvement: 7438946916
+Using CostC: 0.1
+Using CostC: 0.88
+project_instances/problem13.in Simply with Greedy, global improvement: 7443285711
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+project_instances/problem13.in Simply with Greedy, global improvement: 7447013918
+Using CostC: 0.14
+Using CostC: 0.84
+project_instances/problem13.in Simply with Greedy, global improvement: 7451175516
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+project_instances/problem13.in Simply with Greedy, global improvement: 7453646562
+Using CostC: 0.18
+Using CostC: 0.8
+project_instances/problem13.in Simply with Greedy, global improvement: 7457529406
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+project_instances/problem13.in Simply with Greedy, global improvement: 7462908328
+Using CostC: 0.21999999999999997
+Using CostC: 0.76
+project_instances/problem13.in Simply with Greedy, global improvement: 7464365601
+Using CostC: 0.23999999999999996
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+Using CostC: 0.38000000000000006
+Using CostC: 0.5999999999999999
+Using CostC: 0.4000000000000001
+Using CostC: 0.5799999999999998
+Entering Bump Item. 
+Using CostC: 0.4200000000000001
+Using CostC: 0.5599999999999998
+Using CostC: 0.4400000000000001
+Using CostC: 0.5399999999999998
+Using CostC: 0.46000000000000013
+Using CostC: 0.5
+Using CostC: 0.76
+project_instances/problem13.in Actual global improvement: 7464651978
+project_instances/problem13.in Actual global improvement: 7464692560
+-------------------------------!
+Using CostC: 0.6555879372162441
+Using CostC: 0.76
+project_instances/problem13.in Actual global improvement: 7464904903
+project_instances/problem13.in Actual global improvement: 7464965524
+project_instances/problem13.in Actual global improvement: 7464985989
+project_instances/problem13.in Actual global improvement: 7465024424
+-------------------------------!
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.49564732885126217
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+project_instances/problem13.in Actual global improvement: 7465115466
+project_instances/problem13.in Actual global improvement: 7465220500
+project_instances/problem13.in Actual global improvement: 7465284693
+-------------------------------!
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+project_instances/problem13.in Actual global improvement: 7465399090
+project_instances/problem13.in Actual global improvement: 7465487409
+project_instances/problem13.in Actual global improvement: 7465870458
+project_instances/problem13.in Actual global improvement: 7466043115
+project_instances/problem13.in Actual global improvement: 7466055348
+project_instances/problem13.in Actual global improvement: 7466062993
+project_instances/problem13.in Actual global improvement: 7466903093
+project_instances/problem13.in Actual global improvement: 7467027162
+-------------------------------!
+Using CostC: 0.0633416509940411
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.6664372457704157
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+Using CostC: 0.76
+7467027162
+The Actual Weight is: 800436213
+The Actual Cost is: 1061564954
+YOOOOOO.
+For file project_instances/problem13.in =========Profit is: 7467027162
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem14.in Simply with Greedy, global improvement: 331184033
+Using CostC: 0.0
+Using CostC: 0.98
+project_instances/problem14.in Simply with Greedy, global improvement: 336725804
+Using CostC: 0.02
+Using CostC: 0.96
+Using CostC: 0.04
+Using CostC: 0.94
+Using CostC: 0.06
+Using CostC: 0.92
+Using CostC: 0.08
+Using CostC: 0.9
+Using CostC: 0.1
+Using CostC: 0.88
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+Using CostC: 0.14
+Using CostC: 0.84
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+Using CostC: 0.8
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+Using CostC: 0.21999999999999997
+Using CostC: 0.76
+Using CostC: 0.23999999999999996
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+Using CostC: 0.38000000000000006
+Using CostC: 0.5999999999999999
+Using CostC: 0.4000000000000001
+Using CostC: 0.5799999999999998
+Using CostC: 0.4200000000000001
+Using CostC: 0.5599999999999998
+Using CostC: 0.4400000000000001
+Using CostC: 0.5399999999999998
+Using CostC: 0.46000000000000013
+Using CostC: 0.5
+Using CostC: 0.98
+-------------------------------!
+Using CostC: 0.98
+-------------------------------!
+Using CostC: 0.98
+-------------------------------!
+Using CostC: 0.98
+-------------------------------!
+Using CostC: 0.98
+-------------------------------!
+Using CostC: 0.98
+-------------------------------!
+Using CostC: 0.98
+-------------------------------!
+Using CostC: 0.98
+-------------------------------!
+Using CostC: 0.8563702172556852
+Using CostC: 0.98
+project_instances/problem14.in Actual global improvement: 336782885
+-------------------------------!
+Using CostC: 0.98
+Entering Bump Item. 
+Using CostC: 0.98
+Using CostC: 0.98
+Using CostC: 0.98
+Using CostC: 0.5548469459385783
+Using CostC: 0.98
+Using CostC: 0.98
+Using CostC: 0.98
+Using CostC: 0.98
+Using CostC: 0.98
+Using CostC: 0.98
+336782885
+The Actual Weight is: 11104865384
+The Actual Cost is: 54598630
+YOOOOOO.
+For file project_instances/problem14.in =========Profit is: 336782885
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem15.in Actual global improvement: 12549582123
+project_instances/problem15.in Actual global improvement: 12551355470
+project_instances/problem15.in Actual global improvement: 12553043169
+project_instances/problem15.in Actual global improvement: 12553895858
+project_instances/problem15.in Actual global improvement: 12555306988
+project_instances/problem15.in Actual global improvement: 12575507663
+-------------------------------!
+Using CostC: 0.0
+Using CostC: 0.98
+project_instances/problem15.in Simply with Greedy, global improvement: 12577094238
+Using CostC: 0.02
+Using CostC: 0.96
+-------------------------------!
+Using CostC: 0.04
+Using CostC: 0.94
+-------------------------------!
+Using CostC: 0.06
+Using CostC: 0.92
+-------------------------------!
+Using CostC: 0.08
+project_instances/problem15.in Actual global improvement: 12585692377
+-------------------------------!
+Using CostC: 0.9
+Using CostC: 0.1
+Using CostC: 0.88
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+Using CostC: 0.14
+Using CostC: 0.84
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+Using CostC: 0.8
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+Using CostC: 0.21999999999999997
+Using CostC: 0.76
+Using CostC: 0.23999999999999996
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Entering Bump Item. 
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+Using CostC: 0.38000000000000006
+Using CostC: 0.5999999999999999
+Using CostC: 0.4000000000000001
+Using CostC: 0.5799999999999998
+Using CostC: 0.4200000000000001
+Using CostC: 0.5599999999999998
+Using CostC: 0.4400000000000001
+Using CostC: 0.5399999999999998
+Using CostC: 0.46000000000000013
+Using CostC: 0.5
+Using CostC: 0.08
+-------------------------------!
+12585692377
+The Actual Weight is: 2348593594
+The Actual Cost is: 83205145
+YOOOOOO.
+For file project_instances/problem15.in =========Profit is: 12585692377
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem16.in Actual global improvement: 433116970073
+project_instances/problem16.in Actual global improvement: 433129924837
+project_instances/problem16.in Actual global improvement: 433131019047
+project_instances/problem16.in Actual global improvement: 433150972002
+project_instances/problem16.in Actual global improvement: 433150997132
+project_instances/problem16.in Actual global improvement: 433182713140
+project_instances/problem16.in Actual global improvement: 433187637581
+project_instances/problem16.in Actual global improvement: 433193367448
+project_instances/problem16.in Actual global improvement: 433221155235
+project_instances/problem16.in Actual global improvement: 433221617249
+project_instances/problem16.in Actual global improvement: 433236294597
+project_instances/problem16.in Actual global improvement: 433252530746
+project_instances/problem16.in Actual global improvement: 433257303894
+project_instances/problem16.in Actual global improvement: 433258138698
+project_instances/problem16.in Actual global improvement: 433279770687
+project_instances/problem16.in Actual global improvement: 433296258053
+project_instances/problem16.in Actual global improvement: 433314382606
+project_instances/problem16.in Actual global improvement: 433320650261
+project_instances/problem16.in Actual global improvement: 433322254301
+project_instances/problem16.in Actual global improvement: 433324033363
+project_instances/problem16.in Actual global improvement: 433330098991
+project_instances/problem16.in Actual global improvement: 433335106653
+project_instances/problem16.in Actual global improvement: 433335385358
+project_instances/problem16.in Actual global improvement: 433348253455
+project_instances/problem16.in Actual global improvement: 433371497465
+project_instances/problem16.in Actual global improvement: 433394221392
+project_instances/problem16.in Actual global improvement: 433399107876
+project_instances/problem16.in Actual global improvement: 433405627041
+project_instances/problem16.in Actual global improvement: 433406004674
+project_instances/problem16.in Actual global improvement: 433408325707
+project_instances/problem16.in Actual global improvement: 433414896154
+project_instances/problem16.in Actual global improvement: 433418882338
+project_instances/problem16.in Actual global improvement: 433428135919
+project_instances/problem16.in Actual global improvement: 433432558412
+project_instances/problem16.in Actual global improvement: 433436030932
+project_instances/problem16.in Actual global improvement: 433441112903
+project_instances/problem16.in Actual global improvement: 433463022885
+project_instances/problem16.in Actual global improvement: 433466834016
+project_instances/problem16.in Actual global improvement: 433480945060
+project_instances/problem16.in Actual global improvement: 433504172313
+project_instances/problem16.in Actual global improvement: 433507069368
+project_instances/problem16.in Actual global improvement: 433514456360
+project_instances/problem16.in Actual global improvement: 433519329773
+project_instances/problem16.in Actual global improvement: 433531227114
+project_instances/problem16.in Actual global improvement: 433537675863
+project_instances/problem16.in Actual global improvement: 433538123686
+project_instances/problem16.in Actual global improvement: 433539217892
+project_instances/problem16.in Actual global improvement: 433553926203
+project_instances/problem16.in Actual global improvement: 433560363404
+project_instances/problem16.in Actual global improvement: 433566777796
+project_instances/problem16.in Actual global improvement: 433574000364
+project_instances/problem16.in Actual global improvement: 433591656387
+project_instances/problem16.in Actual global improvement: 433592239294
+project_instances/problem16.in Actual global improvement: 433603951132
+project_instances/problem16.in Actual global improvement: 433605158831
+project_instances/problem16.in Actual global improvement: 433609588638
+project_instances/problem16.in Actual global improvement: 433613345733
+project_instances/problem16.in Actual global improvement: 433632182677
+project_instances/problem16.in Actual global improvement: 433635644977
+project_instances/problem16.in Actual global improvement: 433652736122
+project_instances/problem16.in Actual global improvement: 433661730357
+project_instances/problem16.in Actual global improvement: 433663839009
+project_instances/problem16.in Actual global improvement: 433664711229
+project_instances/problem16.in Actual global improvement: 433668132330
+project_instances/problem16.in Actual global improvement: 433671804922
+project_instances/problem16.in Actual global improvement: 433678481338
+project_instances/problem16.in Actual global improvement: 433679034804
+project_instances/problem16.in Actual global improvement: 433692560765
+project_instances/problem16.in Actual global improvement: 433693428331
+project_instances/problem16.in Actual global improvement: 433695116513
+project_instances/problem16.in Actual global improvement: 433702410499
+project_instances/problem16.in Actual global improvement: 433708532086
+project_instances/problem16.in Actual global improvement: 433718782755
+project_instances/problem16.in Actual global improvement: 433721146621
+project_instances/problem16.in Actual global improvement: 433722719144
+project_instances/problem16.in Actual global improvement: 433725693950
+project_instances/problem16.in Actual global improvement: 433746739022
+project_instances/problem16.in Actual global improvement: 433747849771
+project_instances/problem16.in Actual global improvement: 433748263924
+project_instances/problem16.in Actual global improvement: 433749633478
+project_instances/problem16.in Actual global improvement: 433755441236
+project_instances/problem16.in Actual global improvement: 433757656688
+project_instances/problem16.in Actual global improvement: 433770359807
+project_instances/problem16.in Actual global improvement: 433772249881
+project_instances/problem16.in Actual global improvement: 433779854594
+project_instances/problem16.in Actual global improvement: 433782642415
+project_instances/problem16.in Actual global improvement: 433805392519
+project_instances/problem16.in Actual global improvement: 433814620309
+project_instances/problem16.in Actual global improvement: 433815182274
+project_instances/problem16.in Actual global improvement: 433818689705
+project_instances/problem16.in Actual global improvement: 433819872692
+project_instances/problem16.in Actual global improvement: 433828313878
+project_instances/problem16.in Actual global improvement: 433837777867
+project_instances/problem16.in Actual global improvement: 433840416117
+project_instances/problem16.in Actual global improvement: 433856531753
+project_instances/problem16.in Actual global improvement: 433857234749
+project_instances/problem16.in Actual global improvement: 433857949432
+project_instances/problem16.in Actual global improvement: 433859493318
+project_instances/problem16.in Actual global improvement: 433861320883
+project_instances/problem16.in Actual global improvement: 433862507592
+project_instances/problem16.in Actual global improvement: 433871765406
+project_instances/problem16.in Actual global improvement: 433872504881
+project_instances/problem16.in Actual global improvement: 433876153872
+project_instances/problem16.in Actual global improvement: 433879428524
+project_instances/problem16.in Actual global improvement: 433879894184
+project_instances/problem16.in Actual global improvement: 433889210257
+project_instances/problem16.in Actual global improvement: 433889563666
+project_instances/problem16.in Actual global improvement: 433901897863
+project_instances/problem16.in Actual global improvement: 433911747967
+project_instances/problem16.in Actual global improvement: 433919378262
+project_instances/problem16.in Actual global improvement: 433938547648
+project_instances/problem16.in Actual global improvement: 433939232763
+project_instances/problem16.in Actual global improvement: 433941712920
+project_instances/problem16.in Actual global improvement: 433951546000
+project_instances/problem16.in Actual global improvement: 433955737491
+project_instances/problem16.in Actual global improvement: 433960358939
+project_instances/problem16.in Actual global improvement: 433965284547
+-------------------------------!
+Using CostC: 0.0
+Using CostC: 0.98
+Using CostC: 0.02
+Using CostC: 0.96
+Using CostC: 0.04
+Using CostC: 0.94
+Using CostC: 0.06
+Using CostC: 0.92
+Using CostC: 0.08
+Using CostC: 0.9
+Using CostC: 0.1
+Using CostC: 0.88
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+Using CostC: 0.14
+Using CostC: 0.84
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+Using CostC: 0.8
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+Using CostC: 0.21999999999999997
+Using CostC: 0.76
+Using CostC: 0.23999999999999996
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+Using CostC: 0.38000000000000006
+Using CostC: 0.5999999999999999
+Using CostC: 0.4000000000000001
+Using CostC: 0.5799999999999998
+Using CostC: 0.4200000000000001
+Using CostC: 0.5599999999999998
+Using CostC: 0.4400000000000001
+Using CostC: 0.5399999999999998
+Using CostC: 0.46000000000000013
+Using CostC: 0.5
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.5339832367134167
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.9753952244590709
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.9645924094261654
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.9148300809614813
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.20262277015142416
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.5407874821340923
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.2597209395643999
+Using CostC: 1.0
+Using CostC: 0.6982994858910634
+Using CostC: 1.0
+Using CostC: 0.1933924213713556
+Using CostC: 0.41067888883363146
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.4794923489324191
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.9221683381010466
+Using CostC: 0.13356779433104027
+Using CostC: 1.0
+Using CostC: 1.0
+10% done
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Entering Bump Item. 
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.005382482543646705
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.39755957441279477
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.07997799485250068
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.025987923225630927
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.7417026120485958
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.8920461041643367
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.19861909493867536
+Using CostC: 0.44450054689952034
+Using CostC: 1.0
+Using CostC: 0.8633813739587846
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.6101960591908469
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.20681182724796154
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.336562787255144
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.9698868795055091
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.8330256124747641
+Using CostC: 0.6739393122146959
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.47733212852244233
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.9826285324412805
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.9031667340016721
+Using CostC: 1.0
+Using CostC: 0.17908565501744622
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.5785230598202827
+10% done
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+433965284547
+The Actual Weight is: 3286281102
+The Actual Cost is: 3716675238
+YOOOOOO.
+For file project_instances/problem16.in =========Profit is: 433965284547
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem17.in Actual global improvement: 445493275166
+project_instances/problem17.in Actual global improvement: 445638585870
+project_instances/problem17.in Actual global improvement: 445675150176
+project_instances/problem17.in Actual global improvement: 445724716888
+project_instances/problem17.in Actual global improvement: 445784903633
+project_instances/problem17.in Actual global improvement: 445808881439
+project_instances/problem17.in Actual global improvement: 445868575119
+project_instances/problem17.in Actual global improvement: 445939912577
+project_instances/problem17.in Actual global improvement: 446005858983
+project_instances/problem17.in Actual global improvement: 446025789279
+project_instances/problem17.in Actual global improvement: 446030574241
+project_instances/problem17.in Actual global improvement: 446058126435
+project_instances/problem17.in Actual global improvement: 446061927961
+project_instances/problem17.in Actual global improvement: 446072844677
+project_instances/problem17.in Actual global improvement: 446112941360
+project_instances/problem17.in Actual global improvement: 446188845785
+project_instances/problem17.in Actual global improvement: 446226716669
+project_instances/problem17.in Actual global improvement: 446279086986
+project_instances/problem17.in Actual global improvement: 446315514316
+project_instances/problem17.in Actual global improvement: 446354544551
+project_instances/problem17.in Actual global improvement: 446405592168
+project_instances/problem17.in Actual global improvement: 446406658690
+project_instances/problem17.in Actual global improvement: 446422122159
+project_instances/problem17.in Actual global improvement: 446444723248
+project_instances/problem17.in Actual global improvement: 446466535777
+project_instances/problem17.in Actual global improvement: 446510433468
+project_instances/problem17.in Actual global improvement: 446549530019
+project_instances/problem17.in Actual global improvement: 446605244174
+project_instances/problem17.in Actual global improvement: 446653308465
+project_instances/problem17.in Actual global improvement: 446689992264
+project_instances/problem17.in Actual global improvement: 446743979868
+project_instances/problem17.in Actual global improvement: 446797104039
+project_instances/problem17.in Actual global improvement: 446904190311
+project_instances/problem17.in Actual global improvement: 446916503741
+project_instances/problem17.in Actual global improvement: 446921361238
+project_instances/problem17.in Actual global improvement: 446960921210
+project_instances/problem17.in Actual global improvement: 447045527075
+project_instances/problem17.in Actual global improvement: 447048611881
+project_instances/problem17.in Actual global improvement: 447062052966
+project_instances/problem17.in Actual global improvement: 447067289183
+project_instances/problem17.in Actual global improvement: 447083947285
+project_instances/problem17.in Actual global improvement: 447097144654
+project_instances/problem17.in Actual global improvement: 447121622493
+project_instances/problem17.in Actual global improvement: 447137906316
+project_instances/problem17.in Actual global improvement: 447162594937
+project_instances/problem17.in Actual global improvement: 447167034364
+project_instances/problem17.in Actual global improvement: 447179713164
+project_instances/problem17.in Actual global improvement: 447195250026
+project_instances/problem17.in Actual global improvement: 447230988059
+project_instances/problem17.in Actual global improvement: 447263594645
+project_instances/problem17.in Actual global improvement: 447317839932
+project_instances/problem17.in Actual global improvement: 447320745770
+project_instances/problem17.in Actual global improvement: 447378736261
+project_instances/problem17.in Actual global improvement: 447382686243
+project_instances/problem17.in Actual global improvement: 447429047140
+project_instances/problem17.in Actual global improvement: 447475691179
+project_instances/problem17.in Actual global improvement: 447520814697
+project_instances/problem17.in Actual global improvement: 447561192540
+project_instances/problem17.in Actual global improvement: 447571062580
+project_instances/problem17.in Actual global improvement: 447592380135
+project_instances/problem17.in Actual global improvement: 447630125801
+project_instances/problem17.in Actual global improvement: 447633859618
+project_instances/problem17.in Actual global improvement: 447652517819
+project_instances/problem17.in Actual global improvement: 447691398032
+project_instances/problem17.in Actual global improvement: 447699526694
+project_instances/problem17.in Actual global improvement: 447733426405
+project_instances/problem17.in Actual global improvement: 447753095869
+project_instances/problem17.in Actual global improvement: 447764986081
+project_instances/problem17.in Actual global improvement: 447765656420
+project_instances/problem17.in Actual global improvement: 447773521151
+project_instances/problem17.in Actual global improvement: 447779103559
+project_instances/problem17.in Actual global improvement: 447782187928
+project_instances/problem17.in Actual global improvement: 447789001286
+project_instances/problem17.in Actual global improvement: 447836116754
+project_instances/problem17.in Actual global improvement: 447840104472
+project_instances/problem17.in Actual global improvement: 447852650835
+project_instances/problem17.in Actual global improvement: 447879300139
+project_instances/problem17.in Actual global improvement: 447893663272
+project_instances/problem17.in Actual global improvement: 447961816262
+project_instances/problem17.in Actual global improvement: 447986352785
+project_instances/problem17.in Actual global improvement: 447997955481
+project_instances/problem17.in Actual global improvement: 448003535436
+project_instances/problem17.in Actual global improvement: 448008009543
+project_instances/problem17.in Actual global improvement: 448070292059
+project_instances/problem17.in Actual global improvement: 448090435065
+project_instances/problem17.in Actual global improvement: 448101002290
+project_instances/problem17.in Actual global improvement: 448109880044
+project_instances/problem17.in Actual global improvement: 448132130954
+project_instances/problem17.in Actual global improvement: 448139930004
+project_instances/problem17.in Actual global improvement: 448149762309
+project_instances/problem17.in Actual global improvement: 448152252847
+project_instances/problem17.in Actual global improvement: 448152301911
+project_instances/problem17.in Actual global improvement: 448193242161
+project_instances/problem17.in Actual global improvement: 448199435900
+project_instances/problem17.in Actual global improvement: 448215906608
+project_instances/problem17.in Actual global improvement: 448226833544
+project_instances/problem17.in Actual global improvement: 448246451394
+project_instances/problem17.in Actual global improvement: 448249355993
+project_instances/problem17.in Actual global improvement: 448253672808
+project_instances/problem17.in Actual global improvement: 448277895110
+project_instances/problem17.in Actual global improvement: 448295614602
+project_instances/problem17.in Actual global improvement: 448300087696
+project_instances/problem17.in Actual global improvement: 448316968947
+project_instances/problem17.in Actual global improvement: 448356612162
+project_instances/problem17.in Actual global improvement: 448398366617
+project_instances/problem17.in Actual global improvement: 448401474400
+project_instances/problem17.in Actual global improvement: 448421719185
+project_instances/problem17.in Actual global improvement: 448454159716
+project_instances/problem17.in Actual global improvement: 448465502339
+project_instances/problem17.in Actual global improvement: 448482915450
+project_instances/problem17.in Actual global improvement: 448492294585
+project_instances/problem17.in Actual global improvement: 448500843033
+project_instances/problem17.in Actual global improvement: 448504987978
+project_instances/problem17.in Actual global improvement: 448508495808
+project_instances/problem17.in Actual global improvement: 448519366761
+project_instances/problem17.in Actual global improvement: 448525480164
+project_instances/problem17.in Actual global improvement: 448551540521
+project_instances/problem17.in Actual global improvement: 448576341950
+project_instances/problem17.in Actual global improvement: 448588179740
+project_instances/problem17.in Actual global improvement: 448609536550
+project_instances/problem17.in Actual global improvement: 448655900016
+project_instances/problem17.in Actual global improvement: 448678385610
+project_instances/problem17.in Actual global improvement: 448682434670
+project_instances/problem17.in Actual global improvement: 448705479830
+project_instances/problem17.in Actual global improvement: 448708397216
+project_instances/problem17.in Actual global improvement: 448731275590
+project_instances/problem17.in Actual global improvement: 448735302605
+project_instances/problem17.in Actual global improvement: 448753678806
+project_instances/problem17.in Actual global improvement: 448759669958
+project_instances/problem17.in Actual global improvement: 448776933289
+project_instances/problem17.in Actual global improvement: 448790394419
+project_instances/problem17.in Actual global improvement: 448844894783
+project_instances/problem17.in Actual global improvement: 448850936462
+project_instances/problem17.in Actual global improvement: 448869389257
+project_instances/problem17.in Actual global improvement: 448883272044
+project_instances/problem17.in Actual global improvement: 448888442852
+project_instances/problem17.in Actual global improvement: 448908431320
+project_instances/problem17.in Actual global improvement: 448921870305
+project_instances/problem17.in Actual global improvement: 448938940027
+project_instances/problem17.in Actual global improvement: 448969412391
+project_instances/problem17.in Actual global improvement: 448971189168
+project_instances/problem17.in Actual global improvement: 448975884711
+project_instances/problem17.in Actual global improvement: 448989254187
+project_instances/problem17.in Actual global improvement: 449052045374
+project_instances/problem17.in Actual global improvement: 449053991809
+project_instances/problem17.in Actual global improvement: 449069022358
+project_instances/problem17.in Actual global improvement: 449072452146
+project_instances/problem17.in Actual global improvement: 449075509439
+project_instances/problem17.in Actual global improvement: 449093126257
+project_instances/problem17.in Actual global improvement: 449093552481
+project_instances/problem17.in Actual global improvement: 449105081773
+project_instances/problem17.in Actual global improvement: 449112104321
+project_instances/problem17.in Actual global improvement: 449119886927
+project_instances/problem17.in Actual global improvement: 449130103093
+project_instances/problem17.in Actual global improvement: 449132089115
+project_instances/problem17.in Actual global improvement: 449158963074
+project_instances/problem17.in Actual global improvement: 449160079617
+project_instances/problem17.in Actual global improvement: 449163309173
+project_instances/problem17.in Actual global improvement: 449168986607
+project_instances/problem17.in Actual global improvement: 449201525281
+project_instances/problem17.in Actual global improvement: 449210040799
+project_instances/problem17.in Actual global improvement: 449242876382
+project_instances/problem17.in Actual global improvement: 449251597900
+project_instances/problem17.in Actual global improvement: 449261286575
+project_instances/problem17.in Actual global improvement: 449263579392
+project_instances/problem17.in Actual global improvement: 449269729681
+project_instances/problem17.in Actual global improvement: 449271265943
+project_instances/problem17.in Actual global improvement: 449279202038
+project_instances/problem17.in Actual global improvement: 449281874328
+project_instances/problem17.in Actual global improvement: 449304552836
+project_instances/problem17.in Actual global improvement: 449324631281
+project_instances/problem17.in Actual global improvement: 449333546570
+project_instances/problem17.in Actual global improvement: 449336473903
+project_instances/problem17.in Actual global improvement: 449351110533
+project_instances/problem17.in Actual global improvement: 449351812380
+project_instances/problem17.in Actual global improvement: 449374115776
+project_instances/problem17.in Actual global improvement: 449382993446
+project_instances/problem17.in Actual global improvement: 449395692054
+project_instances/problem17.in Actual global improvement: 449397620589
+project_instances/problem17.in Actual global improvement: 449398476680
+project_instances/problem17.in Actual global improvement: 449398538649
+project_instances/problem17.in Actual global improvement: 449418875746
+project_instances/problem17.in Actual global improvement: 449420112973
+project_instances/problem17.in Actual global improvement: 449437064473
+project_instances/problem17.in Actual global improvement: 449440782777
+project_instances/problem17.in Actual global improvement: 449448205607
+project_instances/problem17.in Actual global improvement: 449448481041
+project_instances/problem17.in Actual global improvement: 449454706750
+project_instances/problem17.in Actual global improvement: 449463391512
+project_instances/problem17.in Actual global improvement: 449472901849
+project_instances/problem17.in Actual global improvement: 449489406545
+project_instances/problem17.in Actual global improvement: 449490114008
+project_instances/problem17.in Actual global improvement: 449493574085
+project_instances/problem17.in Actual global improvement: 449507782623
+project_instances/problem17.in Actual global improvement: 449509944487
+project_instances/problem17.in Actual global improvement: 449512262213
+project_instances/problem17.in Actual global improvement: 449524510173
+project_instances/problem17.in Actual global improvement: 449524855763
+project_instances/problem17.in Actual global improvement: 449541915494
+project_instances/problem17.in Actual global improvement: 449558273685
+project_instances/problem17.in Actual global improvement: 449564687220
+project_instances/problem17.in Actual global improvement: 449569953328
+project_instances/problem17.in Actual global improvement: 449570085875
+project_instances/problem17.in Actual global improvement: 449578998784
+project_instances/problem17.in Actual global improvement: 449581498442
+project_instances/problem17.in Actual global improvement: 449588590856
+project_instances/problem17.in Actual global improvement: 449598480442
+project_instances/problem17.in Actual global improvement: 449603372463
+project_instances/problem17.in Actual global improvement: 449608882309
+project_instances/problem17.in Actual global improvement: 449611723465
+project_instances/problem17.in Actual global improvement: 449625207806
+project_instances/problem17.in Actual global improvement: 449627529476
+-------------------------------!
+Using CostC: 0.0
+Using CostC: 0.98
+Using CostC: 0.02
+Using CostC: 0.96
+Using CostC: 0.04
+Using CostC: 0.94
+Using CostC: 0.06
+Using CostC: 0.92
+Using CostC: 0.08
+Using CostC: 0.9
+Using CostC: 0.1
+Using CostC: 0.88
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+Using CostC: 0.14
+Using CostC: 0.84
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+Using CostC: 0.8
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+Using CostC: 0.21999999999999997
+Using CostC: 0.76
+Using CostC: 0.23999999999999996
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+Using CostC: 0.38000000000000006
+Using CostC: 0.5999999999999999
+Using CostC: 0.4000000000000001
+Using CostC: 0.5799999999999998
+Using CostC: 0.4200000000000001
+Using CostC: 0.5599999999999998
+Using CostC: 0.4400000000000001
+Using CostC: 0.5399999999999998
+Using CostC: 0.46000000000000013
+Using CostC: 0.5
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.9804330739921914
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Entering Bump Item. 
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.2526563795997311
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.6582030715201194
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.2061851904388038
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.7987312967359692
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.584779670835203
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 1.0
+Using CostC: 0.2544783878241518
+Using CostC: 1.0
+449627529476
+The Actual Weight is: 34219833793
+The Actual Cost is: 31661119565
+YOOOOOO.
+For file project_instances/problem17.in =========Profit is: 449627529476
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem18.in Simply with Greedy, global improvement: 3049065475
+Using CostC: 0.0
+project_instances/problem18.in Actual global improvement: 3060276816
+project_instances/problem18.in Actual global improvement: 3078134796
+-------------------------------!
+Using CostC: 0.98
+Using CostC: 0.02
+Using CostC: 0.96
+Using CostC: 0.04
+Using CostC: 0.94
+Using CostC: 0.06
+Using CostC: 0.92
+Using CostC: 0.08
+Using CostC: 0.9
+Using CostC: 0.1
+Using CostC: 0.88
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+Using CostC: 0.14
+Using CostC: 0.84
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+Using CostC: 0.8
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+Using CostC: 0.21999999999999997
+Using CostC: 0.76
+Using CostC: 0.23999999999999996
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+Using CostC: 0.38000000000000006
+Using CostC: 0.5999999999999999
+Using CostC: 0.4000000000000001
+Using CostC: 0.5799999999999998
+Using CostC: 0.4200000000000001
+Using CostC: 0.5599999999999998
+Using CostC: 0.4400000000000001
+Using CostC: 0.5399999999999998
+Using CostC: 0.46000000000000013
+Using CostC: 0.5
+Using CostC: 0.8013797335105822
+Using CostC: 0.0
+-------------------------------!
+Using CostC: 0.0
+-------------------------------!
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+-------------------------------!
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Entering Bump Item. 
+Using CostC: 0.0
+Using CostC: 0.0
+-------------------------------!
+Using CostC: 0.0
+Using CostC: 0.0
+-------------------------------!
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+-------------------------------!
+Using CostC: 0.0
+-------------------------------!
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+-------------------------------!
+Using CostC: 0.0
+-------------------------------!
+Using CostC: 0.7502135748333438
+Using CostC: 0.0
+Using CostC: 0.0
+Using CostC: 0.0
+-------------------------------!
+Using CostC: 0.0
+-------------------------------!
+3078134796
+The Actual Weight is: 200483679
+The Actual Cost is: 200829520
+YOOOOOO.
+For file project_instances/problem18.in =========Profit is: 3078134796
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem19.in Actual global improvement: 117006907
+project_instances/problem19.in Actual global improvement: 118026827
+project_instances/problem19.in Actual global improvement: 118167099
+project_instances/problem19.in Actual global improvement: 119620904
+project_instances/problem19.in Actual global improvement: 121579774
+project_instances/problem19.in Actual global improvement: 122710498
+project_instances/problem19.in Actual global improvement: 122965359
+project_instances/problem19.in Actual global improvement: 123040793
+project_instances/problem19.in Actual global improvement: 123983559
+project_instances/problem19.in Actual global improvement: 125302850
+project_instances/problem19.in Actual global improvement: 126756203
+project_instances/problem19.in Actual global improvement: 127438013
+project_instances/problem19.in Actual global improvement: 127540622
+project_instances/problem19.in Actual global improvement: 127912475
+project_instances/problem19.in Actual global improvement: 128596493
+project_instances/problem19.in Actual global improvement: 129809181
+project_instances/problem19.in Actual global improvement: 131635826
+project_instances/problem19.in Actual global improvement: 132559599
+project_instances/problem19.in Actual global improvement: 132696024
+project_instances/problem19.in Actual global improvement: 133618883
+project_instances/problem19.in Actual global improvement: 133754106
+project_instances/problem19.in Actual global improvement: 133764544
+project_instances/problem19.in Actual global improvement: 134687341
+project_instances/problem19.in Actual global improvement: 134955394
+project_instances/problem19.in Actual global improvement: 135467058
+project_instances/problem19.in Actual global improvement: 135868150
+project_instances/problem19.in Actual global improvement: 135969276
+project_instances/problem19.in Actual global improvement: 136038821
+project_instances/problem19.in Actual global improvement: 136103223
+project_instances/problem19.in Actual global improvement: 136473401
+project_instances/problem19.in Actual global improvement: 136500339
+project_instances/problem19.in Actual global improvement: 136665084
+project_instances/problem19.in Actual global improvement: 136845140
+project_instances/problem19.in Actual global improvement: 136925190
+project_instances/problem19.in Actual global improvement: 137239368
+project_instances/problem19.in Actual global improvement: 137794682
+project_instances/problem19.in Actual global improvement: 137931301
+project_instances/problem19.in Actual global improvement: 138018703
+project_instances/problem19.in Actual global improvement: 138101954
+project_instances/problem19.in Actual global improvement: 138149255
+project_instances/problem19.in Actual global improvement: 138229954
+project_instances/problem19.in Actual global improvement: 138535426
+project_instances/problem19.in Actual global improvement: 138573324
+project_instances/problem19.in Actual global improvement: 138799969
+project_instances/problem19.in Actual global improvement: 138826440
+project_instances/problem19.in Actual global improvement: 138946054
+project_instances/problem19.in Actual global improvement: 139584588
+project_instances/problem19.in Actual global improvement: 141259261
+project_instances/problem19.in Actual global improvement: 141579361
+project_instances/problem19.in Actual global improvement: 141667307
+project_instances/problem19.in Actual global improvement: 141715850
+project_instances/problem19.in Actual global improvement: 141941685
+project_instances/problem19.in Actual global improvement: 142732442
+project_instances/problem19.in Actual global improvement: 143410435
+project_instances/problem19.in Actual global improvement: 143597739
+project_instances/problem19.in Actual global improvement: 144233421
+project_instances/problem19.in Actual global improvement: 144443179
+project_instances/problem19.in Actual global improvement: 144618029
+project_instances/problem19.in Actual global improvement: 144716995
+project_instances/problem19.in Actual global improvement: 144906886
+project_instances/problem19.in Actual global improvement: 145298427
+project_instances/problem19.in Actual global improvement: 145313836
+project_instances/problem19.in Actual global improvement: 145446870
+project_instances/problem19.in Actual global improvement: 145535230
+project_instances/problem19.in Actual global improvement: 145588042
+project_instances/problem19.in Actual global improvement: 145634281
+project_instances/problem19.in Actual global improvement: 145828822
+project_instances/problem19.in Actual global improvement: 146025568
+project_instances/problem19.in Actual global improvement: 146036528
+project_instances/problem19.in Actual global improvement: 146064711
+-------------------------------!
+Using CostC: 0.0
+project_instances/problem19.in Simply with Greedy, global improvement: 184443176
+Using CostC: 0.98
+Using CostC: 0.02
+Using CostC: 0.96
+Using CostC: 0.04
+project_instances/problem19.in Simply with Greedy, global improvement: 186075285
+Using CostC: 0.94
+Using CostC: 0.06
+Using CostC: 0.92
+Using CostC: 0.08
+Using CostC: 0.9
+Using CostC: 0.1
+Using CostC: 0.88
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+Using CostC: 0.14
+Using CostC: 0.84
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+Using CostC: 0.8
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+Using CostC: 0.21999999999999997
+Using CostC: 0.76
+Using CostC: 0.23999999999999996
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+Using CostC: 0.38000000000000006
+Using CostC: 0.5999999999999999
+Using CostC: 0.4000000000000001
+Using CostC: 0.5799999999999998
+Using CostC: 0.4200000000000001
+Using CostC: 0.5599999999999998
+Using CostC: 0.4400000000000001
+Using CostC: 0.5399999999999998
+Using CostC: 0.46000000000000013
+Using CostC: 0.5
+Using CostC: 0.04
+-------------------------------!
+Using CostC: 0.04
+-------------------------------!
+Using CostC: 0.04
+-------------------------------!
+Using CostC: 0.04
+-------------------------------!
+Using CostC: 0.04
+-------------------------------!
+Using CostC: 0.04
+-------------------------------!
+Using CostC: 0.04
+-------------------------------!
+Using CostC: 0.04
+-------------------------------!
+Using CostC: 0.04
+-------------------------------!
+Entering Bump Item. 
+Using CostC: 0.04
+-------------------------------!
+Using CostC: 0.04
+-------------------------------!
+Using CostC: 0.04
+-------------------------------!
+Using CostC: 0.04
+-------------------------------!
+186075285
+The Actual Weight is: 9995502
+The Actual Cost is: 44954804
+YOOOOOO.
+For file project_instances/problem19.in =========Profit is: 186075285
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem20.in Simply with Greedy, global improvement: 4182775945
+Using CostC: 0.0
+Using CostC: 0.98
+project_instances/problem20.in Simply with Greedy, global improvement: 4184216690
+Using CostC: 0.02
+Using CostC: 0.96
+project_instances/problem20.in Simply with Greedy, global improvement: 4186122622
+Using CostC: 0.04
+Using CostC: 0.94
+project_instances/problem20.in Simply with Greedy, global improvement: 4187944128
+Using CostC: 0.06
+Using CostC: 0.92
+project_instances/problem20.in Simply with Greedy, global improvement: 4189437233
+Using CostC: 0.08
+Using CostC: 0.9
+project_instances/problem20.in Simply with Greedy, global improvement: 4189623768
+Using CostC: 0.1
+project_instances/problem20.in Simply with Greedy, global improvement: 4190769406
+Using CostC: 0.88
+project_instances/problem20.in Simply with Greedy, global improvement: 4191046855
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+project_instances/problem20.in Simply with Greedy, global improvement: 4191214668
+Using CostC: 0.14
+project_instances/problem20.in Simply with Greedy, global improvement: 4193386581
+Using CostC: 0.84
+Using CostC: 0.16
+project_instances/problem20.in Simply with Greedy, global improvement: 4197617685
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+project_instances/problem20.in Simply with Greedy, global improvement: 4200355182
+Using CostC: 0.8
+Entering Bump Item. 
+Using CostC: 0.19999999999999998
+project_instances/problem20.inSimply with Greedy, global improvement: 4200655924
+Using CostC: 0.78
+Using CostC: 0.21999999999999997
+project_instances/problem20.inSimply with Greedy, global improvement: 4202981587
+Using CostC: 0.76
+Using CostC: 0.23999999999999996
+project_instances/problem20.inSimply with Greedy, global improvement: 4204010886
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+4204010886
+The Actual Weight is: 76505492
+The Actual Cost is: 392184559
+YOOOOOO.
+For file project_instances/problem20.in =========Profit is: 4204010886
+Done
+Using Heuristic
+Entering Solve....
+Using CostC: 1.0
+project_instances/problem21.in Simply with Greedy, global improvement: 74771888
+Using CostC: 0.0
+Using CostC: 0.98
+Using CostC: 0.02
+Using CostC: 0.96
+Using CostC: 0.04
+Using CostC: 0.94
+Using CostC: 0.06
+Using CostC: 0.92
+Using CostC: 0.08
+Using CostC: 0.9
+Using CostC: 0.1
+Using CostC: 0.88
+Using CostC: 0.12000000000000001
+Using CostC: 0.86
+Using CostC: 0.14
+Using CostC: 0.84
+Using CostC: 0.16
+Using CostC: 0.8200000000000001
+Using CostC: 0.18
+Using CostC: 0.8
+Using CostC: 0.19999999999999998
+Using CostC: 0.78
+Using CostC: 0.21999999999999997
+Using CostC: 0.76
+Using CostC: 0.23999999999999996
+Using CostC: 0.74
+Using CostC: 0.25999999999999995
+Using CostC: 0.72
+Using CostC: 0.27999999999999997
+Using CostC: 0.7
+Using CostC: 0.3
+Using CostC: 0.6799999999999999
+Using CostC: 0.32
+Using CostC: 0.6599999999999999
+Using CostC: 0.34
+Using CostC: 0.6399999999999999
+Using CostC: 0.36000000000000004
+Using CostC: 0.6199999999999999
+Using CostC: 0.38000000000000006
+Using CostC: 0.5999999999999999
+Using CostC: 0.4000000000000001
+Using CostC: 0.5799999999999998
+Using CostC: 0.4200000000000001
+Using CostC: 0.5599999999999998
+Using CostC: 0.4400000000000001
+Using CostC: 0.5399999999999998
+Using CostC: 0.46000000000000013
+Using CostC: 0.5
+Using CostC: 1.0
+-------------------------------!
+Using CostC: 1.0
+-------------------------------!
+Using CostC: 1.0
+-------------------------------!
+Using CostC: 1.0
+-------------------------------!
+Using CostC: 1.0
+-------------------------------!
+Using CostC: 0.9787213955937719
+Entering Bump Item. 
+Using CostC: 1.0
+-------------------------------!
+Using CostC: 1.0
+-------------------------------!
+Using CostC: 1.0
+-------------------------------!
+Using CostC: 0.14146057913843202
+Using CostC: 0.1251824658197963
+Using CostC: 1.0
+-------------------------------!
+Using CostC: 1.0
+-------------------------------!
+Using CostC: 0.42718454392017213
+Using CostC: 0.0626483362046244
+Using CostC: 1.0
+-------------------------------!
+Using CostC: 1.0
+-------------------------------!
+Using CostC: 1.0
+-------------------------------!
+Using CostC: 1.0
+-------------------------------!
+74771888
+The Actual Weight is: 39299866
+The Actual Cost is: 5943539
+YOOOOOO.
+For file project_instances/problem21.in =========Profit is: 74771888
+airbears2-10-142-77-70:CS170Proj-reg yxiaocheng1997$ 
