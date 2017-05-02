@@ -1,9 +1,9 @@
-package Solver;
+package SolverEC;
 
 
 import java.util.ArrayList;
 
-import static Solver.SolverException.error;
+import static SolverEC.SolverException.error;
 
 /**
  * Created by yxiaocheng1997 on 4/21/17.

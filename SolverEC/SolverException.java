@@ -1,4 +1,4 @@
-package Solver;
+package SolverEC;
 
 /**
  * General purpose Exceptions for the InputWriter class.

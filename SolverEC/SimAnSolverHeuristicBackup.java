@@ -1,4 +1,4 @@
-package Solver;
+package SolverEC;
 
 import java.util.HashSet;
 import java.util.HashMap;
@@ -97,8 +97,7 @@ public class SimAnSolverHeuristicBackup {
 
     public SimAnSolverHeuristicBackup(long p, long m, int n, int c,
                                 int[] ClsArr, long[]WArr, long[]CArr,
-                                long[]RArr, HashSet<Integer>[] clsConstIdxArr,
-                                      ArrayList<Integer>[] constArr,String fn) {
+                                long[]RArr, HashSet<Integer>[] clsConstIdxArr, String fn) {
         System.out.println("Using Backup Heuristic");
 
         //2000 should be good enough.
@@ -129,11 +128,8 @@ public class SimAnSolverHeuristicBackup {
         CostArr = CArr;
         RevArr = RArr;
         ClassConstIdxArr = clsConstIdxArr;
-        ConstArr = constArr;
-        
         F = fn;
 
-        //numUsedInConstr[] = new int[C]
         
         
         //bucketStarted = false;
@@ -643,6 +639,22 @@ public class SimAnSolverHeuristicBackup {
         double costCoef;
         double weightCoef;
     }
+    
+    
+    /** Simple Comparator that only takes Revenue into consideration. */
+    class SimpRevComparator implements Comparator<Integer> {
+        // Return 1 if obj1 is more profitable than obj2
+        
+        @Override
+        public int compare(Integer obj1, Integer obj2) {
+            if (RevArr[obj1] >= RevArr[obj2]) {
+                return -1;
+            } else {
+                return 1;
+            }
+        }
+        
+    }
 
     /** Fill the Rev Ratio PQ for initial processing,
      * which will gurantee the most profitable items are at least
@@ -655,7 +667,9 @@ public class SimAnSolverHeuristicBackup {
         // GGGG System.out.println("Using CostC: " + costC);
         
         
-        PriorityQueue<Integer> RevRatioPQ = new PriorityQueue<>(N, new RevComparator(costC, weightC));
+        //PriorityQueue<Integer> RevRatioPQ = new PriorityQueue<>(N, new RevComparator(costC, weightC));
+        PriorityQueue<Integer> RevRatioPQ = new PriorityQueue<>(N, new SimpRevComparator());
+        
         for (int i = 0; i < N; i+= 1) {
             if (RevArr[i] != 0) {
                 RevRatioPQ.add(i);
@@ -763,7 +777,5 @@ public class SimAnSolverHeuristicBackup {
     /** Map from class index to constrain index that contain that class. */
     private HashSet<Integer>[] ClassConstIdxArr;
     
-    /** Map from constrain index to constrain stored in ArrayList. */
-    private ArrayList<Integer>[] ConstArr;
     
 }

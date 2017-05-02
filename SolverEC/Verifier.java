@@ -1,8 +1,7 @@
-package Solver;
+package SolverEC;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -11,7 +10,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static Solver.SolverException.error;
+import static SolverEC.SolverException.error;
 
 /**
  * Created by yxiaocheng1997 on 4/23/17.

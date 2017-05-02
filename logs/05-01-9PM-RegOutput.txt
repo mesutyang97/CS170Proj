@@ -1,0 +1,1414 @@
+Last login: Mon May  1 04:49:48 on ttys000
+airbears2-10-142-77-70:~ yxiaocheng1997$ cd repo/CS170Proj
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ javac Solver/Solver.java
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ javac Solver/SimAnSolverHeuristic.java
+Note: Solver/SimAnSolverHeuristic.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ java Solver/ScriptSolver 16 17
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem16.in Simply with Greedy, global improvement: 434128971242
+Using CostC: 1.0
+-------------------------------!
+-------------------------------!
+-------------------------------!
+project_instances/problem16.in Actual global improvement: 434131803469
+-------------------------------!
+project_instances/problem16.in Actual global improvement: 434133686469
+project_instances/problem16.in Actual global improvement: 434141908998
+project_instances/problem16.in Actual global improvement: 434143112897
+project_instances/problem16.in Actual global improvement: 434144555223
+-------------------------------!
+^Cairbears2-10-142-77-70:CS170Proj yxiaocheng1997$ javac Solver/SimAnSolverHeuriic.java
+Note: Solver/SimAnSolverHeuristic.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ java Solver/ScriptSolver 16 17
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem16.in Simply with Greedy, global improvement: 434128971242
+Using CostC: 1.0
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+^Cairbears2-10-142-77-70:CS170Proj yxiaocheng1997$ javac Solver/SimAnSolverHeuriic.java
+Note: Solver/SimAnSolverHeuristic.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ java Solver/ScriptSolver s 1 22
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem1.in Actual global improvement: 6808612667
+project_instances/problem1.in Actual global improvement: 6816174517
+project_instances/problem1.in Actual global improvement: 6830355872
+project_instances/problem1.in Actual global improvement: 6842884471
+project_instances/problem1.in Actual global improvement: 6849504735
+project_instances/problem1.in Actual global improvement: 6853574364
+project_instances/problem1.in Actual global improvement: 6864017844
+project_instances/problem1.in Actual global improvement: 6868382079
+project_instances/problem1.in Actual global improvement: 6936382393
+project_instances/problem1.in Actual global improvement: 6983070592
+project_instances/problem1.in Actual global improvement: 6983809965
+project_instances/problem1.in Actual global improvement: 7016200193
+project_instances/problem1.in Actual global improvement: 7046688561
+project_instances/problem1.in Actual global improvement: 7052416292
+project_instances/problem1.in Actual global improvement: 7081802202
+project_instances/problem1.in Actual global improvement: 7110437725
+project_instances/problem1.in Actual global improvement: 7118011679
+project_instances/problem1.in Actual global improvement: 7121894378
+project_instances/problem1.in Actual global improvement: 7124892494
+project_instances/problem1.in Actual global improvement: 7149234222
+project_instances/problem1.in Actual global improvement: 7150830186
+project_instances/problem1.in Actual global improvement: 7194908467
+project_instances/problem1.in Actual global improvement: 7265759646
+project_instances/problem1.in Actual global improvement: 7266940929
+project_instances/problem1.in Actual global improvement: 7291510395
+project_instances/problem1.in Actual global improvement: 7296466970
+project_instances/problem1.in Actual global improvement: 7297836754
+project_instances/problem1.in Actual global improvement: 7304391704
+project_instances/problem1.in Actual global improvement: 7305079886
+project_instances/problem1.in Actual global improvement: 7307381875
+project_instances/problem1.in Actual global improvement: 7310042396
+project_instances/problem1.in Actual global improvement: 7320122027
+project_instances/problem1.in Actual global improvement: 7327152459
+project_instances/problem1.in Actual global improvement: 7349171220
+project_instances/problem1.in Actual global improvement: 7351291184
+project_instances/problem1.in Actual global improvement: 7378668393
+project_instances/problem1.in Actual global improvement: 7388747647
+project_instances/problem1.in Actual global improvement: 7405741873
+project_instances/problem1.in Actual global improvement: 7432630408
+project_instances/problem1.in Actual global improvement: 7433267916
+project_instances/problem1.in Actual global improvement: 7439343328
+project_instances/problem1.in Actual global improvement: 7475228526
+project_instances/problem1.in Actual global improvement: 7482891758
+project_instances/problem1.in Actual global improvement: 7485573903
+project_instances/problem1.in Actual global improvement: 7495554010
+project_instances/problem1.in Actual global improvement: 7496029257
+project_instances/problem1.in Actual global improvement: 7496643672
+project_instances/problem1.in Actual global improvement: 7503601676
+project_instances/problem1.in Actual global improvement: 7508368161
+project_instances/problem1.in Actual global improvement: 7543720166
+project_instances/problem1.in Actual global improvement: 7548119191
+project_instances/problem1.in Actual global improvement: 7556425452
+project_instances/problem1.in Actual global improvement: 7563572197
+project_instances/problem1.in Actual global improvement: 7579295798
+project_instances/problem1.in Actual global improvement: 7587924565
+project_instances/problem1.in Actual global improvement: 7594600467
+project_instances/problem1.in Actual global improvement: 7596861407
+project_instances/problem1.in Actual global improvement: 7601659540
+project_instances/problem1.in Actual global improvement: 7629244618
+project_instances/problem1.in Actual global improvement: 7649343699
+project_instances/problem1.in Actual global improvement: 7651192188
+project_instances/problem1.in Actual global improvement: 7657299887
+project_instances/problem1.in Actual global improvement: 7672570778
+project_instances/problem1.in Actual global improvement: 7677248482
+project_instances/problem1.in Actual global improvement: 7685627334
+project_instances/problem1.in Actual global improvement: 7688043847
+project_instances/problem1.in Actual global improvement: 7688115613
+project_instances/problem1.in Actual global improvement: 7688644925
+project_instances/problem1.in Actual global improvement: 7694023431
+project_instances/problem1.in Actual global improvement: 7697943003
+project_instances/problem1.in Actual global improvement: 7704896843
+project_instances/problem1.in Actual global improvement: 7707106756
+project_instances/problem1.in Actual global improvement: 7710856588
+project_instances/problem1.in Actual global improvement: 7711637574
+project_instances/problem1.in Actual global improvement: 7719280354
+project_instances/problem1.in Actual global improvement: 7729069731
+project_instances/problem1.in Actual global improvement: 7743841797
+project_instances/problem1.in Actual global improvement: 7745783878
+project_instances/problem1.in Actual global improvement: 7758027661
+project_instances/problem1.in Actual global improvement: 7763278989
+project_instances/problem1.in Actual global improvement: 7767873099
+project_instances/problem1.in Actual global improvement: 7775605890
+project_instances/problem1.in Actual global improvement: 7779493123
+project_instances/problem1.in Actual global improvement: 7782081447
+project_instances/problem1.in Actual global improvement: 7785681316
+project_instances/problem1.in Actual global improvement: 7790110029
+project_instances/problem1.in Actual global improvement: 7790458577
+project_instances/problem1.in Actual global improvement: 7791165117
+project_instances/problem1.in Actual global improvement: 7793676500
+project_instances/problem1.in Actual global improvement: 7797360567
+project_instances/problem1.in Actual global improvement: 7798757451
+project_instances/problem1.in Actual global improvement: 7799538437
+project_instances/problem1.in Actual global improvement: 7803936986
+project_instances/problem1.in Actual global improvement: 7807210923
+project_instances/problem1.in Actual global improvement: 7810894990
+project_instances/problem1.in Actual global improvement: 7810924024
+project_instances/problem1.in Actual global improvement: 7819302876
+project_instances/problem1.in Actual global improvement: 7840565563
+-------------------------------!
+^Cairbears2-10-142-77-70:CS170Proj yxiaocheng1997$ java Solver/ScriptSolver 3
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 2
+	at Solver.ScriptSolver.<init>(ScriptSolver.java:35)
+	at Solver.ScriptSolver.main(ScriptSolver.java:14)
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ java Solver/ScriptSolver 3
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem3.in Actual global improvement: 39531078795
+project_instances/problem3.in Actual global improvement: 39585221026
+project_instances/problem3.in Actual global improvement: 39617754259
+-------------------------------!
+^Cairbears2-10-142-77-70:CS170Proj yxiaocheng1997$ java Solver/ScriptSolver 4
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem4.in Actual global improvement: 5992727
+project_instances/problem4.in Actual global improvement: 6001937
+project_instances/problem4.in Actual global improvement: 6002948
+project_instances/problem4.in Actual global improvement: 6009639
+project_instances/problem4.in Actual global improvement: 6018764
+project_instances/problem4.in Actual global improvement: 6026714
+project_instances/problem4.in Actual global improvement: 6034660
+project_instances/problem4.in Actual global improvement: 6034746
+project_instances/problem4.in Actual global improvement: 6046894
+project_instances/problem4.in Actual global improvement: 6065045
+project_instances/problem4.in Actual global improvement: 6068039
+project_instances/problem4.in Actual global improvement: 6073995
+project_instances/problem4.in Actual global improvement: 6086128
+project_instances/problem4.in Actual global improvement: 6149120
+project_instances/problem4.in Actual global improvement: 6155208
+project_instances/problem4.in Actual global improvement: 6156745
+project_instances/problem4.in Actual global improvement: 6156971
+project_instances/problem4.in Actual global improvement: 6158416
+project_instances/problem4.in Actual global improvement: 6167633
+project_instances/problem4.in Actual global improvement: 6186413
+project_instances/problem4.in Actual global improvement: 6202379
+project_instances/problem4.in Actual global improvement: 6217214
+project_instances/problem4.in Actual global improvement: 6228685
+project_instances/problem4.in Actual global improvement: 6236408
+project_instances/problem4.in Actual global improvement: 6243932
+project_instances/problem4.in Actual global improvement: 6250146
+project_instances/problem4.in Actual global improvement: 6270276
+project_instances/problem4.in Actual global improvement: 6281485
+project_instances/problem4.in Actual global improvement: 6282256
+project_instances/problem4.in Actual global improvement: 6287951
+project_instances/problem4.in Actual global improvement: 6289813
+project_instances/problem4.in Actual global improvement: 6295961
+project_instances/problem4.in Actual global improvement: 6306055
+project_instances/problem4.in Actual global improvement: 6312269
+project_instances/problem4.in Actual global improvement: 6317117
+project_instances/problem4.in Actual global improvement: 6356338
+project_instances/problem4.in Actual global improvement: 6364318
+project_instances/problem4.in Actual global improvement: 6369010
+project_instances/problem4.in Actual global improvement: 6375749
+project_instances/problem4.in Actual global improvement: 6376118
+project_instances/problem4.in Actual global improvement: 6380438
+project_instances/problem4.in Actual global improvement: 6382399
+project_instances/problem4.in Actual global improvement: 6386231
+project_instances/problem4.in Actual global improvement: 6395762
+project_instances/problem4.in Actual global improvement: 6418562
+project_instances/problem4.in Actual global improvement: 6421942
+project_instances/problem4.in Actual global improvement: 6422719
+project_instances/problem4.in Actual global improvement: 6433672
+project_instances/problem4.in Actual global improvement: 6442316
+project_instances/problem4.in Actual global improvement: 6447085
+project_instances/problem4.in Actual global improvement: 6474122
+project_instances/problem4.in Actual global improvement: 6491493
+project_instances/problem4.in Actual global improvement: 6493689
+project_instances/problem4.in Actual global improvement: 6506227
+project_instances/problem4.in Actual global improvement: 6519251
+project_instances/problem4.in Actual global improvement: 6525331
+project_instances/problem4.in Actual global improvement: 6529999
+project_instances/problem4.in Actual global improvement: 6530482
+project_instances/problem4.in Actual global improvement: 6546104
+project_instances/problem4.in Actual global improvement: 6561082
+project_instances/problem4.in Actual global improvement: 6563996
+project_instances/problem4.in Actual global improvement: 6568152
+project_instances/problem4.in Actual global improvement: 6576879
+project_instances/problem4.in Actual global improvement: 6577622
+project_instances/problem4.in Actual global improvement: 6584291
+project_instances/problem4.in Actual global improvement: 6584353
+project_instances/problem4.in Actual global improvement: 6588942
+project_instances/problem4.in Actual global improvement: 6590002
+project_instances/problem4.in Actual global improvement: 6590781
+project_instances/problem4.in Actual global improvement: 6590860
+project_instances/problem4.in Actual global improvement: 6591584
+project_instances/problem4.in Actual global improvement: 6594428
+project_instances/problem4.in Actual global improvement: 6604120
+project_instances/problem4.in Actual global improvement: 6608246
+project_instances/problem4.in Actual global improvement: 6612871
+project_instances/problem4.in Actual global improvement: 6614334
+project_instances/problem4.in Actual global improvement: 6618745
+project_instances/problem4.in Actual global improvement: 6621056
+project_instances/problem4.in Actual global improvement: 6632224
+project_instances/problem4.in Actual global improvement: 6632663
+project_instances/problem4.in Actual global improvement: 6633135
+project_instances/problem4.in Actual global improvement: 6634793
+project_instances/problem4.in Actual global improvement: 6643564
+project_instances/problem4.in Actual global improvement: 6649144
+project_instances/problem4.in Actual global improvement: 6658175
+project_instances/problem4.in Actual global improvement: 6662018
+project_instances/problem4.in Actual global improvement: 6662597
+project_instances/problem4.in Actual global improvement: 6669866
+project_instances/problem4.in Actual global improvement: 6675634
+project_instances/problem4.in Actual global improvement: 6693555
+project_instances/problem4.in Actual global improvement: 6697438
+project_instances/problem4.in Actual global improvement: 6697508
+project_instances/problem4.in Actual global improvement: 6699825
+project_instances/problem4.in Actual global improvement: 6706805
+project_instances/problem4.in Actual global improvement: 6707897
+project_instances/problem4.in Actual global improvement: 6722425
+project_instances/problem4.in Actual global improvement: 6722658
+project_instances/problem4.in Actual global improvement: 6727578
+project_instances/problem4.in Actual global improvement: 6734118
+project_instances/problem4.in Actual global improvement: 6735014
+project_instances/problem4.in Actual global improvement: 6738382
+project_instances/problem4.in Actual global improvement: 6749013
+project_instances/problem4.in Actual global improvement: 6753333
+project_instances/problem4.in Actual global improvement: 6753461
+project_instances/problem4.in Actual global improvement: 6754901
+project_instances/problem4.in Actual global improvement: 6758149
+project_instances/problem4.in Actual global improvement: 6760547
+project_instances/problem4.in Actual global improvement: 6766160
+project_instances/problem4.in Actual global improvement: 6773142
+project_instances/problem4.in Actual global improvement: 6774805
+project_instances/problem4.in Actual global improvement: 6775921
+project_instances/problem4.in Actual global improvement: 6779319
+project_instances/problem4.in Actual global improvement: 6787521
+project_instances/problem4.in Actual global improvement: 6790204
+project_instances/problem4.in Actual global improvement: 6800997
+project_instances/problem4.in Actual global improvement: 6815979
+project_instances/problem4.in Actual global improvement: 6818840
+project_instances/problem4.in Actual global improvement: 6826376
+project_instances/problem4.in Actual global improvement: 6829624
+project_instances/problem4.in Actual global improvement: 6833664
+project_instances/problem4.in Actual global improvement: 6836825
+project_instances/problem4.in Actual global improvement: 6843831
+project_instances/problem4.in Actual global improvement: 6844791
+project_instances/problem4.in Actual global improvement: 6849446
+project_instances/problem4.in Actual global improvement: 6849783
+project_instances/problem4.in Actual global improvement: 6851713
+project_instances/problem4.in Actual global improvement: 6853345
+project_instances/problem4.in Actual global improvement: 6855364
+project_instances/problem4.in Actual global improvement: 6857979
+project_instances/problem4.in Actual global improvement: 6859880
+project_instances/problem4.in Actual global improvement: 6860637
+project_instances/problem4.in Actual global improvement: 6861199
+project_instances/problem4.in Actual global improvement: 6863975
+project_instances/problem4.in Actual global improvement: 6865458
+project_instances/problem4.in Actual global improvement: 6869832
+project_instances/problem4.in Actual global improvement: 6871055
+project_instances/problem4.in Actual global improvement: 6873182
+project_instances/problem4.in Actual global improvement: 6874727
+project_instances/problem4.in Actual global improvement: 6875064
+project_instances/problem4.in Actual global improvement: 6876495
+project_instances/problem4.in Actual global improvement: 6880085
+project_instances/problem4.in Actual global improvement: 6882316
+project_instances/problem4.in Actual global improvement: 6885065
+project_instances/problem4.in Actual global improvement: 6887898
+project_instances/problem4.in Actual global improvement: 6891489
+project_instances/problem4.in Actual global improvement: 6892832
+project_instances/problem4.in Actual global improvement: 6899903
+project_instances/problem4.in Actual global improvement: 6902952
+project_instances/problem4.in Actual global improvement: 6904169
+project_instances/problem4.in Actual global improvement: 6904652
+project_instances/problem4.in Actual global improvement: 6904858
+project_instances/problem4.in Actual global improvement: 6909446
+project_instances/problem4.in Actual global improvement: 6917525
+project_instances/problem4.in Actual global improvement: 6919729
+project_instances/problem4.in Actual global improvement: 6925654
+project_instances/problem4.in Actual global improvement: 6927471
+project_instances/problem4.in Actual global improvement: 6936890
+project_instances/problem4.in Actual global improvement: 6938038
+project_instances/problem4.in Actual global improvement: 6938503
+project_instances/problem4.in Actual global improvement: 6941428
+project_instances/problem4.in Actual global improvement: 6950589
+project_instances/problem4.in Actual global improvement: 6951226
+project_instances/problem4.in Actual global improvement: 6952993
+project_instances/problem4.in Actual global improvement: 6953227
+project_instances/problem4.in Actual global improvement: 6954854
+project_instances/problem4.in Actual global improvement: 6957847
+project_instances/problem4.in Actual global improvement: 6957876
+^Cairbears2-10-142-77-70:CS170Proj yxiaocheng1997$ java Solver/ScriptSolver s 52
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem5.in Actual global improvement: 68141054873000
+project_instances/problem5.in Actual global improvement: 71369468033900
+project_instances/problem5.in Actual global improvement: 74311245630800
+project_instances/problem5.in Actual global improvement: 74450118052100
+project_instances/problem5.in Actual global improvement: 74550194626800
+project_instances/problem5.in Actual global improvement: 75521249966600
+project_instances/problem5.in Actual global improvement: 75720558657700
+project_instances/problem5.in Actual global improvement: 82236400724800
+project_instances/problem5.in Actual global improvement: 82403961315800
+project_instances/problem5.in Actual global improvement: 84805435160800
+project_instances/problem5.in Actual global improvement: 85418543708000
+project_instances/problem5.in Actual global improvement: 85740295758000
+project_instances/problem5.in Actual global improvement: 86806053754200
+-------------------------------!
+^Cairbears2-10-142-77-70:CS170Proj yxiaocheng1997$ 
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ 
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ java Solver/ScriptSolver 8 13 16 17 20
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem8.in Simply with Greedy, global improvement: 3940786670
+Using CostC: 1.0
+-------------------------------!
+^Cairbears2-10-142-77-70:CS170Proj yxiaocheng1997$ java Solver/ScriptSolver  16 17 20
+Done
+Using Heuristic
+Entering Solve....
+^Cairbears2-10-142-77-70:CS170Proj yxiaocheng1997$ java Solver/ScriptSolver 136 17 20
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem8.in Simply with Greedy, global improvement: 3940786670
+Using CostC: 1.0
+^Cairbears2-10-142-77-70:CS170Proj yxiaocheng1997$ 
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ 
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ java Solver/ScriptSolver 13 16 17 20
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem13.in Simply with Greedy, global improvement: 7526317005
+Using CostC: 1.0
+-------------------------------!
+-------------------------------!
+^Cairbears2-10-142-77-70:CS170Proj yxiaocheng1997$ jac Solver/SimAnSolverHeuristic.java
+Note: Solver/SimAnSolverHeuristic.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ java Solver/ScriptSolver 8 13 20
+Done
+Using Heuristic
+Entering Solve....
+^Cairbears2-10-142-77-70:CS170Proj yxiaocheng1997$ jac Solver/SimAnSolverHeuristic.java
+Note: Solver/SimAnSolverHeuristic.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ java Solver/ScriptSolver 8 13 20
+Done
+Using Heuristic
+Entering Solve....
+^Cairbears2-10-142-77-70:CS170Proj yxiaocheng1997$ 
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ java Solver/ScriptSolver 13 20
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem13.in Simply with Greedy, global improvement: 7526317005
+Using CostC: 1.0
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+Entering Bump Item. 
+-------------------------------!
+-------------------------------!
+7526317005
+The Actual Weight is: 910160537
+The Actual Cost is: 1177825199
+YOOOOOO.
+For file project_instances/problem13.in =========Profit is: 7526317005
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem20.in Simply with Greedy, global improvement: 4265270351
+Using CostC: 1.0
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+Entering Bump Item. 
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+4265270351
+The Actual Weight is: 90205231
+The Actual Cost is: 435435371
+YOOOOOO.
+For file project_instances/problem20.in =========Profit is: 4265270351
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ javac Solver/SimAnSolverHeuristic.java
+Note: Solver/SimAnSolverHeuristic.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ javac Solver/SimAnSolverHeuristic.java
+Note: Solver/SimAnSolverHeuristic.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ javac Solver/SimAnSolverHeuristic.java
+Note: Solver/SimAnSolverHeuristic.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ java Solver/ScriptSolver s 1 22
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem1.in Actual global improvement: 6797879992
+project_instances/problem1.in Actual global improvement: 6874710027
+project_instances/problem1.in Actual global improvement: 6885661419
+project_instances/problem1.in Actual global improvement: 6894466753
+project_instances/problem1.in Actual global improvement: 6934674938
+project_instances/problem1.in Actual global improvement: 6937981749
+project_instances/problem1.in Actual global improvement: 6951784240
+project_instances/problem1.in Actual global improvement: 6985220794
+project_instances/problem1.in Actual global improvement: 6993813369
+project_instances/problem1.in Actual global improvement: 7003793476
+project_instances/problem1.in Actual global improvement: 7011174679
+project_instances/problem1.in Actual global improvement: 7039997027
+project_instances/problem1.in Actual global improvement: 7071693691
+project_instances/problem1.in Actual global improvement: 7102310892
+project_instances/problem1.in Actual global improvement: 7104230388
+project_instances/problem1.in Actual global improvement: 7127720012
+project_instances/problem1.in Actual global improvement: 7129839976
+project_instances/problem1.in Actual global improvement: 7131078415
+project_instances/problem1.in Actual global improvement: 7134025150
+project_instances/problem1.in Actual global improvement: 7138094779
+project_instances/problem1.in Actual global improvement: 7175178850
+project_instances/problem1.in Actual global improvement: 7175502551
+project_instances/problem1.in Actual global improvement: 7179948299
+project_instances/problem1.in Actual global improvement: 7184888431
+project_instances/problem1.in Actual global improvement: 7215855508
+project_instances/problem1.in Actual global improvement: 7227087161
+project_instances/problem1.in Actual global improvement: 7227606666
+project_instances/problem1.in Actual global improvement: 7231836631
+project_instances/problem1.in Actual global improvement: 7233806258
+project_instances/problem1.in Actual global improvement: 7269670862
+project_instances/problem1.in Actual global improvement: 7272192762
+project_instances/problem1.in Actual global improvement: 7281243615
+project_instances/problem1.in Actual global improvement: 7281578979
+project_instances/problem1.in Actual global improvement: 7282480489
+project_instances/problem1.in Actual global improvement: 7296167940
+project_instances/problem1.in Actual global improvement: 7305638105
+project_instances/problem1.in Actual global improvement: 7318725548
+project_instances/problem1.in Actual global improvement: 7336063108
+project_instances/problem1.in Actual global improvement: 7360890257
+project_instances/problem1.in Actual global improvement: 7366118856
+project_instances/problem1.in Actual global improvement: 7390359200
+project_instances/problem1.in Actual global improvement: 7413424920
+project_instances/problem1.in Actual global improvement: 7413955604
+project_instances/problem1.in Actual global improvement: 7425678493
+project_instances/problem1.in Actual global improvement: 7436435536
+project_instances/problem1.in Actual global improvement: 7443905834
+project_instances/problem1.in Actual global improvement: 7462996875
+project_instances/problem1.in Actual global improvement: 7479396238
+project_instances/problem1.in Actual global improvement: 7499500012
+project_instances/problem1.in Actual global improvement: 7501606034
+project_instances/problem1.in Actual global improvement: 7505543259
+project_instances/problem1.in Actual global improvement: 7517580648
+project_instances/problem1.in Actual global improvement: 7520426809
+project_instances/problem1.in Actual global improvement: 7526673100
+project_instances/problem1.in Actual global improvement: 7535450836
+project_instances/problem1.in Actual global improvement: 7538612702
+project_instances/problem1.in Actual global improvement: 7560826469
+project_instances/problem1.in Actual global improvement: 7563561764
+project_instances/problem1.in Actual global improvement: 7570123477
+project_instances/problem1.in Actual global improvement: 7571274755
+project_instances/problem1.in Actual global improvement: 7572498769
+project_instances/problem1.in Actual global improvement: 7576375613
+project_instances/problem1.in Actual global improvement: 7581332188
+-------------------------------!
+Entering Bump Item. 
+project_instances/problem1.in Actual global improvement: 7588595397
+project_instances/problem1.in Actual global improvement: 7591757263
+project_instances/problem1.in Actual global improvement: 7608935307
+project_instances/problem1.in Actual global improvement: 7618946211
+project_instances/problem1.in Actual global improvement: 7624291527
+project_instances/problem1.in Actual global improvement: 7630704293
+project_instances/problem1.in Actual global improvement: 7644629622
+project_instances/problem1.in Actual global improvement: 7645531642
+project_instances/problem1.in Actual global improvement: 7669431043
+project_instances/problem1.in Actual global improvement: 7678093337
+project_instances/problem1.in Actual global improvement: 7683743546
+project_instances/problem1.in Actual global improvement: 7687733493
+-------------------------------!
+7687733493
+The Actual Weight is: 4791226202
+The Actual Cost is: 787302543
+YOOOOOO.
+For file project_instances/problem1.in =========Profit is: 7687733493
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem2.in Actual global improvement: 200489336517
+project_instances/problem2.in Actual global improvement: 200499097967
+project_instances/problem2.in Actual global improvement: 200532396745
+project_instances/problem2.in Actual global improvement: 200533117745
+project_instances/problem2.in Actual global improvement: 200546208710
+project_instances/problem2.in Actual global improvement: 200549951081
+project_instances/problem2.in Actual global improvement: 200570220603
+project_instances/problem2.in Actual global improvement: 200578155405
+-------------------------------!
+project_instances/problem2.in Actual global improvement: 200583345840
+project_instances/problem2.in Actual global improvement: 200585625293
+project_instances/problem2.in Actual global improvement: 200612009126
+project_instances/problem2.in Actual global improvement: 200618030885
+project_instances/problem2.in Actual global improvement: 200631043437
+project_instances/problem2.in Actual global improvement: 200633552649
+-------------------------------!
+project_instances/problem2.in Actual global improvement: 200641129137
+project_instances/problem2.in Actual global improvement: 200641647867
+project_instances/problem2.in Actual global improvement: 200652007266
+-------------------------------!
+Entering Bump Item. 
+200652007266
+The Actual Weight is: 36006711621
+The Actual Cost is: 609506171
+YOOOOOO.
+For file project_instances/problem2.in =========Profit is: 200652007266
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem3.in Simply with Greedy, global improvement: 39271983686
+Using CostC: 1.0
+project_instances/problem3.in Actual global improvement: 39482187540
+project_instances/problem3.in Actual global improvement: 39542471430
+-------------------------------!
+Entering Bump Item. 
+^Cairbears2-10-142-77-70:CS170Proj yxiaocheng1997java Solver/ScriptSolver s 4 22
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem4.in Actual global improvement: 6006082
+project_instances/problem4.in Actual global improvement: 6016311
+project_instances/problem4.in Actual global improvement: 6027651
+project_instances/problem4.in Actual global improvement: 6029453
+project_instances/problem4.in Actual global improvement: 6031985
+project_instances/problem4.in Actual global improvement: 6034294
+project_instances/problem4.in Actual global improvement: 6041549
+project_instances/problem4.in Actual global improvement: 6058431
+project_instances/problem4.in Actual global improvement: 6075724
+project_instances/problem4.in Actual global improvement: 6115141
+project_instances/problem4.in Actual global improvement: 6125600
+project_instances/problem4.in Actual global improvement: 6138356
+project_instances/problem4.in Actual global improvement: 6144418
+project_instances/problem4.in Actual global improvement: 6145714
+project_instances/problem4.in Actual global improvement: 6145766
+project_instances/problem4.in Actual global improvement: 6150714
+project_instances/problem4.in Actual global improvement: 6150927
+project_instances/problem4.in Actual global improvement: 6154242
+project_instances/problem4.in Actual global improvement: 6158291
+project_instances/problem4.in Actual global improvement: 6169739
+project_instances/problem4.in Actual global improvement: 6181596
+project_instances/problem4.in Actual global improvement: 6194940
+project_instances/problem4.in Actual global improvement: 6231833
+project_instances/problem4.in Actual global improvement: 6238576
+project_instances/problem4.in Actual global improvement: 6251785
+project_instances/problem4.in Actual global improvement: 6257527
+project_instances/problem4.in Actual global improvement: 6264654
+project_instances/problem4.in Actual global improvement: 6282815
+project_instances/problem4.in Actual global improvement: 6291104
+project_instances/problem4.in Actual global improvement: 6293263
+project_instances/problem4.in Actual global improvement: 6308494
+project_instances/problem4.in Actual global improvement: 6316169
+project_instances/problem4.in Actual global improvement: 6317722
+project_instances/problem4.in Actual global improvement: 6328809
+project_instances/problem4.in Actual global improvement: 6330341
+project_instances/problem4.in Actual global improvement: 6331925
+project_instances/problem4.in Actual global improvement: 6336307
+project_instances/problem4.in Actual global improvement: 6343166
+project_instances/problem4.in Actual global improvement: 6343186
+project_instances/problem4.in Actual global improvement: 6346826
+project_instances/problem4.in Actual global improvement: 6353496
+project_instances/problem4.in Actual global improvement: 6353877
+project_instances/problem4.in Actual global improvement: 6354100
+project_instances/problem4.in Actual global improvement: 6356008
+project_instances/problem4.in Actual global improvement: 6366286
+project_instances/problem4.in Actual global improvement: 6373216
+project_instances/problem4.in Actual global improvement: 6374432
+project_instances/problem4.in Actual global improvement: 6376023
+project_instances/problem4.in Actual global improvement: 6385448
+project_instances/problem4.in Actual global improvement: 6404058
+project_instances/problem4.in Actual global improvement: 6418452
+project_instances/problem4.in Actual global improvement: 6420544
+project_instances/problem4.in Actual global improvement: 6437805
+project_instances/problem4.in Actual global improvement: 6448771
+project_instances/problem4.in Actual global improvement: 6459904
+project_instances/problem4.in Actual global improvement: 6462956
+project_instances/problem4.in Actual global improvement: 6470874
+project_instances/problem4.in Actual global improvement: 6480891
+project_instances/problem4.in Actual global improvement: 6481931
+project_instances/problem4.in Actual global improvement: 6491043
+project_instances/problem4.in Actual global improvement: 6493878
+project_instances/problem4.in Actual global improvement: 6499262
+project_instances/problem4.in Actual global improvement: 6499385
+project_instances/problem4.in Actual global improvement: 6501447
+project_instances/problem4.in Actual global improvement: 6508706
+project_instances/problem4.in Actual global improvement: 6514783
+project_instances/problem4.in Actual global improvement: 6534937
+project_instances/problem4.in Actual global improvement: 6535667
+project_instances/problem4.in Actual global improvement: 6537330
+project_instances/problem4.in Actual global improvement: 6540774
+project_instances/problem4.in Actual global improvement: 6547227
+project_instances/problem4.in Actual global improvement: 6549050
+project_instances/problem4.in Actual global improvement: 6556650
+project_instances/problem4.in Actual global improvement: 6560271
+project_instances/problem4.in Actual global improvement: 6560484
+project_instances/problem4.in Actual global improvement: 6564565
+project_instances/problem4.in Actual global improvement: 6574008
+project_instances/problem4.in Actual global improvement: 6574549
+project_instances/problem4.in Actual global improvement: 6577680
+project_instances/problem4.in Actual global improvement: 6580798
+project_instances/problem4.in Actual global improvement: 6580847
+project_instances/problem4.in Actual global improvement: 6587889
+project_instances/problem4.in Actual global improvement: 6590385
+project_instances/problem4.in Actual global improvement: 6592373
+project_instances/problem4.in Actual global improvement: 6592798
+project_instances/problem4.in Actual global improvement: 6593967
+project_instances/problem4.in Actual global improvement: 6596526
+project_instances/problem4.in Actual global improvement: 6597519
+project_instances/problem4.in Actual global improvement: 6602651
+project_instances/problem4.in Actual global improvement: 6612468
+project_instances/problem4.in Actual global improvement: 6625472
+project_instances/problem4.in Actual global improvement: 6626046
+project_instances/problem4.in Actual global improvement: 6636585
+project_instances/problem4.in Actual global improvement: 6650219
+project_instances/problem4.in Actual global improvement: 6659093
+project_instances/problem4.in Actual global improvement: 6659462
+project_instances/problem4.in Actual global improvement: 6665793
+project_instances/problem4.in Actual global improvement: 6669152
+project_instances/problem4.in Actual global improvement: 6673647
+project_instances/problem4.in Actual global improvement: 6676328
+project_instances/problem4.in Actual global improvement: 6676479
+project_instances/problem4.in Actual global improvement: 6679518
+project_instances/problem4.in Actual global improvement: 6682876
+project_instances/problem4.in Actual global improvement: 6691107
+project_instances/problem4.in Actual global improvement: 6691122
+project_instances/problem4.in Actual global improvement: 6693675
+project_instances/problem4.in Actual global improvement: 6701546
+project_instances/problem4.in Actual global improvement: 6704493
+project_instances/problem4.in Actual global improvement: 6705811
+project_instances/problem4.in Actual global improvement: 6708307
+project_instances/problem4.in Actual global improvement: 6718471
+project_instances/problem4.in Actual global improvement: 6721326
+project_instances/problem4.in Actual global improvement: 6721879
+project_instances/problem4.in Actual global improvement: 6731558
+project_instances/problem4.in Actual global improvement: 6736222
+project_instances/problem4.in Actual global improvement: 6746649
+project_instances/problem4.in Actual global improvement: 6746739
+project_instances/problem4.in Actual global improvement: 6749603
+project_instances/problem4.in Actual global improvement: 6753781
+project_instances/problem4.in Actual global improvement: 6761335
+project_instances/problem4.in Actual global improvement: 6761685
+project_instances/problem4.in Actual global improvement: 6765649
+project_instances/problem4.in Actual global improvement: 6768503
+project_instances/problem4.in Actual global improvement: 6773512
+project_instances/problem4.in Actual global improvement: 6775061
+project_instances/problem4.in Actual global improvement: 6778343
+project_instances/problem4.in Actual global improvement: 6784468
+project_instances/problem4.in Actual global improvement: 6788936
+project_instances/problem4.in Actual global improvement: 6797345
+project_instances/problem4.in Actual global improvement: 6803006
+project_instances/problem4.in Actual global improvement: 6809159
+project_instances/problem4.in Actual global improvement: 6809242
+project_instances/problem4.in Actual global improvement: 6814034
+project_instances/problem4.in Actual global improvement: 6825227
+project_instances/problem4.in Actual global improvement: 6831237
+project_instances/problem4.in Actual global improvement: 6832894
+project_instances/problem4.in Actual global improvement: 6833398
+project_instances/problem4.in Actual global improvement: 6835344
+project_instances/problem4.in Actual global improvement: 6842331
+project_instances/problem4.in Actual global improvement: 6843834
+project_instances/problem4.in Actual global improvement: 6847017
+project_instances/problem4.in Actual global improvement: 6851647
+project_instances/problem4.in Actual global improvement: 6851834
+project_instances/problem4.in Actual global improvement: 6852542
+project_instances/problem4.in Actual global improvement: 6853266
+project_instances/problem4.in Actual global improvement: 6856056
+project_instances/problem4.in Actual global improvement: 6868070
+project_instances/problem4.in Actual global improvement: 6870392
+project_instances/problem4.in Actual global improvement: 6870536
+project_instances/problem4.in Actual global improvement: 6872793
+project_instances/problem4.in Actual global improvement: 6888005
+project_instances/problem4.in Actual global improvement: 6889723
+project_instances/problem4.in Actual global improvement: 6894917
+project_instances/problem4.in Actual global improvement: 6895349
+project_instances/problem4.in Actual global improvement: 6897338
+project_instances/problem4.in Actual global improvement: 6897368
+project_instances/problem4.in Actual global improvement: 6900844
+project_instances/problem4.in Actual global improvement: 6907392
+project_instances/problem4.in Actual global improvement: 6911974
+project_instances/problem4.in Actual global improvement: 6918590
+project_instances/problem4.in Actual global improvement: 6919455
+project_instances/problem4.in Actual global improvement: 6922071
+project_instances/problem4.in Actual global improvement: 6923141
+project_instances/problem4.in Actual global improvement: 6923715
+project_instances/problem4.in Actual global improvement: 6924853
+project_instances/problem4.in Actual global improvement: 6928732
+project_instances/problem4.in Actual global improvement: 6930841
+project_instances/problem4.in Actual global improvement: 6933247
+project_instances/problem4.in Actual global improvement: 6943035
+project_instances/problem4.in Actual global improvement: 6943241
+project_instances/problem4.in Actual global improvement: 6948747
+project_instances/problem4.in Actual global improvement: 6951257
+project_instances/problem4.in Actual global improvement: 6952036
+project_instances/problem4.in Actual global improvement: 6966682
+project_instances/problem4.in Actual global improvement: 6973534
+project_instances/problem4.in Actual global improvement: 6977102
+project_instances/problem4.in Actual global improvement: 6984304
+project_instances/problem4.in Actual global improvement: 6984448
+project_instances/problem4.in Actual global improvement: 6994055
+project_instances/problem4.in Actual global improvement: 6998501
+project_instances/problem4.in Actual global improvement: 7001812
+project_instances/problem4.in Actual global improvement: 7005056
+project_instances/problem4.in Actual global improvement: 7005764
+project_instances/problem4.in Actual global improvement: 7015375
+project_instances/problem4.in Actual global improvement: 7015925
+project_instances/problem4.in Actual global improvement: 7017890
+project_instances/problem4.in Actual global improvement: 7025697
+project_instances/problem4.in Actual global improvement: 7033299
+project_instances/problem4.in Actual global improvement: 7033815
+project_instances/problem4.in Actual global improvement: 7034081
+project_instances/problem4.in Actual global improvement: 7037726
+project_instances/problem4.in Actual global improvement: 7039968
+project_instances/problem4.in Actual global improvement: 7041993
+project_instances/problem4.in Actual global improvement: 7042437
+project_instances/problem4.in Actual global improvement: 7051047
+project_instances/problem4.in Actual global improvement: 7056239
+project_instances/problem4.in Actual global improvement: 7057413
+project_instances/problem4.in Actual global improvement: 7058619
+project_instances/problem4.in Actual global improvement: 7059755
+project_instances/problem4.in Actual global improvement: 7066978
+project_instances/problem4.in Actual global improvement: 7077994
+project_instances/problem4.in Actual global improvement: 7079779
+project_instances/problem4.in Actual global improvement: 7093061
+project_instances/problem4.in Actual global improvement: 7097193
+project_instances/problem4.in Actual global improvement: 7099433
+project_instances/problem4.in Actual global improvement: 7105433
+-------------------------------!
+Entering Bump Item. 
+7105433
+The Actual Weight is: 2364685
+The Actual Cost is: 2063608
+YOOOOOO.
+For file project_instances/problem4.in =========Profit is: 7105433
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem5.in Actual global improvement: 70886337088900
+project_instances/problem5.in Actual global improvement: 70955473591300
+project_instances/problem5.in Actual global improvement: 76455851748400
+project_instances/problem5.in Actual global improvement: 76976088596400
+project_instances/problem5.in Actual global improvement: 77185419376200
+project_instances/problem5.in Actual global improvement: 77406566249800
+project_instances/problem5.in Actual global improvement: 77807106811300
+project_instances/problem5.in Actual global improvement: 81978284610400
+project_instances/problem5.in Actual global improvement: 82070448279400
+-------------------------------!
+project_instances/problem5.in Actual global improvement: 82889499530600
+project_instances/problem5.in Actual global improvement: 82897584818000
+project_instances/problem5.in Actual global improvement: 83043877928700
+-------------------------------!
+Entering Bump Item. 
+83043877928700
+The Actual Weight is: 47280424200
+The Actual Cost is: 55222125200
+YOOOOOO.
+For file project_instances/problem5.in =========Profit is: 83043877928700
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem6.in Actual global improvement: 11278799
+project_instances/problem6.in Actual global improvement: 11318059
+project_instances/problem6.in Actual global improvement: 11319726
+project_instances/problem6.in Actual global improvement: 11323327
+project_instances/problem6.in Actual global improvement: 11340477
+project_instances/problem6.in Actual global improvement: 11346281
+project_instances/problem6.in Actual global improvement: 11347881
+project_instances/problem6.in Actual global improvement: 11353420
+project_instances/problem6.in Actual global improvement: 11360731
+project_instances/problem6.in Actual global improvement: 11389823
+project_instances/problem6.in Actual global improvement: 11399704
+project_instances/problem6.in Actual global improvement: 11402655
+project_instances/problem6.in Actual global improvement: 11421898
+project_instances/problem6.in Actual global improvement: 11442134
+project_instances/problem6.in Actual global improvement: 11446999
+project_instances/problem6.in Actual global improvement: 11454521
+project_instances/problem6.in Actual global improvement: 11475670
+project_instances/problem6.in Actual global improvement: 11490615
+-------------------------------!
+project_instances/problem6.in Actual global improvement: 11495844
+project_instances/problem6.in Actual global improvement: 11508361
+project_instances/problem6.in Actual global improvement: 11514644
+project_instances/problem6.in Actual global improvement: 11529815
+project_instances/problem6.in Actual global improvement: 11534532
+project_instances/problem6.in Actual global improvement: 11536371
+project_instances/problem6.in Actual global improvement: 11544306
+-------------------------------!
+Entering Bump Item. 
+11544306
+The Actual Weight is: 9264301
+The Actual Cost is: 9250736
+YOOOOOO.
+For file project_instances/problem6.in =========Profit is: 11544306
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem7.in Simply with Greedy, global improvement: 287434180700
+Using CostC: 1.0
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+Entering Bump Item. 
+-------------------------------!
+287434180700
+The Actual Weight is: 100002112900
+The Actual Cost is: 4225400
+YOOOOOO.
+For file project_instances/problem7.in =========Profit is: 287434180700
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem8.in Simply with Greedy, global improvement: 3940786670
+Using CostC: 1.0
+-------------------------------!
+-------------------------------!
+Entering Bump Item. 
+-------------------------------!
+-------------------------------!
+3940786670
+The Actual Weight is: 1352432100
+The Actual Cost is: 1791983700
+YOOOOOO.
+For file project_instances/problem8.in =========Profit is: 3940786670
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem9.in Actual global improvement: 1248117885000
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+Entering Bump Item. 
+-------------------------------!
+1248117885000
+The Actual Weight is: 92846764200
+The Actual Cost is: 389763237500
+YOOOOOO.
+For file project_instances/problem9.in =========Profit is: 1248117885000
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem10.in Simply with Greedy, global improvement: 117615391
+Using CostC: 1.0
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+Entering Bump Item. 
+-------------------------------!
+117615391
+The Actual Weight is: 20418200
+The Actual Cost is: 736276
+YOOOOOO.
+For file project_instances/problem10.in =========Profit is: 117615391
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem11.in Actual global improvement: 3202282254
+project_instances/problem11.in Actual global improvement: 3202345435
+project_instances/problem11.in Actual global improvement: 3202553847
+project_instances/problem11.in Actual global improvement: 3202863399
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+Entering Bump Item. 
+-------------------------------!
+-------------------------------!
+3202863399
+The Actual Weight is: 1142768
+The Actual Cost is: 24302009
+YOOOOOO.
+For file project_instances/problem11.in =========Profit is: 3202863399
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem12.in Actual global improvement: 431404863133
+project_instances/problem12.in Actual global improvement: 431405036712
+project_instances/problem12.in Actual global improvement: 431438995490
+project_instances/problem12.in Actual global improvement: 431444357629
+project_instances/problem12.in Actual global improvement: 431464494029
+project_instances/problem12.in Actual global improvement: 431465087731
+project_instances/problem12.in Actual global improvement: 431467816531
+project_instances/problem12.in Actual global improvement: 431522958505
+project_instances/problem12.in Actual global improvement: 431587957603
+project_instances/problem12.in Actual global improvement: 431635109383
+project_instances/problem12.in Actual global improvement: 431646279211
+project_instances/problem12.in Actual global improvement: 431688834022
+project_instances/problem12.in Actual global improvement: 431692925481
+project_instances/problem12.in Actual global improvement: 431743802891
+project_instances/problem12.in Actual global improvement: 431747903646
+-------------------------------!
+project_instances/problem12.in Actual global improvement: 431772056829
+project_instances/problem12.in Actual global improvement: 431774554061
+project_instances/problem12.in Actual global improvement: 431780856607
+-------------------------------!
+Entering Bump Item. 
+431780856607
+The Actual Weight is: 26860323322
+The Actual Cost is: 26966553750
+YOOOOOO.
+For file project_instances/problem12.in =========Profit is: 431780856607
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem13.in Simply with Greedy, global improvement: 7526317005
+Using CostC: 1.0
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+Entering Bump Item. 
+-------------------------------!
+7526317005
+The Actual Weight is: 910160537
+The Actual Cost is: 1177825199
+YOOOOOO.
+For file project_instances/problem13.in =========Profit is: 7526317005
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem14.in Simply with Greedy, global improvement: 336885235
+Using CostC: 1.0
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+Entering Bump Item. 
+-------------------------------!
+-------------------------------!
+336885235
+The Actual Weight is: 11894907104
+The Actual Cost is: 54592636
+YOOOOOO.
+For file project_instances/problem14.in =========Profit is: 336885235
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem15.in Actual global improvement: 12547979275
+project_instances/problem15.in Actual global improvement: 12548244662
+project_instances/problem15.in Actual global improvement: 12550205509
+project_instances/problem15.in Actual global improvement: 12565998155
+-------------------------------!
+project_instances/problem15.in Actual global improvement: 12577503868
+-------------------------------!
+-------------------------------!
+Entering Bump Item. 
+12577503868
+The Actual Weight is: 2285195848
+The Actual Cost is: 70791683
+YOOOOOO.
+For file project_instances/problem15.in =========Profit is: 12577503868
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem16.in Actual global improvement: 434129651637
+-------------------------------!
+project_instances/problem16.in Actual global improvement: 434132516603
+-------------------------------!
+project_instances/problem16.in Actual global improvement: 434135157732
+-------------------------------!
+project_instances/problem16.in Actual global improvement: 434138545397
+-------------------------------!
+Entering Bump Item. 
+project_instances/problem16.in Actual global improvement: 434139853021
+project_instances/problem16.in Actual global improvement: 434139969596
+-------------------------------!
+434139969596
+The Actual Weight is: 2400488177
+The Actual Cost is: 2256550356
+YOOOOOO.
+For file project_instances/problem16.in =========Profit is: 434139969596
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem17.in Actual global improvement: 451046140537
+project_instances/problem17.in Actual global improvement: 451057352151
+project_instances/problem17.in Actual global improvement: 451071722063
+project_instances/problem17.in Actual global improvement: 451074013726
+project_instances/problem17.in Actual global improvement: 451079656039
+project_instances/problem17.in Actual global improvement: 451079684851
+project_instances/problem17.in Actual global improvement: 451106664211
+project_instances/problem17.in Actual global improvement: 451129374184
+project_instances/problem17.in Actual global improvement: 451134721066
+project_instances/problem17.in Actual global improvement: 451152207114
+project_instances/problem17.in Actual global improvement: 451161424445
+project_instances/problem17.in Actual global improvement: 451168809044
+project_instances/problem17.in Actual global improvement: 451195754532
+project_instances/problem17.in Actual global improvement: 451201881605
+project_instances/problem17.in Actual global improvement: 451202059465
+project_instances/problem17.in Actual global improvement: 451209293534
+project_instances/problem17.in Actual global improvement: 451211176587
+project_instances/problem17.in Actual global improvement: 451212433930
+project_instances/problem17.in Actual global improvement: 451229540773
+project_instances/problem17.in Actual global improvement: 451252342682
+project_instances/problem17.in Actual global improvement: 451259769148
+project_instances/problem17.in Actual global improvement: 451274205643
+project_instances/problem17.in Actual global improvement: 451276389300
+project_instances/problem17.in Actual global improvement: 451279239271
+project_instances/problem17.in Actual global improvement: 451279883492
+project_instances/problem17.in Actual global improvement: 451280773155
+project_instances/problem17.in Actual global improvement: 451285551567
+project_instances/problem17.in Actual global improvement: 451296726480
+project_instances/problem17.in Actual global improvement: 451316563811
+project_instances/problem17.in Actual global improvement: 451321162599
+project_instances/problem17.in Actual global improvement: 451331079123
+project_instances/problem17.in Actual global improvement: 451333892185
+project_instances/problem17.in Actual global improvement: 451342625862
+project_instances/problem17.in Actual global improvement: 451355373368
+project_instances/problem17.in Actual global improvement: 451364020859
+project_instances/problem17.in Actual global improvement: 451364747208
+project_instances/problem17.in Actual global improvement: 451367021521
+project_instances/problem17.in Actual global improvement: 451367497010
+project_instances/problem17.in Actual global improvement: 451368517689
+project_instances/problem17.in Actual global improvement: 451372496277
+project_instances/problem17.in Actual global improvement: 451398242442
+project_instances/problem17.in Actual global improvement: 451398306154
+project_instances/problem17.in Actual global improvement: 451410099110
+project_instances/problem17.in Actual global improvement: 451422611215
+project_instances/problem17.in Actual global improvement: 451423809140
+project_instances/problem17.in Actual global improvement: 451426224777
+project_instances/problem17.in Actual global improvement: 451429961145
+project_instances/problem17.in Actual global improvement: 451435175426
+project_instances/problem17.in Actual global improvement: 451443223762
+project_instances/problem17.in Actual global improvement: 451446521880
+project_instances/problem17.in Actual global improvement: 451457639718
+project_instances/problem17.in Actual global improvement: 451461227404
+project_instances/problem17.in Actual global improvement: 451471854529
+project_instances/problem17.in Actual global improvement: 451474111981
+project_instances/problem17.in Actual global improvement: 451476411906
+project_instances/problem17.in Actual global improvement: 451488793423
+project_instances/problem17.in Actual global improvement: 451495549114
+project_instances/problem17.in Actual global improvement: 451497002500
+project_instances/problem17.in Actual global improvement: 451502845955
+project_instances/problem17.in Actual global improvement: 451506112402
+project_instances/problem17.in Actual global improvement: 451520477247
+project_instances/problem17.in Actual global improvement: 451524479075
+project_instances/problem17.in Actual global improvement: 451528879726
+project_instances/problem17.in Actual global improvement: 451539657166
+project_instances/problem17.in Actual global improvement: 451544646571
+project_instances/problem17.in Actual global improvement: 451550818179
+project_instances/problem17.in Actual global improvement: 451564617237
+project_instances/problem17.in Actual global improvement: 451575588831
+project_instances/problem17.in Actual global improvement: 451582982005
+project_instances/problem17.in Actual global improvement: 451591958401
+project_instances/problem17.in Actual global improvement: 451595004307
+project_instances/problem17.in Actual global improvement: 451600200961
+project_instances/problem17.in Actual global improvement: 451604196965
+project_instances/problem17.in Actual global improvement: 451621033267
+project_instances/problem17.in Actual global improvement: 451625547428
+project_instances/problem17.in Actual global improvement: 451628194108
+project_instances/problem17.in Actual global improvement: 451630510548
+-------------------------------!
+Entering Bump Item. 
+451630510548
+The Actual Weight is: 31520586336
+The Actual Cost is: 31906804827
+YOOOOOO.
+For file project_instances/problem17.in =========Profit is: 451630510548
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem18.in Actual global improvement: 3040758849
+project_instances/problem18.in Actual global improvement: 3043152477
+-------------------------------!
+project_instances/problem18.in Actual global improvement: 3043795810
+project_instances/problem18.in Actual global improvement: 3044624554
+-------------------------------!
+project_instances/problem18.in Actual global improvement: 3045410764
+project_instances/problem18.in Actual global improvement: 3045690383
+project_instances/problem18.in Actual global improvement: 3047330300
+-------------------------------!
+project_instances/problem18.in Actual global improvement: 3065317750
+-------------------------------!
+Entering Bump Item. 
+3065317750
+The Actual Weight is: 194149359
+The Actual Cost is: 190140231
+YOOOOOO.
+For file project_instances/problem18.in =========Profit is: 3065317750
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem19.in Actual global improvement: 143730720
+project_instances/problem19.in Actual global improvement: 144256215
+project_instances/problem19.in Actual global improvement: 145715895
+project_instances/problem19.in Actual global improvement: 145765083
+project_instances/problem19.in Actual global improvement: 146450041
+project_instances/problem19.in Actual global improvement: 146688915
+project_instances/problem19.in Actual global improvement: 147159407
+project_instances/problem19.in Actual global improvement: 147334502
+project_instances/problem19.in Actual global improvement: 148329250
+project_instances/problem19.in Actual global improvement: 148478545
+project_instances/problem19.in Actual global improvement: 148662806
+project_instances/problem19.in Actual global improvement: 149122447
+project_instances/problem19.in Actual global improvement: 149143965
+project_instances/problem19.in Actual global improvement: 149889548
+project_instances/problem19.in Actual global improvement: 150550602
+project_instances/problem19.in Actual global improvement: 150571281
+project_instances/problem19.in Actual global improvement: 150622693
+project_instances/problem19.in Actual global improvement: 151265066
+project_instances/problem19.in Actual global improvement: 151411177
+project_instances/problem19.in Actual global improvement: 151994021
+project_instances/problem19.in Actual global improvement: 152853702
+project_instances/problem19.in Actual global improvement: 153382030
+project_instances/problem19.in Actual global improvement: 153815848
+project_instances/problem19.in Actual global improvement: 154150507
+project_instances/problem19.in Actual global improvement: 154369090
+project_instances/problem19.in Actual global improvement: 154806525
+project_instances/problem19.in Actual global improvement: 155682429
+project_instances/problem19.in Actual global improvement: 155716773
+project_instances/problem19.in Actual global improvement: 156229274
+project_instances/problem19.in Actual global improvement: 156292546
+project_instances/problem19.in Actual global improvement: 157057957
+project_instances/problem19.in Actual global improvement: 157228271
+project_instances/problem19.in Actual global improvement: 157345438
+project_instances/problem19.in Actual global improvement: 157639892
+project_instances/problem19.in Actual global improvement: 157908233
+project_instances/problem19.in Actual global improvement: 158374122
+project_instances/problem19.in Actual global improvement: 158478126
+project_instances/problem19.in Actual global improvement: 158570869
+project_instances/problem19.in Actual global improvement: 158623449
+project_instances/problem19.in Actual global improvement: 158747821
+-------------------------------!
+Entering Bump Item. 
+158747821
+The Actual Weight is: 9997366
+The Actual Cost is: 39069056
+YOOOOOO.
+For file project_instances/problem19.in =========Profit is: 158747821
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem20.in Simply with Greedy, global improvement: 4265270351
+Using CostC: 1.0
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+-------------------------------!
+Entering Bump Item. 
+-------------------------------!
+4265270351
+The Actual Weight is: 90205231
+The Actual Cost is: 435435371
+YOOOOOO.
+For file project_instances/problem20.in =========Profit is: 4265270351
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem21.in Simply with Greedy, global improvement: 29643388
+Using CostC: 1.0
+-------------------------------!
+-------------------------------!
+-------------------------------!
+^Cairbears2-10-142-77-70:CS170Proj yxiaocheng1997$ java Solver/ScriptSolver 4
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 2
+	at Solver.ScriptSolver.<init>(ScriptSolver.java:35)
+	at Solver.ScriptSolver.main(ScriptSolver.java:14)
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ java Solver/ScriptSolver 4
+Done
+Using Heuristic
+Entering Solve....
+project_instances/problem4.in Actual global improvement: 5988774
+project_instances/problem4.in Actual global improvement: 6002610
+project_instances/problem4.in Actual global improvement: 6028602
+project_instances/problem4.in Actual global improvement: 6035628
+project_instances/problem4.in Actual global improvement: 6053894
+project_instances/problem4.in Actual global improvement: 6065394
+project_instances/problem4.in Actual global improvement: 6066221
+project_instances/problem4.in Actual global improvement: 6077898
+project_instances/problem4.in Actual global improvement: 6079418
+project_instances/problem4.in Actual global improvement: 6090153
+project_instances/problem4.in Actual global improvement: 6128007
+project_instances/problem4.in Actual global improvement: 6128181
+project_instances/problem4.in Actual global improvement: 6137771
+project_instances/problem4.in Actual global improvement: 6146989
+project_instances/problem4.in Actual global improvement: 6148225
+project_instances/problem4.in Actual global improvement: 6150372
+project_instances/problem4.in Actual global improvement: 6166240
+project_instances/problem4.in Actual global improvement: 6180118
+project_instances/problem4.in Actual global improvement: 6220987
+project_instances/problem4.in Actual global improvement: 6239762
+project_instances/problem4.in Actual global improvement: 6239811
+project_instances/problem4.in Actual global improvement: 6251208
+project_instances/problem4.in Actual global improvement: 6258119
+project_instances/problem4.in Actual global improvement: 6259517
+project_instances/problem4.in Actual global improvement: 6262228
+project_instances/problem4.in Actual global improvement: 6263435
+project_instances/problem4.in Actual global improvement: 6267059
+project_instances/problem4.in Actual global improvement: 6287692
+project_instances/problem4.in Actual global improvement: 6291130
+project_instances/problem4.in Actual global improvement: 6293797
+project_instances/problem4.in Actual global improvement: 6319214
+project_instances/problem4.in Actual global improvement: 6328137
+project_instances/problem4.in Actual global improvement: 6339460
+project_instances/problem4.in Actual global improvement: 6342161
+project_instances/problem4.in Actual global improvement: 6344535
+project_instances/problem4.in Actual global improvement: 6357677
+project_instances/problem4.in Actual global improvement: 6369583
+project_instances/problem4.in Actual global improvement: 6376533
+project_instances/problem4.in Actual global improvement: 6376874
+project_instances/problem4.in Actual global improvement: 6376941
+project_instances/problem4.in Actual global improvement: 6378868
+project_instances/problem4.in Actual global improvement: 6389450
+project_instances/problem4.in Actual global improvement: 6403896
+project_instances/problem4.in Actual global improvement: 6415229
+project_instances/problem4.in Actual global improvement: 6429082
+project_instances/problem4.in Actual global improvement: 6435065
+project_instances/problem4.in Actual global improvement: 6442288
+project_instances/problem4.in Actual global improvement: 6443117
+project_instances/problem4.in Actual global improvement: 6446176
+project_instances/problem4.in Actual global improvement: 6448574
+project_instances/problem4.in Actual global improvement: 6456457
+project_instances/problem4.in Actual global improvement: 6459365
+project_instances/problem4.in Actual global improvement: 6463012
+project_instances/problem4.in Actual global improvement: 6467061
+project_instances/problem4.in Actual global improvement: 6470138
+project_instances/problem4.in Actual global improvement: 6471761
+project_instances/problem4.in Actual global improvement: 6480401
+project_instances/problem4.in Actual global improvement: 6480763
+project_instances/problem4.in Actual global improvement: 6496903
+project_instances/problem4.in Actual global improvement: 6497924
+project_instances/problem4.in Actual global improvement: 6508504
+project_instances/problem4.in Actual global improvement: 6516738
+project_instances/problem4.in Actual global improvement: 6525235
+project_instances/problem4.in Actual global improvement: 6525482
+project_instances/problem4.in Actual global improvement: 6539576
+project_instances/problem4.in Actual global improvement: 6551305
+project_instances/problem4.in Actual global improvement: 6552812
+project_instances/problem4.in Actual global improvement: 6562044
+project_instances/problem4.in Actual global improvement: 6565606
+project_instances/problem4.in Actual global improvement: 6569787
+project_instances/problem4.in Actual global improvement: 6576163
+project_instances/problem4.in Actual global improvement: 6579085
+project_instances/problem4.in Actual global improvement: 6583702
+project_instances/problem4.in Actual global improvement: 6595401
+project_instances/problem4.in Actual global improvement: 6596180
+project_instances/problem4.in Actual global improvement: 6598450
+project_instances/problem4.in Actual global improvement: 6605894
+project_instances/problem4.in Actual global improvement: 6618532
+project_instances/problem4.in Actual global improvement: 6620044
+project_instances/problem4.in Actual global improvement: 6623882
+project_instances/problem4.in Actual global improvement: 6627073
+project_instances/problem4.in Actual global improvement: 6627936
+project_instances/problem4.in Actual global improvement: 6634306
+project_instances/problem4.in Actual global improvement: 6649886
+project_instances/problem4.in Actual global improvement: 6657680
+project_instances/problem4.in Actual global improvement: 6671559
+project_instances/problem4.in Actual global improvement: 6678677
+project_instances/problem4.in Actual global improvement: 6683888
+project_instances/problem4.in Actual global improvement: 6689438
+project_instances/problem4.in Actual global improvement: 6690949
+project_instances/problem4.in Actual global improvement: 6691290
+project_instances/problem4.in Actual global improvement: 6694119
+project_instances/problem4.in Actual global improvement: 6694611
+project_instances/problem4.in Actual global improvement: 6695693
+project_instances/problem4.in Actual global improvement: 6698450
+project_instances/problem4.in Actual global improvement: 6701913
+project_instances/problem4.in Actual global improvement: 6702548
+project_instances/problem4.in Actual global improvement: 6703101
+project_instances/problem4.in Actual global improvement: 6703275
+project_instances/problem4.in Actual global improvement: 6706155
+project_instances/problem4.in Actual global improvement: 6716141
+project_instances/problem4.in Actual global improvement: 6719428
+project_instances/problem4.in Actual global improvement: 6733790
+project_instances/problem4.in Actual global improvement: 6737527
+project_instances/problem4.in Actual global improvement: 6737633
+project_instances/problem4.in Actual global improvement: 6738917
+project_instances/problem4.in Actual global improvement: 6744342
+project_instances/problem4.in Actual global improvement: 6750562
+project_instances/problem4.in Actual global improvement: 6760248
+project_instances/problem4.in Actual global improvement: 6763810
+project_instances/problem4.in Actual global improvement: 6764094
+project_instances/problem4.in Actual global improvement: 6764328
+project_instances/problem4.in Actual global improvement: 6777641
+project_instances/problem4.in Actual global improvement: 6778146
+project_instances/problem4.in Actual global improvement: 6779722
+project_instances/problem4.in Actual global improvement: 6788862
+project_instances/problem4.in Actual global improvement: 6789483
+project_instances/problem4.in Actual global improvement: 6796079
+project_instances/problem4.in Actual global improvement: 6808111
+project_instances/problem4.in Actual global improvement: 6808538
+project_instances/problem4.in Actual global improvement: 6811512
+project_instances/problem4.in Actual global improvement: 6820229
+project_instances/problem4.in Actual global improvement: 6820547
+project_instances/problem4.in Actual global improvement: 6822858
+project_instances/problem4.in Actual global improvement: 6826444
+project_instances/problem4.in Actual global improvement: 6826808
+project_instances/problem4.in Actual global improvement: 6830961
+project_instances/problem4.in Actual global improvement: 6832473
+project_instances/problem4.in Actual global improvement: 6836518
+project_instances/problem4.in Actual global improvement: 6836568
+project_instances/problem4.in Actual global improvement: 6838179
+project_instances/problem4.in Actual global improvement: 6844139
+project_instances/problem4.in Actual global improvement: 6845724
+project_instances/problem4.in Actual global improvement: 6848255
+project_instances/problem4.in Actual global improvement: 6851187
+project_instances/problem4.in Actual global improvement: 6852779
+project_instances/problem4.in Actual global improvement: 6855043
+project_instances/problem4.in Actual global improvement: 6859588
+project_instances/problem4.in Actual global improvement: 6861023
+project_instances/problem4.in Actual global improvement: 6866496
+project_instances/problem4.in Actual global improvement: 6868040
+project_instances/problem4.in Actual global improvement: 6869558
+project_instances/problem4.in Actual global improvement: 6872582
+project_instances/problem4.in Actual global improvement: 6879963
+project_instances/problem4.in Actual global improvement: 6883631
+project_instances/problem4.in Actual global improvement: 6884295
+project_instances/problem4.in Actual global improvement: 6886889
+project_instances/problem4.in Actual global improvement: 6887561
+project_instances/problem4.in Actual global improvement: 6889180
+project_instances/problem4.in Actual global improvement: 6892572
+project_instances/problem4.in Actual global improvement: 6892838
+project_instances/problem4.in Actual global improvement: 6896065
+project_instances/problem4.in Actual global improvement: 6896800
+project_instances/problem4.in Actual global improvement: 6899232
+project_instances/problem4.in Actual global improvement: 6900136
+project_instances/problem4.in Actual global improvement: 6908192
+project_instances/problem4.in Actual global improvement: 6915510
+project_instances/problem4.in Actual global improvement: 6919057
+project_instances/problem4.in Actual global improvement: 6919823
+project_instances/problem4.in Actual global improvement: 6920187
+project_instances/problem4.in Actual global improvement: 6922299
+project_instances/problem4.in Actual global improvement: 6927495
+project_instances/problem4.in Actual global improvement: 6930561
+project_instances/problem4.in Actual global improvement: 6933758
+project_instances/problem4.in Actual global improvement: 6935553
+project_instances/problem4.in Actual global improvement: 6935717
+project_instances/problem4.in Actual global improvement: 6938447
+project_instances/problem4.in Actual global improvement: 6940711
+project_instances/problem4.in Actual global improvement: 6941872
+project_instances/problem4.in Actual global improvement: 6946476
+project_instances/problem4.in Actual global improvement: 6953317
+project_instances/problem4.in Actual global improvement: 6956035
+project_instances/problem4.in Actual global improvement: 6956414
+project_instances/problem4.in Actual global improvement: 6958881
+-------------------------------!
+Entering Bump Item. 
+6958881
+The Actual Weight is: 2351102
+The Actual Cost is: 2025485
+YOOOOOO.
+For file project_instances/problem4.in =========Profit is: 6958881
+airbears2-10-142-77-70:CS170Proj yxiaocheng1997$ 

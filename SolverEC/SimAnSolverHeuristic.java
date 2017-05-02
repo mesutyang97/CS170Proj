@@ -1,4 +1,4 @@
-package Solver;
+package SolverEC;
 
 import java.util.HashSet;
 import java.util.HashMap;
@@ -622,6 +622,25 @@ public class SimAnSolverHeuristic {
         double costCoef;
         double weightCoef;
     }
+    
+    
+    /** Simple Comparator that only takes Revenue into consideration. */
+    class SimpRevComparator implements Comparator<Integer> {
+        // Return 1 if obj1 is more profitable than obj2
+        
+        @Override
+        public int compare(Integer obj1, Integer obj2) {
+            if (RevArr[obj1] >= RevArr[obj2]) {
+                return -1;
+            } else {
+                return 1;
+            }
+        }
+
+    }
+    
+    
+    
 
     /** Fill the Rev Ratio PQ for initial processing,
      * which will gurantee the most profitable items are at least
@@ -634,7 +653,9 @@ public class SimAnSolverHeuristic {
         // GGGG System.out.println("Using CostC: " + costC);
         
         
-        PriorityQueue<Integer> RevRatioPQ = new PriorityQueue<>(N, new RevComparator(costC, weightC));
+        //PriorityQueue<Integer> RevRatioPQ = new PriorityQueue<>(N, new RevComparator(costC, weightC));
+        PriorityQueue<Integer> RevRatioPQ = new PriorityQueue<>(N, new SimpRevComparator());
+        
         for (int i = 0; i < N; i+= 1) {
             if (RevArr[i] != 0) {
                 RevRatioPQ.add(i);

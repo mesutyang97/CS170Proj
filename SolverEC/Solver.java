@@ -1,4 +1,4 @@
-package Solver;
+package SolverEC;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static Solver.SolverException.*;
+import static SolverEC.SolverException.*;
 
 /**
  * Created by yxiaocheng1997 on 4/19/17.
@@ -85,10 +85,6 @@ public class Solver {
         C = Integer.parseInt(_input.nextLine().replaceAll("\\s+", ""));
         
         
-        ConstArr = new ArrayList[C];
-        for (int cst = 0; cst < C; cst += 1) {
-            ConstArr[cst] = new ArrayList<>();
-        }
         
         
         
@@ -209,7 +205,6 @@ public class Solver {
                 ClassConstIdxArr[cstrList.get(k)].add(constNum);
             }
             
-            ConstArr[constNum] = cstrList;
             constNum += 1;
             
             
@@ -294,8 +289,7 @@ public class Solver {
                                " =====Profit is: " + sol.getOptVal());
         } else {
             SimAnSolverHeuristicBackup sol =
-            new SimAnSolverHeuristicBackup(P, M, N, C, ClassArr, WeightArr, CostArr, RevArr, ClassConstIdxArr,
-                                           ConstArr, fn);
+            new SimAnSolverHeuristicBackup(P, M, N, C, ClassArr, WeightArr, CostArr, RevArr, ClassConstIdxArr, fn);
             printResult(sol.getOptSolution());
             System.out.println("For file " + fn +
                                " =====GOOOOOOD Profit is: " + sol.getOptVal());
@@ -357,9 +351,6 @@ public class Solver {
     
     /** Map from class index to constrain index that contain that class. */
     private HashSet<Integer>[] ClassConstIdxArr;
-    
-    /** Map from constrain index to constrain stored in ArrayList. */
-    private ArrayList<Integer>[] ConstArr;
 
 
     /** Number of constrains. */
