@@ -14,16 +14,16 @@ import java.util.ArrayDeque;
  */
 public class SimAnSolverHeuristic {
 
-    private final long TIMEOUTSEC = 600;
+    private final long TIMEOUTSEC = 30;
     private final int pres = 100;
     private int lastPres;
     private int alarmLmt;
-    private final double tempChange = 0.999;
+    private final double tempChange = 0.998;
     private final double RepeatTempChange = 0.95;
     private int MAXITER;
     private int TICKER;
     private final int MAXOUTER = 1000;
-    private double percentKicked = 0.1;
+    private double percentKicked = 0.05;
     private double percentKickedCls = 0.05;
 
 
@@ -381,7 +381,7 @@ public class SimAnSolverHeuristic {
 
         SolInstance S_new = new SolInstance(S_cur);
 
-        if (s.isEmpty() && Math.random() < 0.5) {
+        if (Math.random() < 0.5) {
             bumpItem(S_new);
         } else {
             bumpClass(S_new);

@@ -80,9 +80,6 @@ public class ScriptSolver {
     private static String inputF = "project_instances/problem%d.in";
     private static String outputF = "project_out_overnight/problem%d.out";
 
-    //private static String inputF = "new_problems/problem%d.in";
-    //private static String outputF = "project_out_extracredit/problem%d.out";
-
 
     private boolean ITERATING;
 
