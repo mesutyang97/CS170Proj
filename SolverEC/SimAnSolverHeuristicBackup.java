@@ -208,10 +208,10 @@ public class SimAnSolverHeuristicBackup {
                 overallTemp *= RepeatTempChange;
                 goodRatArr[numGoodRat] = CurSol.costCo;
                 numGoodRat += 1;
-                System.out.println(F + " Hardwork improvement: " + CurSol.tVal);
+                //System.out.println(F + " Hardwork improvement: " + CurSol.tVal);
                 // GGGG System.out.println("-------------------------------!");
             } else if (CurSol.tVal > BestSol.tVal) {
-                System.out.println(F + " Simply with Greedy, global improvement: " + CurSol.tVal);
+                //System.out.println(F + " Simply with Greedy, global improvement: " + CurSol.tVal);
                 BestSol = CurSol;
                 tick += 1;
                 /* GGGG if (tick > 2 && percentKicked < 0.20) {
@@ -277,10 +277,10 @@ public class SimAnSolverHeuristicBackup {
                 overallTemp *= RepeatTempChange;
                 goodRatArr[numGoodRat] = CurSol.costCo;
                 numGoodRat += 1;
-                System.out.println(F + " Hardwork improvement: " + CurSol.tVal);
+                //System.out.println(F + " Hardwork improvement: " + CurSol.tVal);
                 // GGGG System.out.println("-------------------------------!");
             } else if (CurSol.tVal > BestSol.tVal) {
-                System.out.println(F + " Simply with Greedy, global improvement: " + CurSol.tVal);
+                //System.out.println(F + " Simply with Greedy, global improvement: " + CurSol.tVal);
                 BestSol = CurSol;
                 goodRatArr[numGoodRat] = CurSol.costCo;
                 numGoodRat += 1;
@@ -522,10 +522,6 @@ public class SimAnSolverHeuristicBackup {
             //classChosen[n_i] = cls_i;
             if (S.choosenArr[i]) {
                 int cls_i = ClassArr[i];
-                if (S.classTrack[cls_i] == 0) {
-                    System.out.println("Item " + i + "s class went untracked.");
-                    System.exit(1);
-                }
                 
             }
         }

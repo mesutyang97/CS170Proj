@@ -286,13 +286,13 @@ public class Solver {
             new SimAnSolverHeuristic(P, M, N, ClassArr, WeightArr, CostArr, RevArr, ClassIncArr, fn);
             printResult(sol.getOptSolution());
             System.out.println("For file " + fn +
-                               " =====Profit is: " + sol.getOptVal());
+                               " =====Profit is: " + (double)(sol.getOptVal()/ 100.0));
         } else {
             SimAnSolverHeuristicBackup sol =
             new SimAnSolverHeuristicBackup(P, M, N, C, ClassArr, WeightArr, CostArr, RevArr, ClassConstIdxArr, fn);
             printResult(sol.getOptSolution());
             System.out.println("For file " + fn +
-                               " =====GOOOOOOD Profit is: " + sol.getOptVal());
+                               " =====GOOOOOOD Profit is: " + (double)(sol.getOptVal()/ 100.0));
         }
     }
 

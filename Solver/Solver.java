@@ -128,7 +128,7 @@ public class Solver {
 
 
 
-            if (val > cost && wt < P && cost < M) {
+            if (val > cost && wt <= P && cost <= M) {
                 //NameTable.put(i, name);
                 //ClassTable.put(i, cls);
                 NameArr[i] = name;

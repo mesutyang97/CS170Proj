@@ -201,10 +201,10 @@ public class SimAnSolverHeuristic {
                 overallTemp *= RepeatTempChange;
                 goodRatArr[numGoodRat] = CurSol.costCo;
                 numGoodRat += 1;
-                System.out.println(F + " Hardwork improvement: " + CurSol.tVal);
+                //System.out.println(F + " Hardwork improvement: " + CurSol.tVal);
                 // GGGG System.out.println("-------------------------------!");
             } else if (CurSol.tVal > BestSol.tVal) {
-                System.out.println(F + " Simply with Greedy, global improvement: " + CurSol.tVal);
+                //System.out.println(F + " Simply with Greedy, global improvement: " + CurSol.tVal);
                 BestSol = CurSol;
                 tick += 1;
                 /* GGGG if (tick > 2 && percentKicked < 0.20) {
@@ -270,10 +270,10 @@ public class SimAnSolverHeuristic {
                 overallTemp *= RepeatTempChange;
                 goodRatArr[numGoodRat] = CurSol.costCo;
                 numGoodRat += 1;
-                System.out.println(F + " Hardwork improvement: " + CurSol.tVal);
+                //System.out.println(F + " Hardwork improvement: " + CurSol.tVal);
                 // GGGG System.out.println("-------------------------------!");
             } else if (CurSol.tVal > BestSol.tVal) {
-                System.out.println(F + " Simply with Greedy, global improvement: " + CurSol.tVal);
+                //System.out.println(F + " Simply with Greedy, global improvement: " + CurSol.tVal);
                 BestSol = CurSol;
                 goodRatArr[numGoodRat] = CurSol.costCo;
                 numGoodRat += 1;

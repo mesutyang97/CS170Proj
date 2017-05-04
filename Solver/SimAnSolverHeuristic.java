@@ -14,17 +14,17 @@ import java.util.ArrayDeque;
  */
 public class SimAnSolverHeuristic {
 
-    private final long TIMEOUTSEC = 30;
+    private final long TIMEOUTSEC = 100;
     private final int pres = 100;
     private int lastPres;
     private int alarmLmt;
-    private final double tempChange = 0.998;
+    private final double tempChange = 0.997;
     private final double RepeatTempChange = 0.95;
     private int MAXITER;
     private int TICKER;
     private final int MAXOUTER = 1000;
-    private double percentKicked = 0.05;
-    private double percentKickedCls = 0.05;
+    private double percentKicked = 0.20;
+    private double percentKickedCls = 0.15;
 
 
 
@@ -99,9 +99,9 @@ public class SimAnSolverHeuristic {
         s.add(0.5);
         
         
-        alarmLmt = n*3;
+        alarmLmt = n*10;
         //alarmLmt = n/1000;
-        MAXITER = n*3000;
+        MAXITER = n*1;
         //MAXITER = 5;
         TICKER = n/2;
 
@@ -163,9 +163,10 @@ public class SimAnSolverHeuristic {
                     }
                     Sol_i = null;
 
-                } else {
-                    temp = temp*tempChange;
                 }
+                //else {
+                //    temp = temp*tempChange;
+                //}
 
             }
 
@@ -222,9 +223,10 @@ public class SimAnSolverHeuristic {
                     }
                     Sol_i = null;
                     
-                } else {
-                    temp = temp*tempChange;
                 }
+                //else {
+                //    temp = temp*tempChange;
+                //}
             }
             if (CurSol.tVal == BestSol.tVal) {
                 overallTemp *= RepeatTempChange;
