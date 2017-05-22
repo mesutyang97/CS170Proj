@@ -6,4 +6,4 @@ Contributor:
 
 We use the combination of Greedy algorithm and simplified Simulated Annealing algorithm to solve this combination of KnapSack, Indepedent Set, and SAT problem.
 
-Result: At the end of the competition, we, both freshmen at the time, ranked Number 3 out of the 350 teams in Berkeley's upper-division Algorithm class CS170.
+Result: At the end of the competition, we, both freshmen at the time, ranked Number 5 out of the 350 teams in Berkeley's upper-division Algorithm class CS170.
